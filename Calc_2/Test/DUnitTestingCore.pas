@@ -3,11 +3,12 @@ unit DUnitTestingCore;
 interface
 
 uses
-  SysUtils, Variants, System.Generics.Collections, System.Generics.Defaults, TestFramework, TestStructureUnit,
-  RTTI, Classes, DUnitXMLParser;
+  System.Math, System.SysUtils, System.Variants, System.Generics.Collections, System.Generics.Defaults,
+  TestFramework, TestStructureUnit, RTTI, Classes, DUnitXMLParser;
 
 type
 
+  TVarArray = array of Variant;
   TCoreTestCaseClass = class of TCoreTestCase;
 
   // TestSuites
@@ -34,6 +35,8 @@ type
   public
     constructor Create(TestCase: TTestCaseRec); reintroduce; overload;
     procedure AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
+    procedure AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
+    function GetParameters: TVarArray;
   end;
 
   procedure PrepareToTest(TestsFileName: string);
@@ -54,6 +57,21 @@ begin
 end;
 
 
+function TCoreTestCase.GetParameters: TVarArray;
+var
+  ParamValue: TInputDataArray;
+  DataLen: integer;
+  Index: integer;
+begin
+  ParamValue := DataArray.Items[Self.FTestName];
+  DataLen := Length(ParamValue);
+  SetLength(Result, DataLen - 3);
+  for Index := 0 to DataLen - 4 do
+    Result[Index] := ParamValue[Index].AsVariant;
+  Self.ExpectedResult := ParamValue[DataLen - 3].AsVariant;
+  Self.FailMessage := ParamValue[DataLen - 2].AsString;
+  Self.Operation := ParamValue[DataLen - 1].AsString;
+end;
 
 procedure TCoreTestCase.AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
 var
@@ -93,6 +111,17 @@ begin
 
     Check(AssertionResult, FailMessageValue);
   end;
+end;
+
+
+procedure TCoreTestCase.AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
+var
+  ExpectedResultValue: string;
+  ActualResultValue: string;
+begin
+  ExpectedResultValue := StringReplace(VarToStr(ExpectedResult), ',', '.', [rfReplaceAll]);
+  ActualResultValue := StringReplace(FloatToStr(RoundTo(ActualResult, -3)), ',', '.', [rfReplaceAll]);
+  AssertResults<String>(ExpectedResultValue, ActualResultValue, Operation, FailMessage);
 end;
 
 
