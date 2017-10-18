@@ -28,6 +28,9 @@ type
     FSuiteName: string;
     FTestClass: TCoreTestCaseClass;
     FMethodName: string;
+    ExpectedResult: Variant;
+    FailMessage: string;
+    Operation: string;
   public
     constructor Create(TestCase: TTestCaseRec); reintroduce; overload;
     procedure AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
@@ -149,10 +152,10 @@ begin
 
   LoadTestsFromXML(FileName, SuiteList, TestCaseList);
 
-  if IsConsole then
-  begin
-    {$APPTYPE CONSOLE}
-  end;
+//  if IsConsole then
+//  begin
+//    {$APPTYPE CONSOLE}
+//  end;
 end; // PrepareToTest
 
 
@@ -165,8 +168,10 @@ begin
   begin
     if Suites [iSuiteIndex].SuiteClassName = aTestClass.ClassName then
     begin
-      Suite := TCoreTestSuite.Create(aTestClass.ClassName, Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
-      RegisterTest(aTestClass.ClassName, Suite);
+//      Suite := TCoreTestSuite.Create(aTestClass.ClassName, Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
+      Suite := TCoreTestSuite.Create('', Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
+//      RegisterTest(aTestClass.ClassName, Suite);
+      RegisterTest('', Suite);
     end;
   end;
 end;

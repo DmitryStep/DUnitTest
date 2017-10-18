@@ -111,7 +111,8 @@ var
 begin
   if CheckNodeName(RootNode, 'Tests') then
   begin
-     IsConsole := GetAttribute(RootNode, 'StartInConsole') = '1';
+//    if RootNode.HasAttribute('StartInConsole') then
+//      IsConsole := GetAttribute(RootNode, 'StartInConsole') = '1';
 
     for iNodesCounter := 0 to GetChildCount(RootNode) - 1 do
     begin
