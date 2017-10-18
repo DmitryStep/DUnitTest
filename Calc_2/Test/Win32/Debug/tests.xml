@@ -1,0 +1,30 @@
+<Tests StartInConsole="0">
+	<TestSuite Name="SuiteCalcTest1" Description="Test Add" ClassName="TestTCalcLogic">
+		<TestCase Name="T1" Description="(-5 + 6) not equals 1" MethodName="TestAdd">
+			<InputData Param0="-5" Param1="6">
+			</InputData>
+			<ExpectedResult FailMessageText="Actual result %r is not %o Expected result %e!" Value="1" Operation="equals">
+			</ExpectedResult>
+		</TestCase>
+		<TestCase Name="T2" Description="(-5 - 6) not equals 1" MethodName="TestSub">
+			<InputData Param0="-5" Param1="-6">
+			</InputData>
+			<ExpectedResult FailMessageText="Actual result %r is not %o Expected result %e!" Value="-11" Operation="equals">
+			</ExpectedResult>
+		</TestCase>
+	</TestSuite>
+	<TestSuite Name="SuiteCalcTest2" Description="Test Div" ClassName="TestTCalcLogic1">
+		<TestCase Name="T3" Description="(-5 * 2) larger than -10" MethodName="TestMul">
+			<InputData Param0="-5" Param1="2">
+			</InputData>
+			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="-10" Operation="larger than">
+			</ExpectedResult>
+		</TestCase>
+		<TestCase Name="T4" Description="(-5 / 0) is exception" MethodName="TestDiv">
+			<InputData Param0="-5" Param1="0">
+			</InputData>
+			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="55" Operation="except">
+			</ExpectedResult>
+		</TestCase>
+	</TestSuite>
+</Tests>	
