@@ -118,9 +118,11 @@ procedure TCoreTestCase.AssertDoubleResults(ExpectedResult: Variant; ActualResul
 var
   ExpectedResultValue: string;
   ActualResultValue: string;
+  TrimValue: Integer;
 begin
   ExpectedResultValue := StringReplace(VarToStr(ExpectedResult), ',', '.', [rfReplaceAll]);
-  ActualResultValue := StringReplace(FloatToStr(RoundTo(ActualResult, -3)), ',', '.', [rfReplaceAll]);
+  TrimValue := Length(ExpectedResultValue) - Pos('.', ExpectedResultValue);
+  ActualResultValue := StringReplace(FloatToStr(RoundTo(ActualResult, -TrimValue)), ',', '.', [rfReplaceAll]);
   AssertResults<String>(ExpectedResultValue, ActualResultValue, Operation, FailMessage);
 end;
 
