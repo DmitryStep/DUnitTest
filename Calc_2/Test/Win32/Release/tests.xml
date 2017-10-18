@@ -1,0 +1,10 @@
+<Tests StartInConsole="0">
+	<TestSuite Name="SuiteCalcTest1" Description="Test Add" ClassName="TestTCalcLogic">
+		<TestCase Name="Test" Description="(-5 + 5) not equals 1" MethodName="TestAdd">
+			<InputData Param0="-5" Param1="5">
+			</InputData>
+			<ExpectedResult FailMessageText="Actual result %r is not %o Expected result %e!" Value="1" Operation="not equals">
+			</ExpectedResult>
+		</TestCase>
+	</TestSuite>
+</Tests>	
