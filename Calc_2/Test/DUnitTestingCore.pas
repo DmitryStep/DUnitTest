@@ -11,6 +11,8 @@ type
   TVarArray = array of Variant;
   TCoreTestCaseClass = class of TCoreTestCase;
 
+  TTestClassesList = TList<TCoreTestCaseClass>;
+
   // TestSuites
   TCoreTestSuite = class (TTestSuite)
   private
@@ -46,7 +48,12 @@ type
   end;
 
   procedure PrepareToTest(TestsFileName: string);
+  procedure RegisterTestClass(aClass: TCoreTestCaseClass);
   procedure CreateDUnitTests(Suites: TSuiteList; Tests: TTestCaseList; aTestClass: TCoreTestCaseClass);
+  procedure CreateTests;
+
+var
+  TestClassesList: TTestClassesList;
 
 implementation
 
@@ -282,6 +289,14 @@ begin
 end; // PrepareToTest
 
 
+procedure RegisterTestClass(aClass: TCoreTestCaseClass);
+begin
+  if not Assigned(TestClassesList) then
+    TestClassesList :=TList<TCoreTestCaseClass>.Create;
+  TestClassesList.Add(aClass);
+end;
+
+
 procedure CreateDUnitTests(Suites: TSuiteList; Tests: TTestCaseList; aTestClass: TCoreTestCaseClass);
 var
   iSuiteIndex: integer;
@@ -296,6 +311,17 @@ begin
 //      RegisterTest(aTestClass.ClassName, Suite);
       RegisterTest('', Suite);
     end;
+  end;
+end;
+
+
+procedure CreateTests;
+var
+  TestClass: TCoreTestCaseClass;
+begin
+  for TestClass in TestClassesList do
+  begin
+    CreateDUnitTests(SuiteList, TestCaseList, TestClass);
   end;
 end;
 
