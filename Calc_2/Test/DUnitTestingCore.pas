@@ -298,7 +298,7 @@ end; // PrepareToTest
 procedure RegisterTestClass(aClass: TCoreTestCaseClass);
 begin
   if not Assigned(TestClassesList) then
-    TestClassesList :=TList<TCoreTestCaseClass>.Create;
+    TestClassesList := TList<TCoreTestCaseClass>.Create;
   TestClassesList.Add(aClass);
 end;
 

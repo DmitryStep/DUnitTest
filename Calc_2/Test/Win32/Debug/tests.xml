@@ -8,10 +8,10 @@
 		</TestCase>
 	</TestSuite>
 	<TestSuite Name="SuiteCalcTest2" Description="Test Div" ClassName="TestTCalcLogic1">
-		<TestCase Name="Test" Description="(-5 / 2) not equals 1" MethodName="TestDiv">
+		<TestCase Name="Test" Description="(-5 / 0) not equals 1" MethodName="TestDiv">
 			<InputData Param0="-5" Param1="0">
 			</InputData>
-			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="55" Operation="except">
+			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="1" Operation="except">
 			</ExpectedResult>
 		</TestCase>
 	</TestSuite>
