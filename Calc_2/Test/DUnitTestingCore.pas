@@ -37,7 +37,8 @@ type
     function VarToBool(Arg: Variant): Boolean;
   public
     constructor Create(TestCase: TTestCaseRec); reintroduce; overload;
-    procedure AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
+    procedure AssertResults<T>(aExpectedResult: Variant; aActualResult: T; aOperation: string; aFailMessageTemplate: string);
+    procedure AssertResult<T>(aActualResult: T);
     procedure AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
     procedure AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
     function GetParameters: TVarArray;
@@ -159,38 +160,43 @@ begin
   Result[Index] := TempStr;
 end;
 
+procedure TCoreTestCase.AssertResult<T>(aActualResult: T);
+begin
+  AssertResults<T>(ExpectedResult, aActualResult, Operation, FailMessage);
+end;
 
-procedure TCoreTestCase.AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
+
+procedure TCoreTestCase.AssertResults<T>(aExpectedResult: Variant; aActualResult: T; aOperation: string; aFailMessageTemplate: string);
 var
   AssertionResult: Boolean;
   ActualResultValue: TValue;
   ExpectedResultValue: TValue;
   FailMessageValue: String;
 begin
-  if Operation = 'except' then
+  if aOperation = 'except' then
     CheckException(fMethod, Exception, '')
   else
   begin
-    ActualResultValue := TValue.From<T>(ActualResult);
-    ExpectedResultValue := TValue.From<T>(ExpectedResult);
-    if Operation = 'equals' then
+    ActualResultValue := TValue.From<T>(aActualResult);
+    ExpectedResultValue := TValue.From<Variant>(aExpectedResult);
+    if aOperation = 'equals' then
       AssertionResult := ActualResultValue.AsVariant = ExpectedResultValue.AsVariant;
-    if Operation = 'not equals' then
+    if aOperation = 'not equals' then
       AssertionResult := ActualResultValue.AsVariant <> ExpectedResultValue.AsVariant;
-    if Operation = 'larger than' then
+    if aOperation = 'larger than' then
       AssertionResult := ActualResultValue.AsVariant > ExpectedResultValue.AsVariant;
-    if Operation = 'equals or larger than' then
+    if aOperation = 'equals or larger than' then
       AssertionResult := ActualResultValue.AsVariant >= ExpectedResultValue.AsVariant;
-    if Operation = 'less than' then
+    if aOperation = 'less than' then
       AssertionResult := ActualResultValue.AsVariant < ExpectedResultValue.AsVariant;
-    if Operation = 'equals or less than' then
+    if aOperation = 'equals or less than' then
       AssertionResult := ActualResultValue.AsVariant <= ExpectedResultValue.AsVariant;
-    if Operation = 'contains' then
+    if aOperation = 'contains' then
       AssertionResult := Pos(VarToStr(ActualResultValue.AsVariant), VarToStr(ExpectedResultValue.AsVariant)) > 0;
-    if Operation = 'not contains' then
+    if aOperation = 'not contains' then
       AssertionResult := Pos(VarToStr(ActualResultValue.AsVariant), VarToStr(ExpectedResultValue.AsVariant)) = 0;
 
-    FailMessageValue := StringReplace(FailMessageTemplate, '%r', VarToStr(ActualResultValue.AsVariant), [rfReplaceAll]);
+    FailMessageValue := StringReplace(aFailMessageTemplate, '%r', VarToStr(ActualResultValue.AsVariant), [rfReplaceAll]);
     FailMessageValue := StringReplace(FailMessageValue, '%o', Operation, [rfReplaceAll]);
     FailMessageValue := StringReplace(FailMessageValue, '%e', VarToStr(ExpectedResultValue.AsVariant), [rfReplaceAll]);
     if Pos(' not not', FailMessageValue) > 0 then
