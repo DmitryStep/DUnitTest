@@ -32,11 +32,17 @@ type
     ExpectedResult: Variant;
     FailMessage: string;
     Operation: string;
+    function VarToBool(Arg: Variant): Boolean;
   public
     constructor Create(TestCase: TTestCaseRec); reintroduce; overload;
     procedure AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
     procedure AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
+    procedure AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
     function GetParameters: TVarArray;
+    function GetStructure(RecStr: Variant): TArray<Variant>;
+    function IsStructure(Arg: Variant): Boolean;
+    function GetArray(ArrStr: Variant): TArray<Variant>;
+    function IsArray(Arg: Variant): Boolean;
   end;
 
   procedure PrepareToTest(TestsFileName: string);
@@ -57,21 +63,95 @@ begin
 end;
 
 
+function TCoreTestCase.VarToBool(Arg: Variant): Boolean;
+begin
+  Result := LowerCase(VarToStr(Arg)) = 'true';
+end;
+
+
 function TCoreTestCase.GetParameters: TVarArray;
 var
   ParamValue: TInputDataArray;
   DataLen: integer;
   Index: integer;
+  TempStr: string;
 begin
   ParamValue := DataArray.Items[Self.FTestName];
   DataLen := Length(ParamValue);
   SetLength(Result, DataLen - 3);
   for Index := 0 to DataLen - 4 do
+  begin
     Result[Index] := ParamValue[Index].AsVariant;
+  end;
   Self.ExpectedResult := ParamValue[DataLen - 3].AsVariant;
   Self.FailMessage := ParamValue[DataLen - 2].AsString;
   Self.Operation := ParamValue[DataLen - 1].AsString;
 end;
+
+
+function TCoreTestCase.IsStructure(Arg: Variant): Boolean;
+begin
+  Result := Pos('struct', VarToStr(Arg)) > 0;
+end;
+
+
+function TCoreTestCase.GetStructure(RecStr: Variant): TArray<Variant>;
+const
+  Delimiter = ';';
+var
+  DelimiterPos: Integer;
+  Index: integer;
+  TempStr: string;
+begin
+  Index := 0;
+  TempStr := Trim(RecStr);
+  TempStr := StringReplace(TempStr, 'struct(', '', [rfReplaceAll]);
+  TempStr := StringReplace(TempStr, ')', '', [rfReplaceAll]);
+  DelimiterPos := Pos(Delimiter, TempStr);
+  while DelimiterPos > 0 do
+  begin
+    SetLength(Result, Index + 1);
+    Result[Index] := Copy(TempStr, 1, DelimiterPos - 1);
+    Delete(TempStr, 1, DelimiterPos);
+    DelimiterPos := Pos(Delimiter, TempStr);
+    Inc(Index);
+  end;
+  SetLength(Result, Index + 1);
+  Result[Index] := TempStr;
+end;
+
+
+function TCoreTestCase.IsArray(Arg: Variant): Boolean;
+begin
+  Result := Pos('array', VarToStr(Arg)) > 0;
+end;
+
+
+function TCoreTestCase.GetArray(ArrStr: Variant): TArray<Variant>;
+const
+  Delimiter = ';';
+var
+  DelimiterPos: Integer;
+  Index: integer;
+  TempStr: string;
+begin
+  Index := 0;
+  TempStr := Trim(ArrStr);
+  TempStr := StringReplace(TempStr, 'array[', '', [rfReplaceAll]);
+  TempStr := StringReplace(TempStr, ']', '', [rfReplaceAll]);
+  DelimiterPos := Pos(Delimiter, TempStr);
+  while DelimiterPos > 0 do
+  begin
+    SetLength(Result, Index + 1);
+    Result[Index] := Copy(TempStr, 1, DelimiterPos - 1);
+    Delete(TempStr, 1, DelimiterPos);
+    DelimiterPos := Pos(Delimiter, TempStr);
+    Inc(Index);
+  end;
+  SetLength(Result, Index + 1);
+  Result[Index] := TempStr;
+end;
+
 
 procedure TCoreTestCase.AssertResults<T>(ExpectedResult: T; ActualResult: T; Operation: string; FailMessageTemplate: string);
 var
@@ -123,6 +203,18 @@ begin
   ExpectedResultValue := StringReplace(VarToStr(ExpectedResult), ',', '.', [rfReplaceAll]);
   TrimValue := Length(ExpectedResultValue) - Pos('.', ExpectedResultValue);
   ActualResultValue := StringReplace(FloatToStr(RoundTo(ActualResult, -TrimValue)), ',', '.', [rfReplaceAll]);
+  AssertResults<String>(ExpectedResultValue, ActualResultValue, Operation, FailMessage);
+end;
+
+
+procedure TCoreTestCase.AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
+var
+  ExpectedResultValue: string;
+  ActualResultValue: string;
+  TrimValue: Integer;
+begin
+  ExpectedResultValue := LowerCase(VarToStr(ExpectedResult));
+  ActualResultValue := LowerCase(BoolToStr(ActualResult));
   AssertResults<String>(ExpectedResultValue, ActualResultValue, Operation, FailMessage);
 end;
 

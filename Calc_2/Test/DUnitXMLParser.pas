@@ -200,7 +200,7 @@ begin
     SetLength(ParamsArray, Length(DataArray.Items[aTestCaseList[aTestsCounter].TestCaseName]));
     ParamsArray := DataArray.Items[aTestCaseList[aTestsCounter].TestCaseName];
     SetLength(ParamsArray, Length(ParamsArray) + 3);
-    ParamsArray[Length(ParamsArray) - 3] := TValue.From<Variant>(GetAttribute(RootNode, 'Value'));
+    ParamsArray[Length(ParamsArray) - 3] := TValue.From<string>(GetAttribute(RootNode, 'Value'));
     ParamsArray[Length(ParamsArray) - 2] := TValue.From<string>(GetAttribute(RootNode, 'FailMessageText'));
     ParamsArray[Length(ParamsArray) - 1] := TValue.From<string>(GetAttribute(RootNode, 'Operation'));
     DataArray.Items[aTestCaseList[aTestsCounter].TestCaseName] := ParamsArray;
