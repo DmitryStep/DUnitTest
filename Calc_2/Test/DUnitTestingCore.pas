@@ -41,11 +41,12 @@ type
     procedure AssertResult<T>(aActualResult: T);
     procedure AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
     procedure AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
+    function IsArray(Arg: Variant): Boolean;
+    function IsStructure(Arg: Variant): Boolean;
     function GetParameters: TVarArray;
     function GetStructure(RecStr: Variant): TArray<Variant>;
-    function IsStructure(Arg: Variant): Boolean;
     function GetArray(ArrStr: Variant): TArray<Variant>;
-    function IsArray(Arg: Variant): Boolean;
+    function ArrayLength(ArrStr: Variant): integer;
   end;
 
   procedure PrepareToTest(TestsFileName: string);
@@ -82,7 +83,6 @@ var
   ParamValue: TInputDataArray;
   DataLen: integer;
   Index: integer;
-  TempStr: string;
 begin
   ParamValue := DataArray.Items[Self.FTestName];
   DataLen := Length(ParamValue);
@@ -138,27 +138,72 @@ end;
 function TCoreTestCase.GetArray(ArrStr: Variant): TArray<Variant>;
 const
   Delimiter = ';';
+
 var
-  DelimiterPos: Integer;
-  Index: integer;
+  CharIndex: integer;
+  ArrayIndex: Integer;
   TempStr: string;
+  ResultStr: string;
+  IsStruct: Boolean;
 begin
-  Index := 0;
+  ResultStr := '';
+  ArrayIndex := 0;
+  IsStruct := False;
   TempStr := Trim(ArrStr);
   TempStr := StringReplace(TempStr, 'array[', '', [rfReplaceAll]);
   TempStr := StringReplace(TempStr, ']', '', [rfReplaceAll]);
-  DelimiterPos := Pos(Delimiter, TempStr);
-  while DelimiterPos > 0 do
+
+  for CharIndex := 1 to Length(TempStr) do
   begin
-    SetLength(Result, Index + 1);
-    Result[Index] := Copy(TempStr, 1, DelimiterPos - 1);
-    Delete(TempStr, 1, DelimiterPos);
-    DelimiterPos := Pos(Delimiter, TempStr);
-    Inc(Index);
+    if TempStr[CharIndex] = '(' then
+      IsStruct := True;
+    if TempStr[CharIndex] = ')' then
+      IsStruct := False;
+
+    if (not IsStruct and (TempStr[CharIndex] = Delimiter)) or
+       (CharIndex = Length(TempStr))
+    then
+    begin
+      SetLength(Result, ArrayIndex + 1);
+      Result[ArrayIndex] := ResultStr;
+      inc(ArrayIndex);
+      ResultStr := '';
+    end
+    else
+    begin
+      ResultStr := ResultStr + TempStr[CharIndex];
+    end;
+
   end;
-  SetLength(Result, Index + 1);
-  Result[Index] := TempStr;
 end;
+
+
+function TCoreTestCase.ArrayLength(ArrStr: Variant): integer;
+const
+  Delimiter = ';';
+var
+  TempStr: string;
+  CharIndex: Integer;
+  IsStruct: Boolean;
+begin
+  TempStr := VarToStr(ArrStr);
+  Result := 0;
+  IsStruct := False;
+  if TempStr <> 'array[]' then
+  begin
+    for CharIndex := 1 to Length(TempStr) do
+    begin
+      if TempStr[CharIndex] = '(' then
+        IsStruct := True;
+      if TempStr[CharIndex] = ')' then
+        IsStruct := False;
+      if not IsStruct and (TempStr[CharIndex] = Delimiter) then
+        inc(Result);
+    end;
+    Result := Result + 1;
+  end;
+end;
+
 
 procedure TCoreTestCase.AssertResult<T>(aActualResult: T);
 begin
@@ -298,7 +343,7 @@ end; // PrepareToTest
 procedure RegisterTestClass(aClass: TCoreTestCaseClass);
 begin
   if not Assigned(TestClassesList) then
-    TestClassesList := TList<TCoreTestCaseClass>.Create;
+    TestClassesList :=TList<TCoreTestCaseClass>.Create;
   TestClassesList.Add(aClass);
 end;
 
