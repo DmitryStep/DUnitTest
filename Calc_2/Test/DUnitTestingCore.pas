@@ -160,14 +160,19 @@ begin
     if TempStr[CharIndex] = ')' then
       IsStruct := False;
 
-    if (not IsStruct and (TempStr[CharIndex] = Delimiter)) or
-       (CharIndex = Length(TempStr))
-    then
+    if not IsStruct and (TempStr[CharIndex] = Delimiter) then
     begin
       SetLength(Result, ArrayIndex + 1);
       Result[ArrayIndex] := ResultStr;
       inc(ArrayIndex);
       ResultStr := '';
+    end
+    else
+    if CharIndex = Length(TempStr) then
+    begin
+      ResultStr := ResultStr + TempStr[CharIndex];
+      SetLength(Result, ArrayIndex + 1);
+      Result[ArrayIndex] := ResultStr;
     end
     else
     begin
