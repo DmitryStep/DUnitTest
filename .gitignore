@@ -5,3 +5,4 @@ Calc_2/Test/__history/
 *.identcache
 *.res
 Calc_2/Test/Win32/Debug/dunit.ini
+__history/
