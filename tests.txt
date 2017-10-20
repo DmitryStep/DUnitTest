@@ -1,16 +1,14 @@
-      27.09.2017 15:27:43    DEBUG:          —оздан новый файл лога: C:\ExtIP.log.
-
-      27.09.2017 15:27:43    DEBUG:          —читаны параметры реестра:
-		SMTPServer = smtp.mail.ru
-		SMTPPort = 25
-		SMTPUser = Sciv80
-		SMTPPassword = falsemirrors
-		SMTPUseSSL = 0
-		AddressTo = landgrafsd@mail.ru
-		AddressFrom = sciv80@mail.ru
-		LastIPAddress = 0.0.0.0
-		CheckPeriod = 60
-		LogFilePath = C:\
-		LogFileName = ExtIP.log
-		LogFileMaxSize = 10
-
+{request: "", 
+ input: 
+	{
+		param0: "",
+		param1: "", 
+		param2: ""
+        }, 
+ expected: 
+	{
+		field: "",
+		value:"",
+		operation: ""
+	}
+}
