@@ -1,9 +1,10 @@
-<?php
+﻿<?php
 
-$testfile = fopen("e:\\dev_php\\tests.xml", "r");
+// Read file
+$testfile = fopen("tests.txt", "r");
 
 while (!feof($testfile)){
-  echo fgets($testfile);
+  echo fgets($testfile)."<br>";
 }
 
 fclose($testfile);
