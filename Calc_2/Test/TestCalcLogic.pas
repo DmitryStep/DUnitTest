@@ -154,5 +154,7 @@ begin
 end;
 
 initialization
+  RegisterTestClass(TestTCalcLogic);
+  RegisterTestClass(TestTCalcLogic1);
 end.
 

@@ -31,8 +31,7 @@ begin
 
   PrepareToTest('tests.xml');
 
-  CreateDUnitTests(SuiteList, TestCaseList, TestTCalcLogic);
-  CreateDUnitTests(SuiteList, TestCaseList, TestTCalcLogic1);
+  CreateTests;
 
   DUnitTestRunner.RunRegisteredTests;
 
