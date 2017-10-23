@@ -1,0 +1,2 @@
+ils/Mnt/MntFact/data#period=day|from=2017-10-21 00:00|till=2017-10-21 23:59|DeviceID=262001|tgc=82912614
+ils/Mnt/MntCars/updateCarInfo/
