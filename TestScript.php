@@ -40,22 +40,22 @@ function GetParameters($param_str){
 
 // Forming of Request
 function GetRequest($URL, $Request_str, $Parameters_str){
-	$Params = GetParameters($Parameters_str);
-	$Result = "";
-	if (count($Params) > 1){
-		$ValueIndex = 0;
-		$Request = explode("&", $Request_str);
-		foreach ($Request as $Request_param){
-			$Result = $Result.$Request_param.$Params[$ValueIndex]."&";
-			$ValueIndex++;
-		}
-		$Result = rtrim($Result, "&");
-	}
-	else{
-		$Result = $Request_str;
-	}
-	$Result = $URL.$Result;
-	return $Result;
+  $Params = GetParameters($Parameters_str);
+  $Result = "";
+  if (count($Params) > 1){
+    $ValueIndex = 0;
+    $Request = explode("&", $Request_str);
+    foreach ($Request as $Request_param){
+      $Result = $Result.$Request_param.$Params[$ValueIndex]."&";
+      $ValueIndex++;
+    }
+    $Result = rtrim($Result, "&");
+  }
+  else{
+    $Result = $Request_str;
+  }
+  $Result = $URL.$Result;
+  return $Result;
 }
 
 // Read from file
@@ -82,29 +82,25 @@ function ParseJSONResponse($Response){
 
 // Test failed
 function Fail($TestCase, $FailMessage){
-  $Result->testresult = 'failed';
+  $Result->testresult = 'Failure';
   if ($FailMessage == ""){
     $Result->errorStackTrace = $TestCase->failmessage;
   }else{
     $Result->errorStackTrace = $FailMessage;
   }
-  $Result->failedsince = 214;
   return $Result;
 }
 
 // Test passed
 function Pass($TestCase){
-  $Result->testresult = 'passed';
-  $Result->errorStackTrace = "";
-  $Result->failedsince = 0;
+  $Result->testresult = 'Pass';
   return $Result;
 }
 
 // Error test
 function Error($TestCase, $ErrorMessage){
-  $Result->testresult = "error";
+  $Result->testresult = "Error";
   $Result->errorStackTrace = $ErrorMessage;
-  $Result->failedsince = 290;
   return $Result;
 }
 
@@ -165,7 +161,6 @@ function RunTest($CurlVar, $URL, $Suite, $TestCase){
     }else{
       $ActualResult = $Method($JSON_Response);
     }
-//    $ActualResult = 10;
     $Result->actual = $ActualResult;
     $Result->expected = $TestCase->expectedresult;
     $Result = AssertTest($TestCase, $ActualResult);
@@ -184,63 +179,113 @@ function RunTest($CurlVar, $URL, $Suite, $TestCase){
 }
 
 // Output Test Results into log in JUnit-format
-function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $FullDuration){
+function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $FullDuration, $StartDateTime, $FinishDateTime){
+  $failures = 0;
+  $passed = 0;
+  $errors = 0;
+
   $XML_doc = new DomDocument("1.0", "UTF-8");
-//  <result plugin="junit@1.21">
-  $TestReport = $XML_doc->appendChild($XML_doc->createElement('result'));
-  $Plugin = $XML_doc->CreateAttribute('plugin');
-  $Plugin->value = "junit@1.21";
-  $TestReport->appendChild($Plugin);
-  $Suites = $TestReport->appendChild($XML_doc->createElement('suites'));
+  $TestReport = $XML_doc->appendChild($XML_doc->createElement('test-results'));
+  $Attr = $XML_doc->CreateAttribute('time');
+  $Attr->value = Date("h:m:s");
+  $TestReport->appendChild($Attr);
+  $Attr = $XML_doc->CreateAttribute('date');
+  $Attr->value = Date("d.m.Y");
+  $TestReport->appendChild($Attr);
+  $Attr = $XML_doc->CreateAttribute('notrun');
+  $Attr->value = 0;
+  $TestReport->appendChild($Attr);
+  $Attr = $XML_doc->CreateAttribute('total');
+  $Attr->value = Count($TestResultsArray);
+  $TestReport->appendChild($Attr);
 
   foreach ($TestSuitesArray as $TestSuite){
+    $TestsCount = 0;
     $SuiteDuration = 0;
-    $Suite = $Suites->appendChild($XML_doc->createElement('suite'));
-    $Name = $Suite->appendChild($XML_doc->createElement('name'));
-    $Name->appendChild($XML_doc->createTextNode($TestSuite->name));
-
-    $File = $Suite->appendChild($XML_doc->createElement('file'));
-    $File->appendChild($XML_doc->createTextNode($TestSuite->name));
-
-    $TestCases = $Suite->appendChild($XML_doc->createElement('cases'));
+    $Suite = $TestReport->appendChild($XML_doc->createElement('test-suite'));
+    $Attr = $XML_doc->CreateAttribute('notrun');
+    $Attr->value = 0;
+    $Suite->appendChild($Attr);
+    $Attr = $XML_doc->CreateAttribute('name');
+    $Attr->value = $TestSuite->name;
+    $Suite->appendChild($Attr);
+    $Results = $Suite->appendChild($XML_doc->createElement('results'));
 
     foreach ($TestResultsArray as $TestResult){
       if ($TestResult->suitename == $TestSuite->name){
-        $SuiteDuration = $SuiteDuration + $TestResult->duration;
-
-        $TestCase = $TestCases->appendChild($XML_doc->createElement('case'));
-
-        $Duration = $TestCase->appendChild($XML_doc->createElement('duration'));
-        $Duration->appendChild($XML_doc->createTextNode($TestResult->duration));
-
-        $ClassName = $TestCase->appendChild($XML_doc->createElement('ClassName'));
-        $ClassName->appendChild($XML_doc->createTextNode($TestResult->suitename));
-
-        $TestName = $TestCase->appendChild($XML_doc->createElement('testName'));
-        $TestName->appendChild($XML_doc->createTextNode($TestResult->testname));
-
-        $Skip = $TestCase->appendChild($XML_doc->createElement('skipped'));
-        $Skip->appendChild($XML_doc->createTextNode('false'));
-
-        $failedSince = $TestCase->appendChild($XML_doc->createElement('failedSince'));
-        $failedSince->appendChild($XML_doc->createTextNode($TestResult->failedsince));
-
-        if ($TestResult->errorStackTrace != ""){
-          $ErrorStackTrace = $TestCase->appendChild($XML_doc->createElement('errorStackTrace'));
-          $ErrorStackTrace->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+        $TestsCount++;
+        $TestCase = $Results->appendChild($XML_doc->createElement('test-case'));
+        $Attr = $XML_doc->CreateAttribute('time');
+        $Attr->value = $TestResult->duration;
+        $TestCase->appendChild($Attr);
+        $Attr = $XML_doc->CreateAttribute('name');
+        $Attr->value = $TestResult->testname;
+        $TestCase->appendChild($Attr);
+        $Attr = $XML_doc->CreateAttribute('result');
+        $Attr->value = $TestResult->testresult;
+        $TestCase->appendChild($Attr);
+        $Attr = $XML_doc->CreateAttribute('executed');
+        $Attr->value = "true";
+        $TestCase->appendChild($Attr);
+        if ($TestResult->testresult == "Pass"){
+          $passed++;
+          $Attr = $XML_doc->CreateAttribute('success');
+          $Attr->value = "true";
+          $TestCase->appendChild($Attr);
+        }else
+        if ($TestResult->testresult == "Failure"){
+          $failures++;
+          $Attr = $XML_doc->CreateAttribute('success');
+          $Attr->value = "false";
+          $TestCase->appendChild($Attr);
+          $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
+          $Msg = $Fail->appendChild($XML_doc->createElement('MESSAGE'));
+          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+        }
+        else{
+          $errors++;
+          $Attr = $XML_doc->CreateAttribute('success');
+          $Attr->value = "false";
+          $TestCase->appendChild($Attr);
+          $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
+          $Msg = $Fail->appendChild($XML_doc->createElement('MESSAGE'));
+          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
         }
       }
     }
-
-    $SuiteDur = $Suite->appendChild($XML_doc->createElement('duration'));
-    $SuiteDur->appendChild($XML_doc->createTextNode(Round($SuiteDuration, 3)));
+    $Attr = $XML_doc->CreateAttribute('total');
+    $Attr->value = $TestsCount;
+    $Suite->appendChild($Attr);
   }
-
-  $XMLFullDuration = $TestReport->appendChild($XML_doc->createElement('duration'));
-  $XMLFullDuration->appendChild($XML_doc->createTextNode($FullDuration));
-
-  $LongStdio = $TestReport->appendChild($XML_doc->createElement('keepLongStdio'));
-  $LongStdio->appendChild($XML_doc->createTextNode("true"));
+  $FullStat = $TestReport->appendChild($XML_doc->createElement('statistics'));
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('tests');
+  $Attr->value = Count($TestResultsArray);
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('failures');
+  $Attr->value = $failures;
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('errors');
+  $Attr->value = $errors;
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('success-rate');
+  $Attr->value = $passed * 100 / Count($TestResultsArray);
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('started_at');
+  $Attr->value = $StartDateTime;
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('finished-at');
+  $Attr->value = $FinishDateTime;
+  $Stat->appendChild($Attr);
+  $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
+  $Attr = $XML_doc->CreateAttribute('runtime');
+  $Attr->value = $FullDuration;
+  $Stat->appendChild($Attr);
 
   $XML_doc->formatOutput = true;
   $XML_doc->save($output_file);
@@ -275,6 +320,7 @@ function GetValue($ElementsArray, $args){
 
 $URL_str = "http://test.ils-glonass.ru";
 
+$StartDate = Date("d.m.Y h:m:s");
 $Full_time_beg = microtime(true);
 
 $suites = ParseJSONTests(readtestfile("tests.txt"));
@@ -294,7 +340,8 @@ close_Curl_Connect($ch);
 $Full_time_end = microtime(true);
 
 $FullDuration = Round($Full_time_end - $Full_time_beg, 3);
+$FinishDate = Date("d.m.Y h:m:s");
 
-OutputToXMLLog("junitResult.xml", $suites, $test_results, $FullDuration);
+OutputToXMLLog("PHP-Result.xml", $suites, $test_results, $FullDuration, $StartDate, $FinishDate);
 
 ?>

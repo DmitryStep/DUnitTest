@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-results time="06:10:31" date="26.10.2017" notrun="0" total="3">
+  <test-suite notrun="0" name="Test for car-requests to server" total="3">
+    <results>
+      <test-case time="0.729" name="Count of auto = 65" result="Pass" executed="true" success="true"/>
+      <test-case time="0.25" name="Value DeviceID=262001 for element '262001'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.251" name="Count of fields for element 262001 = 31" result="Pass" executed="true" success="true"/>
+    </results>
+  </test-suite>
+  <statistics>
+    <Stat tests="3"/>
+    <Stat failures="0"/>
+    <Stat errors="0"/>
+    <Stat success-rate="100"/>
+    <Stat started_at="26.10.2017 06:10:30"/>
+    <Stat finished-at="26.10.2017 06:10:31"/>
+    <Stat runtime="1.232"/>
+  </statistics>
+</test-results>
