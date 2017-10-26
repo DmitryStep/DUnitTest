@@ -9,7 +9,7 @@
 		"testmethod": "GetCount",
 		"methodparams": "",
         "operation": "=",
-        "expectedresult": 65,
+        "expectedresult": 61,
         "failmessage": "Test failed!"
       },
       "Test2": {
@@ -18,7 +18,7 @@
 		"testmethod": "GetValue",
 		"methodparams": "262001#DeviceID_",
         "operation": "=",
-        "expectedresult": 262001,
+        "expectedresult": 262002,
         "failmessage": "Test failed!"
       },
       "Test3": {

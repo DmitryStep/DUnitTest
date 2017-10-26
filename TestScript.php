@@ -239,7 +239,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $Attr->value = "false";
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
-          $Msg = $Fail->appendChild($XML_doc->createElement('MESSAGE'));
+          $Msg = $Fail->appendChild($XML_doc->createElement('message'));
           $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
         }
         else{
@@ -248,7 +248,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $Attr->value = "false";
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
-          $Msg = $Fail->appendChild($XML_doc->createElement('MESSAGE'));
+          $Msg = $Fail->appendChild($XML_doc->createElement('message'));
           $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
         }
       }
