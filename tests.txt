@@ -1,0 +1,50 @@
+{ 
+  "Suite1": {
+    "name": "TestSuite1",
+    "request": "/ils/Mnt/MntCars/updateCarInfo/",
+    "Tests": {
+      "Test1": {
+        "name": "Test1",
+		"params": "",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 65,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Test2",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262001#DeviceID_",
+        "operation": "=",
+        "expectedresult": 262001,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Test3",
+        "params": "",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "262001",
+        "operation": "=",
+        "expectedresult": 31,
+        "failmessage": "Test failed!"
+      }
+    }
+  },
+  "Suite2": {
+    "name": "TestSuite2",
+    "request": "/ils/Mnt/MntCars/data?period=&from=&till=&DeviceID=&tgc=",
+    "Tests": {
+      "Test1": {
+        "name": "Test1",
+        "params": "day-1#2017-10-23 00:00#2017-10-23 23:59#262001#51633647",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": ">=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      }
+    }
+  }
+}
