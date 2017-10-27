@@ -1,6 +1,6 @@
 { 
   "Suite1": {
-    "name": "Test for car-requests to server",
+    "name": "Test for updateCarInfo",
     "request": "/ils/Mnt/MntCars/updateCarInfo/",
     "Tests": {
       "Test1": {
@@ -9,25 +9,412 @@
 		"testmethod": "GetCount",
 		"methodparams": "",
         "operation": "=",
-        "expectedresult": 61,
+        "expectedresult": 65,
         "failmessage": "Test failed!"
       },
       "Test2": {
-        "name": "Value DeviceID=262001 for element '262001'",
-        "params": "",
-		"testmethod": "GetValue",
-		"methodparams": "262001#DeviceID_",
-        "operation": "=",
-        "expectedresult": 262002,
-        "failmessage": "Test failed!"
-      },
-      "Test3": {
-        "name": "Count of fields for element 262001 = 31",
+        "name": "Count of fields for element 262036 = 32",
         "params": "",
 		"testmethod": "GetFieldsCount",
 		"methodparams": "262001",
         "operation": "=",
-        "expectedresult": 31,
+        "expectedresult": 32,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value CarName='МАЗ' for element '262005'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262005#CarName_",
+        "operation": "=",
+        "expectedresult": "МАЗ",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value CarMark='МАЗ' for element '262005'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262005#CarMark_",
+        "operation": "=",
+        "expectedresult": "МАЗ",
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value CarNumber='А333ББ' for element '262005'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262005#CarNumber_",
+        "operation": "=",
+        "expectedresult": "А333ББ",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value CarMark='Газель' for element '262048'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262048#CarMark_",
+        "operation": "=",
+        "expectedresult": "Газель",
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value FuelType='бензин' for element '262034'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262034#FuelType_",
+        "operation": "=",
+        "expectedresult": "бензин",
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value FuelKM=100 for element '262028'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262028#FuelKM_",
+        "operation": "=",
+        "expectedresult": 100,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value VoltageTreshold=13000 for element '262005'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262005#VoltageTreshold_",
+        "operation": "=",
+        "expectedresult": 13000,
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value VoltageTreshold=20000 for element '262057'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262057#VoltageTreshold_",
+        "operation": "=",
+        "expectedresult": 20000,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value VoltageTreshold_='null' for element '262031'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262031#VoltageTreshold_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value CarName='TIR' for element '262031'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262031#CarName_",
+        "operation": "=",
+        "expectedresult": "TIR",
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value AccessName='---' for element '262036'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262036#AccessName_",
+        "operation": "=",
+        "expectedresult": "---",
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value RuralSpeed=7 for element '262061'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262061#RuralSpeed_",
+        "operation": "=",
+        "expectedresult": 7,
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value RuralSpeed=null for element '262053'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262053#RuralSpeed_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value WinterCoeff=1,5 for element '262056'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262056#WinterCoeff_",
+        "operation": "=",
+        "expectedresult": 1.5,
+        "failmessage": "Test failed!"
+      },
+      "Test17": {
+        "name": "Value Speed=68,9 for element '262053'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262053#Speed_",
+        "operation": "=",
+        "expectedresult": 68.9,
+        "failmessage": "Test failed!"
+      },
+      "Test18": {
+        "name": "Value CarDirection=-1,05734743293656 for element '262004'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262004#CarDirection_",
+        "operation": "=",
+        "expectedresult": -1.05734743293656,
+        "failmessage": "Test failed!"
+      },
+      "Test19": {
+        "name": "Value CarDirection=0 for element '262056'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262056#CarDirection_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test20": {
+        "name": "Value CarDirection=3,67475634425939 for element '262045'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262045#CarDirection_",
+        "operation": "=",
+        "expectedresult": 3.67475634425939,
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value Latitude=55,8412590026855 for element '262070'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262070#Latitude_",
+        "operation": "=",
+        "expectedresult": 55.8412590026855,
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value Longitude=38,0943870544434 for element '262018'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262018#Longitude_",
+        "operation": "=",
+        "expectedresult": 38.0943870544434,
+        "failmessage": "Test failed!"
+      },
+      "Test22": {
+        "name": "Value PointDateTime='2017-10-26 08:09:12.000' for element '262050'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262050#PointDateTime_",
+        "operation": "=",
+        "expectedresult": "2017-10-26 08:09:12.000",
+        "failmessage": "Test failed!"
+      },
+      "Test23": {
+        "name": "Value GroupName='Группа 1' for element '262049'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262049#GroupName_",
+        "operation": "=",
+        "expectedresult": "Группа 1",
+        "failmessage": "Test failed!"
+      },
+      "Test24": {
+        "name": "Value GroupName='Группа 2' for element '262087'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262087#GroupName_",
+        "operation": "=",
+        "expectedresult": "Группа 2",
+        "failmessage": "Test failed!"
+      },
+      "Test25": {
+        "name": "Auto not in a group. Result 'null' for '262038'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262038#Group_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test26": {
+        "name": "Value AccessID=1 for element '262034'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262034#AccessID_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test27": {
+        "name": "Value CarStatus=1 for element '262001'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262001#CarStatus_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test28": {
+        "name": "Value DeviceStatus=11 for element '262036'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262036#DeviceStatus_",
+        "operation": "=",
+        "expectedresult": 11,
+        "failmessage": "Test failed!"
+      },
+      "Test29": {
+        "name": "Value DeviceStatus=12 for element '262001'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262001#DeviceStatus_",
+        "operation": "=",
+        "expectedresult": 12,
+        "failmessage": "Test failed!"
+      },
+      "Test30": {
+        "name": "Value DriverName='Водила с Нижнего Тагила' for element '262010'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262010#DriverName_",
+        "operation": "=",
+        "expectedresult": "Водила с Нижнего Тагила",
+        "failmessage": "Test failed!"
+      },
+      "Test31": {
+        "name": "Value DriverID=1 for element '262010'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262010#DriverID_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test32": {
+        "name": "Value DriverName='Водитель-мегавредитель' for element '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#DriverName_",
+        "operation": "=",
+        "expectedresult": "Водитель-мегавредитель",
+        "failmessage": "Test failed!"
+      },
+      "Test33": {
+        "name": "Value DriverID=2 for element '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#DriverID_",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test34": {
+        "name": "Value AccessID='null' for element '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#AccessID_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test35": {
+        "name": "Value AccessName='---' for element '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#AccessName_",
+        "operation": "=",
+        "expectedresult": "---",
+        "failmessage": "Test failed!"
+      },
+      "Test36": {
+        "name": "Value AccessName='Полный доступ' for element '262034'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262034#AccessName_",
+        "operation": "=",
+        "expectedresult": "Полный доступ",
+        "failmessage": "Test failed!"
+      },
+       "Test37": {
+        "name": "Count of fields for auto not in a group. Result=0 for '262038'",
+        "params": "",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "262038",
+        "operation": "=",
+        "expectedresult": "0",
+        "failmessage": "Test failed!"
+      },
+       "Test38": {
+        "name": "Count of fields. Result=32 for '262060'",
+        "params": "",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "262060",
+        "operation": "=",
+        "expectedresult": "32",
+        "failmessage": "Test failed!"
+      },
+       "Test39": {
+        "name": "Value PhoneNumber = '111222333'  for '262010'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262010#PhoneNumber_",
+        "operation": "=",
+        "expectedresult": "111222333",
+        "failmessage": "Test failed!"
+      },
+       "Test40": {
+        "name": "Value PhoneNumber = 'null'  for '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#PhoneNumber_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+       "Test41": {
+        "name": "Value WinterCoeff = 1  for '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#WinterCoeff_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+       "Test42": {
+        "name": "Value TypeID = 0  for '262095'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262095#TypeID_",
+        "operation": "=",
+        "expectedresult": 0,
+        "failmessage": "Test failed!"
+      },
+       "Test43": {
+        "name": "Value TypeID = 1  for '262045'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262045#TypeID_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+       "Test44": {
+        "name": "Value ID = 262045  for '262045'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262045#id",
+        "operation": "=",
+        "expectedresult": 262045,
+        "failmessage": "Test failed!"
+      },
+       "Test45": {
+        "name": "Value Speed = 0,1  for '262059'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262059#Speed_",
+        "operation": "=",
+        "expectedresult": 0.1,
         "failmessage": "Test failed!"
       }
     }

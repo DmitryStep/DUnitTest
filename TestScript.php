@@ -107,8 +107,8 @@ function Error($TestCase, $ErrorMessage){
 // Assert test results
 function AssertTest($TestCase, $ActualResult){
   try{
-    $Operation = $TestCase->operation;
-    $ExpectedResult = $TestCase->expectedresult;
+    $Operation = StrVal($TestCase->operation);
+    $ExpectedResult = StrVal($TestCase->expectedresult);
     if ($Operation == "="){
       $AssertionResult = ($ExpectedResult == $ActualResult);
     }
@@ -149,6 +149,7 @@ function RunTest($CurlVar, $URL, $Suite, $TestCase){
   try{
     $Response = SendRequest($CurlVar, $Request);
     $JSON_Response = ParseJSONResponse($Response);
+    echo $Response;
   }catch(Exception $e){
     $Result = Error($TestCase, $e->GetMessage());
     $IsError = true;
@@ -240,7 +241,8 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
           $Msg = $Fail->appendChild($XML_doc->createElement('message'));
-          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+          $convertedText = mb_convert_encoding($TestResult->errorStackTrace, 'utf-8', mb_detect_encoding($TestResult->errorStackTrace));
+          $Msg->appendChild($XML_doc->createTextNode($convertedText));
         }
         else{
           $errors++;
@@ -249,7 +251,8 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
           $Msg = $Fail->appendChild($XML_doc->createElement('message'));
-          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+          $convertedText = mb_convert_encoding($TestResult->errorStackTrace, 'utf-8', mb_detect_encoding($TestResult->errorStackTrace));
+          $Msg->appendChild($XML_doc->createTextNode($convertedText));
         }
       }
     }
@@ -272,7 +275,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
   $Attr = $XML_doc->CreateAttribute('success-rate');
-  $Attr->value = $passed * 100 / Count($TestResultsArray);
+  $Attr->value = Round($passed * 100 / Count($TestResultsArray), 2);
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
   $Attr = $XML_doc->CreateAttribute('started_at');
@@ -296,22 +299,43 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
 
 // Return count of array's elements
 function GetCount($ElementsArray){
-  $Result = Count($ElementsArray);
+  $Body = $ElementsArray["Body"];
+  $Element = $Body[0];
+  $Items = $Element["Items"];
+  $Result = Count($Items);
   return $Result;
 }
 
 // Return count of fields in the element of array
 function GetFieldsCount($ElementsArray, $args){
-  $Element = $ElementsArray[$args[0]];
-  $Result = Count($Element);
+  $Result = 0;
+  $Body = $ElementsArray["Body"];
+  $Element = $Body[0];
+  $Items = $Element["Items"];
+  foreach ($Items as $Item){
+    if ($Item["id"]==$args[0]){
+      $Result = Count($Item);
+      break;
+    }
+  }
   return $Result;
 }
 
 // Return value of array's element
 function GetValue($ElementsArray, $args){
-  $Element = $ElementsArray[$args[0]];
-  $Field = $Element[$args[1]];
-  return $Field;
+  $Body = $ElementsArray["Body"];
+  $Element = $Body[0];
+  $Items = $Element["Items"];
+  foreach ($Items as $Item){
+    if ($Item["id"]==$args[0]){
+      $Result = $Item[$args[1]];
+      break;
+    }
+  }
+  if ($Result == ""){
+    $Result = "null";
+  }
+  return $Result;
 }
 
 // ------------------------- Конец тестовых методов ---------------------------
