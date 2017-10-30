@@ -35,12 +35,12 @@ type
     FailMessage: string;
     Operation: string;
     function VarToBool(Arg: Variant): Boolean;
+    procedure AssertResults<T>(aExpectedResult: Variant; aActualResult: T; aOperation: string; aFailMessageTemplate: string);
   public
     constructor Create(TestCase: TTestCaseRec); reintroduce; overload;
-    procedure AssertResults<T>(aExpectedResult: Variant; aActualResult: T; aOperation: string; aFailMessageTemplate: string);
     procedure AssertResult<T>(aActualResult: T);
-    procedure AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
-    procedure AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
+    procedure AssertDoubleResults(ActualResult: Double);
+    procedure AssertBooleanResults(ActualResult: Boolean);
     function IsArray(Arg: Variant): Boolean;
     function IsStructure(Arg: Variant): Boolean;
     function GetParameters: TVarArray;
@@ -257,7 +257,7 @@ begin
 end;
 
 
-procedure TCoreTestCase.AssertDoubleResults(ExpectedResult: Variant; ActualResult: Double; Operation: string; FailMessageTemplate: string);
+procedure TCoreTestCase.AssertDoubleResults(ActualResult: Double);
 var
   ExpectedResultValue: string;
   ActualResultValue: string;
@@ -270,7 +270,7 @@ begin
 end;
 
 
-procedure TCoreTestCase.AssertBooleanResults(ExpectedResult: Variant; ActualResult: Boolean; Operation: string; FailMessageTemplate: string);
+procedure TCoreTestCase.AssertBooleanResults(ActualResult: Boolean);
 var
   ExpectedResultValue: string;
   ActualResultValue: string;

@@ -3,7 +3,7 @@
 		<TestCase Name="Test" Description="(-5 + 5) not equals 1" MethodName="TestAdd">
 			<InputData Param0="-5" Param1="6">
 			</InputData>
-			<ExpectedResult FailMessageText="Actual result %r is not %o Expected result %e!" Value="1" Operation="not equals">
+			<ExpectedResult FailMessageText="Actual result %r is not %o Expected result %e!" Value="1" Operation="equals">
 			</ExpectedResult>
 		</TestCase>
 	</TestSuite>
@@ -11,7 +11,7 @@
 		<TestCase Name="Test" Description="(-5 / 0) not equals 1" MethodName="TestDiv">
 			<InputData Param0="-5" Param1="0">
 			</InputData>
-			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="1" Operation="except">
+			<ExpectedResult FailMessageText="Actual result %r is not Expected exception!" Value="1" Operation="equals">
 			</ExpectedResult>
 		</TestCase>
 	</TestSuite>
