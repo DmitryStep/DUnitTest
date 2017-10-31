@@ -11,6 +11,7 @@ type
   TTestDataDictionary = TDictionary<string, TInputDataArray>;
 
   TSuiteRec = record
+    SuitePath: string;
     SuiteName: string;
     SuiteClassName: string;
   end;

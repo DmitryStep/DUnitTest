@@ -41,6 +41,7 @@ type
     procedure AssertResult<T>(aActualResult: T);
     procedure AssertDoubleResults(ActualResult: Double);
     procedure AssertBooleanResults(ActualResult: Boolean);
+    function CompareFiles(FileName: string; EtalonFileName: string): boolean;
     function IsArray(Arg: Variant): Boolean;
     function IsStructure(Arg: Variant): Boolean;
     function GetParameters: TVarArray;
@@ -282,6 +283,28 @@ begin
 end;
 
 
+function TCoreTestCase.CompareFiles(FileName: string; EtalonFileName: string): boolean;
+var
+  FileMem: TMemoryStream;
+  EtalonFileMem: TMemoryStream;
+begin
+  Result := false;
+  FileMem := TMemoryStream.Create;
+  EtalonFileMem := TMemoryStream.Create;
+  try
+    FileMem.LoadFromFile(FileName);
+    EtalonFileMem.LoadFromFile(EtalonFileName);
+    if FileMem.Size <> EtalonFileMem.Size then
+      Result := False
+    else
+      Result := CompareMem(FileMem.Memory, EtalonFileMem.Memory, FileMem.Size);
+  finally
+    FileMem.Free();
+    EtalonFileMem.Free();
+  end;
+end;
+
+
 constructor TCoreTestSuite.Create(aSuitePath: string; aSuiteName: string; Tests: TTestCaseList; aTestClass: TCoreTestCaseClass);
 begin
   inherited Create(aSuiteName);
@@ -363,9 +386,9 @@ begin
     if Suites [iSuiteIndex].SuiteClassName = aTestClass.ClassName then
     begin
 //      Suite := TCoreTestSuite.Create(aTestClass.ClassName, Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
-      Suite := TCoreTestSuite.Create('', Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
+      Suite := TCoreTestSuite.Create(Suites[iSuiteIndex].SuitePath, Suites[iSuiteIndex].SuiteName, Tests, aTestClass);
 //      RegisterTest(aTestClass.ClassName, Suite);
-      RegisterTest('', Suite);
+      RegisterTest(Suites[iSuiteIndex].SuitePath, Suite);
     end;
   end;
 end;

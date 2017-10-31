@@ -9,6 +9,7 @@ uses
 type
   TTestsXMLParser = class
   private
+    SuitePath: string;
     FXMLFileName: string;
     FXMLDocument: IXMLDocument;
     function GetRootNode: IXMLNode;
@@ -114,6 +115,9 @@ begin
 //    if RootNode.HasAttribute('StartInConsole') then
 //      IsConsole := GetAttribute(RootNode, 'StartInConsole') = '1';
 
+    if RootNode.HasAttribute('Path') then
+      SuitePath := GetAttribute(RootNode, 'Path');
+
     for iNodesCounter := 0 to GetChildCount(RootNode) - 1 do
     begin
       // Падаем на 1
@@ -135,6 +139,7 @@ begin
     SetLength(aSuiteList, aSuitesCounter + 1);
     sSuiteName := GetAttribute(RootNode, 'Name') + ': ' + GetAttribute(RootNode, 'Description');
     sTestCaseClass := GetAttribute(RootNode, 'ClassName');
+    aSuiteList[aSuitesCounter].SuitePath := SuitePath;
     aSuiteList[aSuitesCounter].SuiteName := sSuiteName;
     aSuiteList[aSuitesCounter].SuiteClassName := sTestCaseClass;
     for iNodesCounter := 0 to GetChildCount(RootNode) - 1 do
