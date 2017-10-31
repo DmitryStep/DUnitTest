@@ -1,5 +1,7 @@
 ﻿<?php
 
+include "TestMethods.php";
+
 // -------------- Набор функций для обмена данными с сервером --------------
 
 // Создаём соединение с уже пройденной авторизацией (нужный кукиш копируется в www/tmp перед стартом скрипта)
@@ -241,8 +243,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
           $Msg = $Fail->appendChild($XML_doc->createElement('message'));
-          $convertedText = mb_convert_encoding($TestResult->errorStackTrace, 'utf-8', mb_detect_encoding($TestResult->errorStackTrace));
-          $Msg->appendChild($XML_doc->createTextNode($convertedText));
+          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
         }
         else{
           $errors++;
@@ -251,8 +252,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
           $TestCase->appendChild($Attr);
           $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
           $Msg = $Fail->appendChild($XML_doc->createElement('message'));
-          $convertedText = mb_convert_encoding($TestResult->errorStackTrace, 'utf-8', mb_detect_encoding($TestResult->errorStackTrace));
-          $Msg->appendChild($XML_doc->createTextNode($convertedText));
+          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
         }
       }
     }
@@ -295,50 +295,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
 }
 // ------------------------ Конец тестового "движка" --------------------------
 
-// ----------------------------- Тестовые методы ------------------------------
 
-// Return count of array's elements
-function GetCount($ElementsArray){
-  $Body = $ElementsArray["Body"];
-  $Element = $Body[0];
-  $Items = $Element["Items"];
-  $Result = Count($Items);
-  return $Result;
-}
-
-// Return count of fields in the element of array
-function GetFieldsCount($ElementsArray, $args){
-  $Result = 0;
-  $Body = $ElementsArray["Body"];
-  $Element = $Body[0];
-  $Items = $Element["Items"];
-  foreach ($Items as $Item){
-    if ($Item["id"]==$args[0]){
-      $Result = Count($Item);
-      break;
-    }
-  }
-  return $Result;
-}
-
-// Return value of array's element
-function GetValue($ElementsArray, $args){
-  $Body = $ElementsArray["Body"];
-  $Element = $Body[0];
-  $Items = $Element["Items"];
-  foreach ($Items as $Item){
-    if ($Item["id"]==$args[0]){
-      $Result = $Item[$args[1]];
-      break;
-    }
-  }
-  if ($Result == ""){
-    $Result = "null";
-  }
-  return $Result;
-}
-
-// ------------------------- Конец тестовых методов ---------------------------
 
 // ---------------------------- Main Program ----------------------------------
 
