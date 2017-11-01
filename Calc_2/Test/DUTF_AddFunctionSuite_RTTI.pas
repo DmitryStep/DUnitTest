@@ -12,6 +12,8 @@
 //
 // 20.04.2017 - Переписаны параметры функций (использовал в параметрах Pointer вместо TObject, из-за этого вызывался
 // совсем не тот Invoke)
+//
+// 01.11.2017 - переписал на класс
 
 
 //======================================Begin DUTF_AddFunctionSuite_RTTI ===================================
@@ -22,30 +24,42 @@ unit DUTF_AddFunctionSuite_RTTI;
 interface
 
 uses
-  System.Rtti, System.SysUtils;
+  System.Rtti, System.SysUtils, System.Generics.Collections;
 
   // Набор процедур и функций, реализующий работу с Private через Rtti
+type
+  TValArray = array of TValue;
 
-  // Получение значений свойств
-  function GetPrivatePropertyValueBool(ClassType: TClass; PropertyName: string; Instance: TObject): Boolean;
-  function GetPrivatePropertyValueString(ClassType: TClass; PropertyName: string; Instance: TObject): String;
-  function GetPrivatePropertyValueInteger(ClassType: TClass; PropertyName: string; Instance: TObject): Integer;
-  function GetPrivatePropertyValueFloat(ClassType: TClass; PropertyName: string; Instance: TObject): Double;
+  TRTTIClass = class
+  private
+    RTTIContext: TRttiContext;
+  public
+    constructor Create;
+    destructor Destroy;
+    function SetArgumentsForMethod(ParamValues: array of Variant; ClassType: TClass; MethodName: string): TValArray;
+    function GetPrivatePropertyValueBool(ClassType: TClass; PropertyName: string; Instance: TObject): Boolean;
+    function GetPrivatePropertyValueString(ClassType: TClass; PropertyName: string; Instance: TObject): String;
+    function GetPrivatePropertyValueInteger(ClassType: TClass; PropertyName: string; Instance: TObject): Integer;
+    function GetPrivatePropertyValueFloat(ClassType: TClass; PropertyName: string; Instance: TObject): Double;
+    function GetPrivatePropertyValue<T>(ClassType: TClass; PropertyName: string; Instance: TObject): T;
 
-  // Получение результатов работы функций
-  function GetPrivateFunctionResultBoolean(ClassType: TClass; MethodName: string; Instance: TObject;
-                                           const Args: array of TValue): Boolean;
-  function GetPrivateFunctionResultString(ClassType: TClass; MethodName: string; Instance: TObject;
-                                          const Args: array of TValue): string;
-  function GetPrivateFunctionResultInteger(ClassType: TClass; MethodName: string; Instance: TObject;
-                                           const Args: array of TValue): Integer;
-  function GetPrivateFunctionResultFloat(ClassType: TClass; MethodName: string; Instance: TObject;
-                                         const Args: array of TValue): Double;
+    // Получение результатов работы функций
+    function GetPrivateFunctionResultBoolean(ClassType: TClass; MethodName: string; Instance: TObject;
+                                             const Args: TValArray): Boolean;
+    function GetPrivateFunctionResultString(ClassType: TClass; MethodName: string; Instance: TObject;
+                                            const Args: TValArray): string;
+    function GetPrivateFunctionResultInteger(ClassType: TClass; MethodName: string; Instance: TObject;
+                                             const Args: TValArray): Integer;
+    function GetPrivateFunctionResultFloat(ClassType: TClass; MethodName: string; Instance: TObject;
+                                           const Args: TValArray): Double;
+    function GetPrivateFunctionResult<T>(ClassType: TClass; MethodName: string; Instance: TObject;
+                                           const Args: TValArray): T;
 
-  // Запуск процедур
+    // Запуск процедур
 
-  procedure ExecPrivateProcedure(ClassType: TClass; MethodName: string; Instance: TObject;
-                                           const Args: array of TValue);
+    procedure ExecPrivateProcedure(ClassType: TClass; MethodName: string; Instance: TObject;
+                                             const Args: TValArray);
+  end;
 // End of Rtti Work
 
 
@@ -54,30 +68,46 @@ implementation
 
 //====================================Begin Private Work==============================================
 
+constructor TRTTIClass.Create;
+begin
+  RTTIContext := TRttiContext.Create();
+end;
+
+
+destructor TRTTIClass.Destroy;
+begin
+  RTTIContext.Free();
+end;
+
+
+// Заполнение массива параметров для запуска процедур и функций.
+// Входные параметры:
+// ClassType - класс
+// PropertyName - имя приватного свойства класса
+// ParamValues - значения параметров
+function TRTTIClass.SetArgumentsForMethod(ParamValues: array of Variant; ClassType: TClass; MethodName: string): TValArray;
+var
+  Parameter: TValue;
+  ParamIndex: integer;
+begin
+  ParamIndex := 0;
+  for Parameter in RTTIContext.GetType(ClassType).GetMethod(MethodName).GetParameters do
+  begin
+    SetLength(Result, ParamIndex + 1);
+    Result[ParamIndex] := TValue.From<Variant>(ParamValues[ParamIndex]);
+    Inc(ParamIndex);
+  end;
+end;
+
 // Получение значения свойства типа Boolean.
 // Входные параметры:
 // ClassType - класс
 // PropertyName - имя приватного свойства класса
 // ptrObject - указатель на экземпляр класса, с которым работаем из основного кода
 
-function GetPrivatePropertyValueBool(ClassType: TClass; PropertyName: string; Instance: TObject): Boolean;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivatePropertyValueBool(ClassType: TClass; PropertyName: string; Instance: TObject): Boolean;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsBoolean;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsBoolean;
 end; // GetPrivatePropertyValueBool
 
 
@@ -87,24 +117,9 @@ end; // GetPrivatePropertyValueBool
 // PropertyName - имя приватного свойства класса
 // ptrObject - указатель на экземпляр класса, с которым работаем из основного кода
 
-function GetPrivatePropertyValueString(ClassType: TClass; PropertyName: string; Instance: TObject): string;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivatePropertyValueString(ClassType: TClass; PropertyName: string; Instance: TObject): string;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsString;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsString;
 end; // GetPrivatePropertyValueString
 
 
@@ -114,24 +129,9 @@ end; // GetPrivatePropertyValueString
 // PropertyName - имя приватного свойства класса
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 
-function GetPrivatePropertyValueInteger(ClassType: TClass; PropertyName: string; Instance: TObject): integer;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivatePropertyValueInteger(ClassType: TClass; PropertyName: string; Instance: TObject): integer;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsInteger;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsInteger;
 end; // GetPrivatePropertyValueInteger
 
 
@@ -141,25 +141,21 @@ end; // GetPrivatePropertyValueInteger
 // PropertyName - имя приватного свойства класса
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 
-function GetPrivatePropertyValueFloat(ClassType: TClass; PropertyName: string; Instance: TObject): Double;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivatePropertyValueFloat(ClassType: TClass; PropertyName: string; Instance: TObject): Double;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsExtended;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsExtended;
 end; // GetPrivatePropertyValueFloat
+
+
+// Получение значения свойства произвольного типа.
+// Входные параметры:
+// ClassType - класс
+// PropertyName - имя приватного свойства класса
+// Instance - указатель на экземпляр класса, с которым работаем из основного кода
+function TRTTIClass.GetPrivatePropertyValue<T>(ClassType: TClass; PropertyName: string; Instance: TObject): T;
+begin
+  Result := RttiContext.GetType(ClassType).GetField(PropertyName).GetValue(Instance).AsType<T>;
+end; // GetPrivatePropertyValue
 
 
 // Получение результата работы приватной функции типа Boolean.
@@ -169,25 +165,10 @@ end; // GetPrivatePropertyValueFloat
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 // Args - параметры, передаваемые в функцию
 
-function GetPrivateFunctionResultBoolean(ClassType: TClass; MethodName: string; Instance: TObject;
-                                         const Args: array of TValue): Boolean;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivateFunctionResultBoolean(ClassType: TClass; MethodName: string; Instance: TObject;
+                                         const Args: TValArray): Boolean;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, Args).AsBoolean;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, Args).AsBoolean;
 end; // GetPrivateFunctionResultBoolean
 
 
@@ -198,25 +179,10 @@ end; // GetPrivateFunctionResultBoolean
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 // Args - параметры, передаваемые в функцию
 
-function GetPrivateFunctionResultString(ClassType: TClass; MethodName: string; Instance: TObject;
-                                        const Args: array of TValue): String;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivateFunctionResultString(ClassType: TClass; MethodName: string; Instance: TObject;
+                                        const Args: TValArray): String;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsString;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsString;
 end; // GetPrivateFunctionResultString
 
 
@@ -227,25 +193,10 @@ end; // GetPrivateFunctionResultString
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 // Args - параметры, передаваемые в функцию
 
-function GetPrivateFunctionResultInteger(ClassType: TClass; MethodName: string; Instance: TObject;
-                                         const Args: array of TValue): Integer;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivateFunctionResultInteger(ClassType: TClass; MethodName: string; Instance: TObject;
+                                         const Args: TValArray): Integer;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsInteger;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsInteger;
 end; // GetPrivateFunctionResultInteger
 
 
@@ -256,27 +207,24 @@ end; // GetPrivateFunctionResultInteger
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 // Args - параметры, передаваемые в функцию
 
-function GetPrivateFunctionResultFloat(ClassType: TClass; MethodName: string; Instance: TObject;
-                                       const Args: array of TValue): Double;
-var
-  RTTIContext: TRttiContext;
-
+function TRTTIClass.GetPrivateFunctionResultFloat(ClassType: TClass; MethodName: string; Instance: TObject;
+                                       const Args: TValArray): Double;
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsExtended;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsExtended;
 end; // GetPrivateFunctionResultFloat
 
+
+// Получение результата работы приватной функции произвольного типа.
+// Входные параметры:
+// ClassType - класс
+// MethodName - имя приватного метода класса (функции)
+// Instance - указатель на экземпляр класса, с которым работаем из основного кода
+// Args - параметры, передаваемые в функцию
+function TRTTIClass.GetPrivateFunctionResult<T>(ClassType: TClass; MethodName: string; Instance: TObject;
+                                     const Args: TValArray): T;
+begin
+  Result := RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsType<T>;
+end;
 
 // Запуск приватной процедуры
 // Входные параметры:
@@ -284,25 +232,10 @@ end; // GetPrivateFunctionResultFloat
 // MethodName - имя приватного метода класса (функции)
 // Instance - указатель на экземпляр класса, с которым работаем из основного кода
 // Args - параметры, передаваемые в процедуру
-procedure ExecPrivateProcedure(ClassType: TClass; MethodName: string; Instance: TObject;
-                               const Args: array of TValue);
-var
-  RTTIContext: TRttiContext;
-
+procedure TRTTIClass.ExecPrivateProcedure(ClassType: TClass; MethodName: string; Instance: TObject;
+                               const Args: TValArray);
 begin
-
-  RTTIContext := TRttiContext.Create();
-
-  try
-
-    RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsExtended;
-
-  finally
-
-    RTTIContext.Free();
-
-  end;
-
+  RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsExtended;
 end; // ExecPrivateProcedure
 
 //====================================End Private Work==============================================
