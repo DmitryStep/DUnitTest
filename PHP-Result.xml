@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-results time="03:10:58" date="27.10.2017" notrun="0" total="45">
-  <test-suite notrun="0" name="Test for updateCarInfo" total="45">
+<test-results time="03:11:43" date="02.11.2017" notrun="0" total="53">
+  <test-suite notrun="0" name="Test for updateCarInfo - current date" total="50">
     <results>
-      <test-case time="0.628" name="Count of auto = 65" result="Pass" executed="true" success="true"/>
-      <test-case time="0.241" name="Count of fields for element 262036 = 32" result="Pass" executed="true" success="true"/>
-      <test-case time="0.243" name="Value CarName='МАЗ' for element '262005'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.25" name="Value CarMark='МАЗ' for element '262005'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.253" name="Value CarNumber='А333ББ' for element '262005'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.272" name="Value CarMark='Газель' for element '262048'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.32" name="Value FuelType='бензин' for element '262034'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.254" name="Value FuelKM=100 for element '262028'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.301" name="Value VoltageTreshold=13000 for element '262005'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.253" name="Value VoltageTreshold=20000 for element '262057'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.245" name="Value VoltageTreshold_='null' for element '262031'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.241" name="Value CarName='TIR' for element '262031'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.257" name="Value AccessName='---' for element '262036'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.254" name="Value RuralSpeed=7 for element '262061'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.645" name="Count of auto = 65" result="Pass" executed="true" success="true"/>
+      <test-case time="0.252" name="Count of fields for element 262036 = 32" result="Pass" executed="true" success="true"/>
+      <test-case time="0.259" name="Value CarName='МАЗ' for element '262005'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.267" name="Value CarMark='МАЗ' for element '262005'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.271" name="Value CarNumber='А333ББ' for element '262005'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.258" name="Value CarMark='Газель' for element '262048'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.26" name="Value FuelType='бензин' for element '262034'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.262" name="Value FuelKM=100 for element '262028'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.26" name="Value VoltageTreshold=13000 for element '262005'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.249" name="Value VoltageTreshold=20000 for element '262057'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.264" name="Value VoltageTreshold_='null' for element '262031'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.258" name="Value CarName='TIR' for element '262031'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.291" name="Value AccessName='---' for element '262036'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.263" name="Value RuralSpeed=7 for element '262061'" result="Pass" executed="true" success="true"/>
       <test-case time="0.256" name="Value RuralSpeed=null for element '262053'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.292" name="Value WinterCoeff=1,5 for element '262056'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.25" name="Value Speed=68,9 for element '262053'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = '68.9'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.251" name="Value CarDirection=-1,05734743293656 for element '262004'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.285" name="Value CarDirection=0 for element '262056'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.249" name="Value CarDirection=3,67475634425939 for element '262045'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.277" name="Value Longitude=38,0943870544434 for element '262018'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.256" name="Value PointDateTime='2017-10-26 08:09:12.000' for element '262050'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.245" name="Value GroupName='Группа 1' for element '262049'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.265" name="Value GroupName='Группа 2' for element '262087'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.24" name="Auto not in a group. Result 'null' for '262038'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.26" name="Value AccessID=1 for element '262034'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.255" name="Value CarStatus=1 for element '262001'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.255" name="Value DeviceStatus=11 for element '262036'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.255" name="Value DeviceStatus=12 for element '262001'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.258" name="Value DriverName='Водила с Нижнего Тагила' for element '262010'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.238" name="Value DriverID=1 for element '262010'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.254" name="Value DriverName='Водитель-мегавредитель' for element '262095'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.256" name="Value DriverID=2 for element '262095'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.268" name="Value AccessID='null' for element '262095'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.27" name="Value AccessName='---' for element '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.26" name="Value WinterCoeff=1,5 for element '262056'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.36" name="Value Speed=null for element '262041'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.261" name="Value CarDirection=-1,05734743293656 for element '262004'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.258" name="Value CarDirection=0 for element '262056'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.272" name="Value CarDirection=3,67475634425939 for element '262045'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.256" name="Value Longitude=38,0943870544434 for element '262018'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.266" name="Value PointDateTime='2017-10-26 08:09:12.000' for element '262050'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.252" name="Value GroupName='Группа 1' for element '262049'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.247" name="Value GroupName='Группа 2' for element '262087'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.257" name="Auto not in a group. Result 'null' for '262038'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.252" name="Value AccessID=1 for element '262034'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.253" name="Value CarStatus=null for element '262001'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.261" name="Value DeviceStatus=11 for element '262036'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.262" name="Value DeviceStatus=12 for element '262001'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.252" name="Value DriverName='Водила с Нижнего Тагила' for element '262010'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.262" name="Value DriverID=1 for element '262010'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.253" name="Value DriverName='Водитель-мегавредитель' for element '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.259" name="Value DriverID=2 for element '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.257" name="Value AccessID='null' for element '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.272" name="Value AccessName='---' for element '262095'" result="Pass" executed="true" success="true"/>
       <test-case time="0.253" name="Value AccessName='Полный доступ' for element '262034'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.26" name="Count of fields for auto not in a group. Result=0 for '262038'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.254" name="Count of fields. Result=32 for '262060'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.254" name="Value PhoneNumber = '111222333'  for '262010'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.281" name="Value PhoneNumber = 'null'  for '262095'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.272" name="Value WinterCoeff = 1  for '262095'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.261" name="Value TypeID = 0  for '262095'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = '0'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.29" name="Value TypeID = 1  for '262045'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.249" name="Value ID = 262045  for '262045'" result="Pass" executed="true" success="true"/>
-      <test-case time="0.262" name="Value Speed = 0,1  for '262059'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.262" name="Count of fields for auto not in a group. Result=0 for '262038'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.267" name="Count of fields. Result=32 for '262060'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.251" name="Value PhoneNumber = '111222333'  for '262010'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.265" name="Value PhoneNumber = 'null'  for '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.266" name="Value WinterCoeff = 1  for '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.249" name="Value TypeID = 'null'  for '262095'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.342" name="Value TypeID = 1  for '262045'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.26" name="Value ID = 262045  for '262045'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.264" name="Value Speed = null  for '262059'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.256" name="Value Speed=45,8 for element '262050'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.257" name="Value Comment='Testcomment' for element '262092'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.244" name="Value Comment='' for element '262001'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.369" name="Value PlanDelayed=10 for element '262080'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.281" name="Value PlanDelayed=0 for element '262092'" result="Pass" executed="true" success="true"/>
+    </results>
+  </test-suite>
+  <test-suite notrun="0" name="Test for updateCarInfo - period" total="3">
+    <results>
+      <test-case time="0.265" name="Value Speed=67,3 for element '262041'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.267" name="Value CarStatus=1 for element '262001'" result="Pass" executed="true" success="true"/>
+      <test-case time="0.26" name="Value Speed = 0,1  for '262059'" result="Pass" executed="true" success="true"/>
     </results>
   </test-suite>
   <statistics>
-    <Stat tests="45"/>
-    <Stat failures="2"/>
+    <Stat tests="53"/>
+    <Stat failures="0"/>
     <Stat errors="0"/>
-    <Stat success-rate="95.56"/>
-    <Stat started_at="27.10.2017 03:10:45"/>
-    <Stat finished-at="27.10.2017 03:10:58"/>
-    <Stat runtime="12.104"/>
+    <Stat success-rate="100"/>
+    <Stat started-at="02.11.2017 03:11:28"/>
+    <Stat finished-at="02.11.2017 03:11:43"/>
+    <Stat runtime="14.493"/>
   </statistics>
 </test-results>

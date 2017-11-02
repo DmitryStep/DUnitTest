@@ -46,12 +46,12 @@ function GetRequest($URL, $Request_str, $Parameters_str){
   $Result = "";
   if (count($Params) > 1){
     $ValueIndex = 0;
-    $Request = explode("&", $Request_str);
+    $Request = explode("=", $Request_str);
     foreach ($Request as $Request_param){
-      $Result = $Result.$Request_param.$Params[$ValueIndex]."&";
+      $Result = $Result.$Request_param."=".$Params[$ValueIndex];
       $ValueIndex++;
     }
-    $Result = rtrim($Result, "&");
+    $Result = rtrim($Result, "=");
   }
   else{
     $Result = $Request_str;
@@ -278,7 +278,7 @@ function OutputToXMLLog($output_file, $TestSuitesArray, $TestResultsArray, $Full
   $Attr->value = Round($passed * 100 / Count($TestResultsArray), 2);
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
-  $Attr = $XML_doc->CreateAttribute('started_at');
+  $Attr = $XML_doc->CreateAttribute('started-at');
   $Attr->value = $StartDateTime;
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));

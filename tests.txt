@@ -1,6 +1,6 @@
 { 
   "Suite1": {
-    "name": "Test for updateCarInfo",
+    "name": "Test for updateCarInfo - current date",
     "request": "/ils/Mnt/MntCars/updateCarInfo/",
     "Tests": {
       "Test1": {
@@ -148,12 +148,12 @@
         "failmessage": "Test failed!"
       },
       "Test17": {
-        "name": "Value Speed=68,9 for element '262053'",
+        "name": "Value Speed=null for element '262041'",
         "params": "",
 		"testmethod": "GetValue",
-		"methodparams": "262053#Speed_",
+		"methodparams": "262041#Speed_",
         "operation": "=",
-        "expectedresult": 68.9,
+        "expectedresult": "null",
         "failmessage": "Test failed!"
       },
       "Test18": {
@@ -247,12 +247,12 @@
         "failmessage": "Test failed!"
       },
       "Test27": {
-        "name": "Value CarStatus=1 for element '262001'",
+        "name": "Value CarStatus=null for element '262001'",
         "params": "",
 		"testmethod": "GetValue",
 		"methodparams": "262001#CarStatus_",
         "operation": "=",
-        "expectedresult": 1,
+        "expectedresult": "null",
         "failmessage": "Test failed!"
       },
       "Test28": {
@@ -382,12 +382,12 @@
         "failmessage": "Test failed!"
       },
        "Test42": {
-        "name": "Value TypeID = 0  for '262095'",
+        "name": "Value TypeID = 'null'  for '262095'",
         "params": "",
 		"testmethod": "GetValue",
 		"methodparams": "262095#TypeID_",
         "operation": "=",
-        "expectedresult": 0,
+        "expectedresult": "null",
         "failmessage": "Test failed!"
       },
        "Test43": {
@@ -409,14 +409,92 @@
         "failmessage": "Test failed!"
       },
        "Test45": {
-        "name": "Value Speed = 0,1  for '262059'",
+        "name": "Value Speed = null  for '262059'",
         "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262059#Speed_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+       "Test46": {
+        "name": "Value Speed=45,8 for element '262050'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262050#Speed_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+       "Test47": {
+        "name": "Value Comment='Testcomment' for element '262092'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262092#Comment_",
+        "operation": "=",
+        "expectedresult": "Testcomment",
+        "failmessage": "Test failed!"
+      },
+       "Test48": {
+        "name": "Value Comment='' for element '262001'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262001#Comment_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+       "Test49": {
+        "name": "Value PlanDelayed=10 for element '262080'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262080#PlanDelayed_",
+        "operation": "=",
+        "expectedresult": 10,
+        "failmessage": "Test failed!"
+      },
+       "Test50": {
+        "name": "Value PlanDelayed=0 for element '262092'",
+        "params": "",
+		"testmethod": "GetValue",
+		"methodparams": "262092#PlanDelayed",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      }
+    }
+  },
+  "Suite2": {
+    "name": "Test for updateCarInfo - period",
+    "request": "/ils/Mnt/MntCars/data?period=&from=&till=&DeviceID=&&tgc=",
+    "Tests": {
+      "Test1": {
+        "name": "Value Speed=67,3 for element '262041'",
+        "params": "#2017-10-01%2000:00#2017-11-02%2023:59##72224096",
+		"testmethod": "GetValue",
+		"methodparams": "262041#Speed_",
+        "operation": "=",
+        "expectedresult": 67.3,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Value CarStatus=1 for element '262001'",
+        "params": "#2017-10-01%2000:00#2017-11-02%2023:59##72224096",
+		"testmethod": "GetValue",
+		"methodparams": "262001#CarStatus_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+       "Test3": {
+        "name": "Value Speed = 0,1  for '262059'",
+        "params": "#2017-10-01%2000:00#2017-11-02%2023:59##72224096",
 		"testmethod": "GetValue",
 		"methodparams": "262059#Speed_",
         "operation": "=",
         "expectedresult": 0.1,
         "failmessage": "Test failed!"
       }
-    }
-  }  
+	}
+  }
 }
