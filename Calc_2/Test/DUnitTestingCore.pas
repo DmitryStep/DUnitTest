@@ -243,9 +243,9 @@ begin
     if aOperation = 'equals or less than' then
       AssertionResult := ActualResultValue.AsVariant <= ExpectedResultValue.AsVariant;
     if aOperation = 'contains' then
-      AssertionResult := Pos(VarToStr(ActualResultValue.AsVariant), VarToStr(ExpectedResultValue.AsVariant)) > 0;
+      AssertionResult := Pos( VarToStr(ExpectedResultValue.AsVariant), VarToStr(ActualResultValue.AsVariant)) > 0;
     if aOperation = 'not contains' then
-      AssertionResult := Pos(VarToStr(ActualResultValue.AsVariant), VarToStr(ExpectedResultValue.AsVariant)) = 0;
+      AssertionResult := Pos(VarToStr(ExpectedResultValue.AsVariant), VarToStr(ActualResultValue.AsVariant)) = 0;
 
     FailMessageValue := StringReplace(aFailMessageTemplate, '%r', VarToStr(ActualResultValue.AsVariant), [rfReplaceAll]);
     FailMessageValue := StringReplace(FailMessageValue, '%o', Operation, [rfReplaceAll]);
