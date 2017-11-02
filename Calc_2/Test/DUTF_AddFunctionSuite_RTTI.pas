@@ -59,6 +59,7 @@ type
 
     procedure ExecPrivateProcedure(ClassType: TClass; MethodName: string; Instance: TObject;
                                              const Args: TValArray);
+    procedure SetPrivateValue(ClassType: TClass; PropertyName: string; Instance: Pointer; Value: TValue);
   end;
 // End of Rtti Work
 
@@ -237,6 +238,11 @@ procedure TRTTIClass.ExecPrivateProcedure(ClassType: TClass; MethodName: string;
 begin
   RTTIContext.GetType(ClassType).GetMethod(MethodName).Invoke(Instance, args).AsExtended;
 end; // ExecPrivateProcedure
+
+procedure TRTTIClass.SetPrivateValue(ClassType: TClass; PropertyName: string; Instance: Pointer; Value: TValue);
+begin
+  RTTIContext.GetType(ClassType).GetField(PropertyName).SetValue(Instance, Value);
+end;
 
 //====================================End Private Work==============================================
 
