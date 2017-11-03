@@ -24,7 +24,7 @@ unit DUTF_AddFunctionSuite_RTTI;
 interface
 
 uses
-  System.Rtti, System.SysUtils, System.Generics.Collections;
+  System.Rtti, System.TypInfo, System.Variants, System.SysUtils, System.Generics.Collections;
 
   // Набор процедур и функций, реализующий работу с Private через Rtti
 type
@@ -33,9 +33,12 @@ type
   TRTTIClass = class
   private
     RTTIContext: TRttiContext;
+    function VarToBool(aVarValue: Variant): Boolean;
+    function VarToPropValue(VarValue: Variant; FieldType: TRttiParameter): TValue;
   public
     constructor Create;
     destructor Destroy;
+
     function SetArgumentsForMethod(ParamValues: array of Variant; ClassType: TClass; MethodName: string): TValArray;
     function GetPrivatePropertyValueBool(ClassType: TClass; PropertyName: string; Instance: TObject): Boolean;
     function GetPrivatePropertyValueString(ClassType: TClass; PropertyName: string; Instance: TObject): String;
@@ -80,6 +83,81 @@ begin
   RTTIContext.Free();
 end;
 
+// Преобразует Variant в boolean
+function TRTTIClass.VarToBool(aVarValue: Variant): Boolean;
+begin
+  Result := LowerCase( Trim( VarToStr(aVarValue) ) ) = 'true';
+end;
+
+
+// Функция преобразует значение из типа Variant в тип TValue
+// с сохранением информации о "родном" типе
+function TRTTIClass.VarToPropValue(VarValue: Variant; FieldType: TRttiParameter): TValue;
+var
+  TypeStr: string;
+begin
+  TypeStr := LowerCase( FieldType.ParamType.ToString );
+  if VarToStr(VarValue) = '' then
+  begin
+    if FieldType.ParamType.IsInstance then
+      Result := nil
+    else
+    begin
+      Result := TValue.From<Variant>(VarValue);
+    end;
+  end
+  else
+  if FieldType.ParamType.IsInstance then
+  begin
+    Result := TValue.From<Variant>(VarValue);
+  end
+  else
+  if TypeStr = 'byte' then
+    Result := TValue.From<Byte>(Byte(VarValue))
+  else
+  if TypeStr = 'word' then
+    Result := TValue.From<Word>(Word(VarValue))
+  else
+  if TypeStr = 'longword' then
+    Result := TValue.From<LongWord>(LongWord(VarValue))
+  else
+  if TypeStr = 'integer' then
+    Result := TValue.From<Integer>(Integer(VarValue))
+  else
+  if TypeStr = 'longint' then
+    Result := TValue.From<LongInt>(LongInt(VarValue))
+  else
+  if TypeStr = 'uint64' then
+    Result := TValue.From<UInt64>(UInt64(VarValue))
+  else
+  if TypeStr = 'boolean' then
+    Result := TValue.From<Boolean>(VarToBool(VarValue))
+  else
+  if TypeStr = 'char' then
+    Result := TValue.From<Char>(VarToStr(VarValue)[1])
+  else
+  if TypeStr = 'string' then
+    Result := TValue.From<String>(VarToStr(VarValue))
+  else
+  if TypeStr = 'single' then
+    Result := TValue.From<Single>(Single(VarValue))
+  else
+  if TypeStr = 'double' then
+    Result := TValue.From<Double>(Double(VarValue))
+  else
+  if TypeStr = 'extended' then
+    Result := TValue.From<Extended>(Extended(VarValue))
+  else
+  if (TypeStr = 'tdatetime') or
+     (TypeStr = 'tdate')     or
+     (TypeStr = 'ttime')
+  then
+    Result := TValue.From<TDateTime>(VarToDateTime(VarValue))
+  else
+  if TypeStr = 'variant' then
+    Result := TValue.From<Variant>(VarValue);
+end;
+
 
 // Заполнение массива параметров для запуска процедур и функций.
 // Входные параметры:
@@ -88,14 +166,14 @@ end;
 // ParamValues - значения параметров
 function TRTTIClass.SetArgumentsForMethod(ParamValues: array of Variant; ClassType: TClass; MethodName: string): TValArray;
 var
-  Parameter: TValue;
+  Parameter: TRttiParameter;
   ParamIndex: integer;
 begin
   ParamIndex := 0;
   for Parameter in RTTIContext.GetType(ClassType).GetMethod(MethodName).GetParameters do
   begin
     SetLength(Result, ParamIndex + 1);
-    Result[ParamIndex] := TValue.From<Variant>(ParamValues[ParamIndex]);
+    Result[ParamIndex] := VarToPropValue(ParamValues[ParamIndex], Parameter);
     Inc(ParamIndex);
   end;
 end;
