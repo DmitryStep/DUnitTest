@@ -90,7 +90,16 @@ begin
   SetLength(Result, DataLen - 3);
   for Index := 0 to DataLen - 4 do
   begin
-    Result[Index] := ParamValue[Index].AsVariant;
+    if LowerCase(ParamValue[Index].AsString) = 'now' then
+      Result[Index] := Now()
+    else
+    if LowerCase(ParamValue[Index].AsString) = 'beg_now' then
+      Result[Index] := Date() + StrToTime('00:00:00')
+    else
+    if LowerCase(ParamValue[Index].AsString) = 'end_now' then
+      Result[Index] := Date() + StrToTime('23:59:59')
+    else
+      Result[Index] := ParamValue[Index].AsVariant;
   end;
   Self.ExpectedResult := ParamValue[DataLen - 3].AsVariant;
   Self.FailMessage := ParamValue[DataLen - 2].AsString;
@@ -353,9 +362,9 @@ procedure PrepareToTest(TestsFileName: string);
 var
   FileName: string;
 begin
-  // Имя файла передаётся в этом случае первым параметром запуска
+  // Имя файла передаётся в этом случае первым параметром запуска с указанием полного пути до файла
   if ParamStr(1) <> '' then
-    FileName := ExtractFilePath(ParamStr(0)) + ParamStr(1)
+    FileName := ParamStr(1)
   else
     FileName := ExtractFilePath(ParamStr(0)) + TestsFileName;
 
