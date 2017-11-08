@@ -33,6 +33,8 @@ function GetConfigSettings: string;
 function GetFullPathForIniFile(FileName: string): string;
 function ReadDatabaseSettings(FileName: string): TDatabaseSettingsRec;
 function ReadSettingsFromIniFile(FileName: string): TDatabaseSettingsRec;
+function GetFileFromParameter(Param: string): string;
+procedure GetFileNames(var inpFile, outFile: string; defaultInpFile, defaultOutFile: string);
 
 var
   DBSettingsRec: TDatabaseSettingsRec;
@@ -135,6 +137,40 @@ begin
   Result := ReadDatabaseSettings(FileName);
 
 end; // ReadSettingsFromIniFile
+
+
+function GetFileFromParameter(Param: string): string;
+begin
+  Result := '';
+  if Pos('-in:', Param) = 1 then
+    Result := Copy(Param, 5, Length(Param) - 4);
+  if Pos('-out:', Param) = 1 then
+    Result := Copy(Param, 6, Length(Param) - 5);
+end;
+
+
+procedure GetFileNames(var inpFile, outFile: string; defaultInpFile, defaultOutFile: string);
+begin
+  inpFile := '';
+  outFile := '';
+  if (ParamStr(1) <> '') and (ParamStr(2) <> '') then
+  begin
+    inpFile := GetFileFromParameter(ParamStr(1));
+    outFile := GetFileFromParameter(ParamStr(2));
+  end
+  else
+  if ParamStr(1) <> '' then
+  begin
+    inpFile := GetFileFromParameter(ParamStr(1));
+    outFile := GetFileFromParameter(ParamStr(1));
+  end;
+
+  if inpFile = '' then
+    inpFile := defaultInpFile;
+  if outFile = '' then
+    outFile := defaultOutFile;
+end;
+
 
 initialization
 

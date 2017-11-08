@@ -363,10 +363,7 @@ var
   FileName: string;
 begin
   // Имя файла передаётся в этом случае первым параметром запуска с указанием полного пути до файла
-  if ParamStr(1) <> '' then
-    FileName := ParamStr(1)
-  else
-    FileName := ExtractFilePath(ParamStr(0)) + TestsFileName;
+  FileName := ExtractFilePath(ParamStr(0)) + TestsFileName;
 
   LoadTestsFromXML(FileName, SuiteList, TestCaseList);
 
