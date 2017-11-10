@@ -96,18 +96,19 @@ function TRTTIClass.VarToPropValue(VarValue: Variant; FieldType: TRttiParameter)
 var
   TypeStr: string;
 begin
-  TypeStr := LowerCase( FieldType.ParamType.ToString );
+  TypeStr := LowerCase(FieldType.ParamType.ToString);
   if VarToStr(VarValue) = '' then
   begin
     if FieldType.ParamType.IsInstance then
       Result := nil
     else
-    begin
       Result := TValue.From<Variant>(VarValue);
-    end;
   end
   else
-  if FieldType.ParamType.IsInstance then
+  if (FieldType.ParamType.IsInstance) or
+     (FieldType.ParamType.IsRecord) or
+     (FieldType.ParamType.IsSet)
+  then
   begin
     Result := TValue.From<Variant>(VarValue);
   end
