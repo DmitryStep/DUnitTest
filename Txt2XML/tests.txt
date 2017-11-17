@@ -1,0 +1,73 @@
+/**
+\page test_results Результаты тестирования
+
+Тестирование проводилось на следующей конфигурации процессора и оперативной памяти:
+\code
+STDIN
+model name	: Intel Core Processor (Broadwell)
+STDIN
+cpu cores	: 2
+STDIN
+cache size	: 4096 KB
+STDIN
+MemTotal:        8388072 kB
+\endcode
+
+
+Дата тестирования: Fri, 17 Nov 2017 08:24:06 +0300
+
+
+| Тест                                    | Рез-т  | Режим  | Планир. | Оптим. | Разн.  | Стоим.    | Пробег | Точек  | Заявок | Рейсов | (сек)  |
+| :----                                   | :----: | :----: | :----:  | :----: | :----: | :----:    | :----: | :----: | :----: | :----: | :----: |
+| PATH                                    | RESULT | MODE   | REPLAN  | OPTIM  | DIFF   | COST      | DIST   | POINTS | ORDERS | TASKS  | TIME   |
+| penalties/BigCarBigCargos/Delivery001   | OK!!!  | 0      | 0       | 0      | 1      | 1000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/BigCarBigCargos/Transit001    | OK!!!  | 1      | 0       | 0      | 1      | 2000      | 0      | 9      | 5      | 1      | 0      |
+| penalties/Cargos/Delivery001            | OK!!!  | 0      | 0       | 0      | 1      | 100       | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/Cargos/Transit001             | OK!!!  | 1      | 0       | 0      | 1      | 100       | 0      | 9      | 5      | 1      | 0      |
+| penalties/Clients/Delivery001           | OK!!!  | 0      | 0       | 0      | 1      | 100       | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/Clients/Transit001            | OK!!!  | 1      | 0       | 0      | 1      | 100       | 0      | 9      | 5      | 1      | 0      |
+| penalties/CrossingRoutes/Delivery001    | OK!!!  | 0      | 0       | 0      | 1      | 200       | 0      | 9      | 5      | 2      | 0.015  |
+| penalties/CrossingRoutes/Transit001     | OK!!!  | 1      | 0       | 0      | 1      | 150       | 0      | 9      | 5      | 2      | 0.016  |
+| penalties/Dispersion/Delivery001        | OK!!!  | 0      | 0       | 0      | 1      | 6.07073   | 0      | 9      | 5      | 2      | 0      |
+| penalties/Dispersion/Transit001         | OK!!!  | 1      | 0       | 0      | 1      | 4.96321   | 0      | 9      | 5      | 2      | 0.015  |
+| penalties/FuelComsumption/Delivery001   | OK!!!  | 0      | 0       | 0      | 1      | 380.546   | 0      | 9      | 5      | 1      | 0      |
+| penalties/FuelComsumption/Transit001    | OK!!!  | 1      | 0       | 0      | 1      | 471.471   | 0      | 9      | 5      | 1      | 0      |
+| penalties/Height/Delivery001            | OK!!!  | 0      | 0       | 0      | 1      | 3000      | 0      | 9      | 5      | 1      | 0      |
+| penalties/Height/Transit001             | OK!!!  | 1      | 0       | 0      | 1      | 3000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/Late/Delivery001              | OK!!!  | 0      | 0       | 0      | 0      | 2000      | 216.387 | 63     | 103    | 1      | 0      |
+| penalties/Late/Transit001               | OK!!!  | 1      | 0       | 0      | 0      | 5000      | 118.414 | 63     | 103    | 1      | 0.016  |
+| penalties/Length/Delivery001            | OK!!!  | 0      | 0       | 0      | 1      | 1000      | 0      | 9      | 5      | 1      | 0      |
+| penalties/Length/Transit001             | OK!!!  | 1      | 0       | 0      | 1      | 1000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/LengthWeight/Delivery001      | OK!!!  | 0      | 0       | 0      | 1      | 4.13002   | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/LengthWeight/Transit001       | OK!!!  | 1      | 0       | 0      | 1      | 7.08911   | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/MaxLength/Delivery001         | OK!!!  | 0      | 0       | 0      | 1      | 26.1093   | 0      | 9      | 5      | 1      | 0      |
+| penalties/MaxTrips/Delivery001          | OK!!!  | 0      | 0       | 0      | 1      | 300       | 0      | 9      | 5      | 1      | 0      |
+| penalties/MaxTrips/Transit001           | OK!!!  | 1      | 0       | 0      | 1      | 300       | 0      | 9      | 5      | 1      | 0.015  |
+| penalties/Priority/Delivery001          | OK!!!  | 0      | 0       | 0      | 1      | 30000     | 0      | 9      | 5      | 1      | 0      |
+| penalties/Priority/Transit001           | OK!!!  | 1      | 0       | 0      | 1      | 30000     | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/RatioLengthPath/Delivery001   | OK!!!  | 0      | 0       | 0      | 1      | 7.61093   | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/RatioLengthPath/Transit001    | OK!!!  | 1      | 0       | 0      | 1      | 9.42941   | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/RatioSummaryTime/Delivery001  | OK!!!  | 0      | 0       | 0      | 1      | 1.88889   | 0      | 9      | 5      | 1      | 0      |
+| penalties/RatioSummaryTime/Transit001   | OK!!!  | 1      | 0       | 0      | 1      | 2.33333   | 0      | 9      | 5      | 1      | 0      |
+| penalties/SummaryTime/Delivery001       | OK!!!  | 0      | 0       | 0      | 1      | 1.18056   | 0      | 9      | 5      | 1      | 0      |
+| penalties/SummaryTime/Transit001        | OK!!!  | 1      | 0       | 0      | 1      | 2.29167   | 0      | 9      | 5      | 1      | 0      |
+| penalties/UnresolvedCargos/Delivery001  | OK!!!  | 0      | 0       | 0      | 1      | 20000     | 0      | 9      | 5      | 1      | 0      |
+| penalties/UnresolvedCargos/Transit001   | OK!!!  | 1      | 0       | 0      | 1      | 20000     | 0      | 9      | 5      | 1      | 0      |
+| penalties/UseCars/Delivery001           | OK!!!  | 0      | 0       | 0      | 0      | 0         | 1.00416 | 9      | 5      | 2      | 0      |
+| penalties/UseCars/Transit001            | OK!!!  | 1      | 0       | 0      | 1      | 5000      | 0      | 9      | 5      | 2      | 0.015  |
+| penalties/UserUnits1/Delivery001        | OK!!!  | 0      | 0       | 0      | 1      | 9000      | 0      | 9      | 5      | 1      | 0      |
+| penalties/UserUnits1/Transit001         | OK!!!  | 1      | 0       | 0      | 1      | 7000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/UserUnits2/Delivery001        | OK!!!  | 0      | 0       | 0      | 1      | 200       | 0      | 9      | 5      | 1      | 0      |
+| penalties/UserUnits2/Transit001         | OK!!!  | 1      | 0       | 0      | 1      | 70000     | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/UserUnits3/Delivery001        | OK!!!  | 0      | 0       | 0      | 1      | 6000      | 0      | 9      | 5      | 1      | 0      |
+| penalties/UserUnits3/Transit001         | OK!!!  | 1      | 0       | 0      | 1      | 70        | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/UserUnits4/Delivery001        | OK!!!  | 0      | 0       | 0      | 1      | 7000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/UserUnits4/Transit001         | OK!!!  | 1      | 0       | 0      | 1      | 700       | 0      | 9      | 5      | 1      | 0      |
+| penalties/Volume/Delivery001            | OK!!!  | 0      | 0       | 0      | 1      | 1.986e+10 | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/Volume/Transit001             | OK!!!  | 1      | 0       | 0      | 1      | 150       | 0      | 9      | 5      | 1      | 0.015  |
+| penalties/Waiting/Delivery001           | OK!!!  | 0      | 0       | 0      | 0      | 750       | 216.387 | 63     | 103    | 1      | 0.016  |
+| penalties/Waiting/Transit001            | OK!!!  | 1      | 0       | 0      | 0      | 400       | 118.414 | 63     | 103    | 1      | 0      |
+| penalties/Width/Delivery001             | OK!!!  | 0      | 0       | 0      | 1      | 2000      | 0      | 9      | 5      | 1      | 0.016  |
+| penalties/Width/Transit001              | OK!!!  | 1      | 0       | 0      | 1      | 2000      | 0      | 9      | 5      | 1      | 0.016  |
+
+*/
