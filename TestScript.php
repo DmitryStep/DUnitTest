@@ -304,7 +304,7 @@ $URL_str = "http://test.ils-glonass.ru";
 $StartDate = Date("d.m.Y h:m:s");
 $Full_time_beg = microtime(true);
 
-$suites = ParseJSONTests(readtestfile("tests.txt"));
+$suites = ParseJSONTests(readtestfile("tests6.txt"));
 
 $ch = create_Curl_Connect($URL_str);
 $TestIndex = 0;

@@ -1,0 +1,89 @@
+{
+  "Suite5": {
+    "name": "Test for LgsClients",
+    "request": "/ils/Lgs/LgsClients/data?project=&user_role_id=&project_group_id=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Clients = 104",
+        "params": "38#1#2",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 104,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of fields for client АП001 = 22",
+        "params": "38#1#2",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "920",
+        "operation": "=",
+        "expectedresult": 22,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value ClientCode_='АП0006'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "925#ClientCode_",
+        "operation": "=",
+        "expectedresult": "АП0006",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value Address_='Санкт-Петербург, Каменноостровский просп., 42, ДК Ленсовета, эт. 2'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "928#Address_",
+        "operation": "=",
+        "expectedresult": "Санкт-Петербург, Каменноостровский просп., 42, ДК Ленсовета, эт. 2",
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value Name_='Аптека10'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "929#Name_",
+        "operation": "=",
+        "expectedresult": "Аптека10",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value Latitude_='59.967504'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "929#Latitude_",
+        "operation": "=",
+        "expectedresult": 59.967504,
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value Longitude_='30.409474'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "929#Longitude_",
+        "operation": "=",
+        "expectedresult": 30.409474,
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value BindType_='11'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "1023#BindType_",
+        "operation": "=",
+        "expectedresult": 11,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value Bind_='1'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "1021#Bind_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      }
+	}
+  }
+}

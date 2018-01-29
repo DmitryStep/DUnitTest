@@ -1,0 +1,245 @@
+{
+  "Suite6": {
+    "name": "Test for LgsCars",
+    "request": "/ils/Lgs/LgsCars/data?project=&user_role_id=&project_group_id=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Cars = 10",
+        "params": "38#1#2",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 10,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of fields for car TR0001 = 31",
+        "params": "38#1#2",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "549",
+        "operation": "=",
+        "expectedresult": 31,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value CarCode_='TR0004'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#CarCode_",
+        "operation": "=",
+        "expectedresult": "TR0004",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value CarMark_='Соболь'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "557#CarMark_",
+        "operation": "=",
+        "expectedresult": "Соболь",
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value Name_='Авто_10'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "558#Name_",
+        "operation": "=",
+        "expectedresult": "Авто_10",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value AverageSpeed_='35'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "555#AverageSpeed_",
+        "operation": "=",
+        "expectedresult": 35,
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value DriverID_='415'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "554#DriverID_",
+        "operation": "=",
+        "expectedresult": 415,
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value ExpeditorID_='415'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "554#ExpeditorID_",
+        "operation": "=",
+        "expectedresult": 415,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value GarageID_='3'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#GarageID_",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value MaxRoutes_='50'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "551#MaxRoutes_",
+        "operation": "=",
+        "expectedresult": 50,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value MaxUserUnits0Load_='3000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#MaxUserUnits0Load_",
+        "operation": "=",
+        "expectedresult": 3000,
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value StateNumber_='---'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#StateNumber_",
+        "operation": "=",
+        "expectedresult": "---",
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value MaximumDistance_='1000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#MaximumDistance_",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value MaxUserUnits1OverloadPercent_='5'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#MaxUserUnits1OverloadPercent_",
+        "operation": "=",
+        "expectedresult": 5,
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value MaximumWorkTime_='36000000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "552#MaximumWorkTime_",
+        "operation": "=",
+        "expectedresult": 36000000,
+        "failmessage": "Test failed!"
+      }
+	}
+  },
+  "Suite7": {
+    "name": "Test for LgsGarages",
+    "request": "/ils/Lgs/LgsGarages/data?project=&user_role_id=&project_group_id=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Garages = 1",
+        "params": "38#1#2",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of fields for Garage = 6",
+        "params": "38#1#2",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "3",
+        "operation": "=",
+        "expectedresult": 6,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value Address_='test'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "3#Address_",
+        "operation": "=",
+        "expectedresult": "test",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value Longitude_='30.426212694942'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "3#Longitude_",
+        "operation": "=",
+        "expectedresult": 30.426212694942,
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value Latitude_='60.058541794319'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "3#Latitude_",
+        "operation": "=",
+        "expectedresult": 60.058541794319,
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value MatrixZoneID_='0'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "3#MatrixZoneID_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      }
+	}  
+  },
+  "Suite8": {
+    "name": "Test for LgsDrivers",
+    "request": "/ils/Lgs/LgsDrivers/data?project=&user_role_id=&project_group_id=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Drivers = 10",
+        "params": "38#1#2",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 10,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of fields for Driver = 4",
+        "params": "38#1#2",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "410",
+        "operation": "=",
+        "expectedresult": 4,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value Name_='Водитель_6'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "415#Name_",
+        "operation": "=",
+        "expectedresult": "Водитель_6",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value DriverCode_='DR0009'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "418#DriverCode_",
+        "operation": "=",
+        "expectedresult": "DR0009",
+        "failmessage": "Test failed!"
+      }
+	}  
+  }
+}

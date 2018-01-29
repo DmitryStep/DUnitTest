@@ -1,5 +1,4 @@
 <?php
-// ----------------------------- Тестовые методы ------------------------------
 
 // Return count of array's elements
 function GetCount($ElementsArray){
@@ -42,5 +41,4 @@ function GetValue($ElementsArray, $args){
   return $Result;
 }
 
-// ------------------------- Конец тестовых методов ---------------------------
 ?>

@@ -496,5 +496,18 @@
         "failmessage": "Test failed!"
       }
 	}
-  }
+  },
+  "Suite3": {
+    "name": "Test for updateCarInfo - period",
+    "request": "/ils/Mnt/MntFact/data?period=&from=&till=&range=&DeviceID=&tgc=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of points = 65",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#2017-10-01%2000%3A00%20~%202017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 65,
+        "failmessage": "Test failed!"
+      }
 }

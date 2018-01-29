@@ -1,0 +1,323 @@
+{ 
+  "Suite4": {
+    "name": "Test for PlanPoints",
+    "request": "/ils/Mnt/MntPlan/data?period=&from=&till=&DeviceID=&tgc=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Plan points for 262025 = 1",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of Plan points for 262011 = 0",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262011#68556607",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Count of Plan points for 262012 = 5",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 5,
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Count of fields for element 262012 point 5 = 34",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "5",
+        "operation": "=",
+        "expectedresult": 34,
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value DeviceID='262012'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "5#DeviceID_",
+        "operation": "=",
+        "expectedresult": "262012",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value VoyageStrNumber_='1555'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "3#VoyageStrNumber_",
+        "operation": "=",
+        "expectedresult": "1555",
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value Address_='14443'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#Address_",
+        "operation": "=",
+        "expectedresult": "14443",
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value CustomerName_='14444'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#CustomerName_",
+        "operation": "=",
+        "expectedresult": "14444",
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value CustomerStrID_='14444'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#CustomerStrID_",
+        "operation": "=",
+        "expectedresult": "14444",
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value Latitude_='55.4404'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "4#Latitude_",
+        "operation": "=",
+        "expectedresult": 55.4404,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value Longitude_='37.5711'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "4#Longitude_",
+        "operation": "=",
+        "expectedresult": 37.5711,
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value OrderStrID_='43044_2'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "4#OrderStrID_",
+        "operation": "=",
+        "expectedresult": "43044_2",
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value FactTimeUnload_Tip='Точка не посещена'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "3#FactTimeUnload_Tip",
+        "operation": "=",
+        "expectedresult": "Точка не посещена",
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value FactTimeArr_Icon='/ils/images/icons/PlanAbsent.png'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "3#FactTimeArr_Icon",
+        "operation": "=",
+        "expectedresult": "/ils/images/icons/PlanAbsent.png",
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value PointTypeID_='1'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "3#PointTypeID_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value VoyageStrNumber_='Voyage313013201711070400'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#VoyageStrNumber_",
+        "operation": "=",
+        "expectedresult": "Voyage313013201711070400",
+        "failmessage": "Test failed!"
+      },
+      "Test17": {
+        "name": "Value FactTimeArr_Icon='/ils/images/icons/PlanFinishedLate.png'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeArr_Icon",
+        "operation": "=",
+        "expectedresult": "/ils/images/icons/PlanFinishedLate.png",
+        "failmessage": "Test failed!"
+      },
+      "Test18": {
+        "name": "Value FactTimeArr_Tip='Точка посещена с опозданиями'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeArr_Tip",
+        "operation": "=",
+        "expectedresult": "Точка посещена с опозданиями",
+        "failmessage": "Test failed!"
+      },
+      "Test19": {
+        "name": "Value Status_=1",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#Status_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test20": {
+        "name": "Value FactTimeUnload_Icon='/ils/images/icons/PlanFinishedLate.png'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeUnload_Icon",
+        "operation": "=",
+        "expectedresult": "/ils/images/icons/PlanFinishedLate.png",
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value FactTimeUnload_Tip='Разгрузка прошла с опозданиями'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeUnload_Tip",
+        "operation": "=",
+        "expectedresult": "Разгрузка прошла с опозданиями",
+        "failmessage": "Test failed!"
+      },
+      "Test22": {
+        "name": "Value FactTimeUnload_='1900-01-01 06:18:49.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeUnload_",
+        "operation": "=",
+        "expectedresult": "1900-01-01 06:18:49.000",
+        "failmessage": "Test failed!"
+      },
+      "Test23": {
+        "name": "Value FactTimeArr_='2017-11-07 08:49:26.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#FactTimeArr_",
+        "operation": "=",
+        "expectedresult": "2017-11-07 08:49:26.000",
+        "failmessage": "Test failed!"
+      },
+      "Test24": {
+        "name": "Value PlanTimeBeg_='2017-11-07 00:00:00.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#PlanTimeBeg_",
+        "operation": "=",
+        "expectedresult": "2017-11-07 00:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test25": {
+        "name": "Value PlanTimeEnd_='2017-11-07 20:00:00.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#PlanTimeEnd_",
+        "operation": "=",
+        "expectedresult": "2017-11-07 20:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test26": {
+        "name": "Value PlanTimeArr_='2017-11-07 04:00:00.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#PlanTimeArr_",
+        "operation": "=",
+        "expectedresult": "2017-11-07 04:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test27": {
+        "name": "Value DepartureFact_='2017-11-07 15:08:15.000'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#DepartureFact_",
+        "operation": "=",
+        "expectedresult": "2017-11-07 15:08:15.000",
+        "failmessage": "Test failed!"
+      },
+      "Test28": {
+        "name": "Value TS_='1'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#TS_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test29": {
+        "name": "Value Radius_='200'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262025#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "2#Radius_",
+        "operation": "=",
+        "expectedresult": 200,
+        "failmessage": "Test failed!"
+      },
+      "Test30": {
+        "name": "Value VisitOrder_=3",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "5#VisitOrder_",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test31": {
+        "name": "Value TS_=0",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "5#TS_",
+        "operation": "=",
+        "expectedresult": 0,
+        "failmessage": "Test failed!"
+      },
+      "Test32": {
+        "name": "Value PathRoute",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "5#PathRoute_",
+        "operation": "=",
+        "expectedresult": "GWucfequw7wpdeucfequwkrkt6ucfequwkrkt6ucfequw6zumqucfequw6zumqucfequw2rq19ucfequw2rq19ucfequqmdecnucfequqmdecnucfequqvhzd0ucfequqvhzd0ucfequrudybnucfequrusvxwucfequrusvxwucferh2hc6xtucferh6e5sk1ucferh6gj3jhucferhkgthe1ucferhkgthe1ucferhm5tnqvucferhm7ejngucferhmerfvpucferhq47jvnucferhq1zsk3ucferhq1zsk3ucferhpdnjnsucfer7bjzs8xucfer7bkupe8ucfer7bs35reucfer7c64kujucfer7ek2x5eucfer7eet6unucfer7s4fq3vucfer7s6v8hzucfer7s6v8hzucfer7sfujdjucfer7w5cn6uucfer7xjq2xrucfer7xjq2xrucfer7xty69kucfer7xty69kucfereg18w9qucfereg18w9qucferegd6ux9ucferegd6ux9ucfereu4em1xucferevdrbbrucferevdrbbrucferey45vvwucferey45vvwucfereycux6rucfereycux6rucferez9ybs4ucferez9ybs4ucfergc1x59cucfergc1x59cucfergc9esx3ucfergccufv1ucfergfd6gy7ucfergggf2d6ucferguubp74ucfergvye2v9ucfergvye2v9ucfergynge9fucfergynge9fucferup2y0yfucferup2y0yfucferup8fwzyucferup8fwzyucfg2h4tjy88ucfg2h5yc29fucfg2h5yc29fucfg2hhx8rg4ucfg2hhx8rg4ucfg2h5rhrzzucfg2h4xr4r1ucfg2h4px31wucfg2h385j8jucfg2h31685jucfg2h2dsx75ucfg2h2k64brucfg2h2jegsfucferurzfgshucferuxdn83yucferuxegym9ucferuxwces6ucferuxwces6ucferuz94crxucferuz94crxucferuzwz1q1ucfervpcc394ucfervpcc394ucfervpv7xwvucfervrfrprnucfg2j2nfdfpucfg2j84kymgucfg2jbk5emuucfg2jbk5emuucfg2jbmuctfucfg2n0e0egwucfg2n0e0egwucfg2n0e2u6nucfg2n0w7183ucfg2n8bgpyeucfg2n8bgpyeucfg2n8fudkwucfg2n8fudkwucfg2p1m9cnzucfg2p1m9cnzucfg2p9dgw2wucfg2p9dgw2wucfg2p9e7fbqucfg2p9e7fbqucfg801b7c6hucfg801b7c6hucfg801gjmvuucfg803gu9wcucfg803yk5bkucfg803yk5bkucfg809be7drucfg809be7drucfg809c54tzucfg809gd32cucfg809z0nc5ucfg80cdvpujucfg80cdvpujucfg80ctdy2mucfg8112zedbucfg8112zedbucfg811r9uuwucfg811r9uuwucfg813n6hrducfg8403x4rducfg840m7kngucfg840m7kngucfg848029umucfexfztc194ucfexgrh2e25ucfexgrh2e25ucfexgwccnr9ucfexgwtcgm4ucfexgwtcgm4ucfexun1utjmucfexun1utjmucfexujyz7zbucfexujyz7zbucfexuv37bhfucfexuv37bhfucfexuvjrcszucfexuvjrcszucfexvj1fewqucfexvs87dsqucfexvu7b215ucfexvu7b215ucfexvujqw2jucfexyhh0f9bucfexyhh0f9bucfexy7gf411ucfexyg2ygp8ucfexz6yr73cucfexz6yr73cucfexzdvgnyyucfexzdvgnyyucfexzfspcy4ucfexzfspcy4ucfexzfsrb4bucfezb4ekh2hucfezc4243ceucfezc6ndyr2ucfezccgvx4uucfezf1ce87tucfezf3f6e78ucfezf9b4k8mucfezfcbuk3gucfezfczydguucfezg4p4p73ucfezg6jwkqtucfezgdmtqv6ucfezu4g7u2bucfezu75k11jucfezue390x9ucfezue390x9ucfezue7dxthucfezue7dxthucfezugmne4gucfezv5qpzk0ucfezv7mqwhvucfezve3tkdkucfezvem5tv0ucfezvgjq4r7ucfezy51fpefucfezy6bdfeducfezy6w598xucfezy6w598xucfezy6xcj2rucfezyd7dsknucfezyd7dsknucfezycwrs59ucfezz2z3fz4ucfezz2z3fz4ucfezz8duhzcucfezz8duhzcucfezz8w2n7uucfezzb3gz1wucfezzbm0mezucfspb01kc6nucfspb0hfqnpucfsp8rczyq1ucfsp8ryqz78ucfsp8zfgfj8ucfsp9rcbhk5ucfsp9z9huhcucfspdps2vx5ucfspdr2vghjucfspdrm9z9qucfspdrpz8v9ucfspdx1v3gnucfspdxh648tucfspdwzthcnucfspdyc4khwucfspdyeqcc8ucfspdyt5r5rucfspdyrr5dhucfspen39vz4ucfspen39vz4ucfspenj490eucfspembc55mucfspemdgk05ucfspemktv57ucfspempm4feucfspempm4feucfspessffdqucfspegubzdpucfspegubzdpucfspegx8e3rucfspegx8e3rucfspegrzqr1ucfsps55nbcducfsps4yucn5ucfsps69qtr0ucfsps6s0gk2ucfsps6qe8ykucfspsd1t8qrucfspsdh0ubpucfsps9ym2wjucfsps9zg3pwucfspscg240yucfspscg240yucfspscveegqucfspscyjj5eucfspscyz846ucfspsfps73mucfspsfps73mucfspt42ddw4ucfspt42ddw4ucfspt5m7j8bucfspt5qp8ujucfspt5w7se2ucfspt5w7se2ucfspt5wwtm9ucfspt5wwtm9ucfspt5zhsrbucfspthp6gh1ucfspthrky7vucfspthz3u7sucfspthz3u7sucfspv0mez1tucfspv0mez1tucfspv1mpybqucfspv1mpybqucfspvh7yd5sucfspvhetp4eucfspvhetp4eucfspvj7mgs0ucfspvj7mgs0ucfu0j196mthucfu0j196mthucfu0j58qtxyucfu0j58qtxyucfu0kghfwyeucfu0kghfwyeucfu0kuu1m0zucfu0kuu1m0zucfu0kvgthmhucfu0kvgthmhucfu0kz51s90ucfu0kz51s90ucfu0kzduh7hucfu0kzduh7hucfu0sbf6b7hucfu0sbf6b7hucfu0sf1ssspucfu0sf1ssspucfu0su2eeksucfu0su2eeksucfu0sub6h9kucfu0sub6h9kucfu0swpwrbgucfu0swpwrbgucfu0sxr4p41ucfu0sxr4p41ucfu0u9wpf88ucfu0u9wpf88ucfu0udjguz1ucfu0udvs94bucfu0uet4wmzucfu0uet4wmzucfu1h9d6dc3ucfu1hd417czucfu1hd9cnnfucfu1he19pk3ucfu1he3xfg9ucfu1hecrqr0ucfu1hs3r56pucfu1hscqcsxucfu1ht3qf4rucfu1htcqt4bucfu1hw3w8c9ucfu1hw3w8c9ucfu1hwcwmbgucfu1hx3yj0yucfu1hxfjweducfu1k86t28mucfu1k8dy8hkucfu1k8dy8hkucfu1k8fuv46ucfu1k97kdgyucfu1k9gu1fgucfu1kdk7d68ucfu1kdufdqvucfu1kem6jkqucfu1ksnxywhucfu1ksxquequcfu1kv0jym9ucfu1kv9h8xyucfu1ky1gnsducfu1kydbgk0ucfu1kygwr9zucfu1kzkddcfucfu1kztxfrzucfu1kztxfrzucfu1sbnt5k4ucfu1sbx9umhucfu1t0bwqjbucfu1t139ty3ucfu1t139ty3ucfu1t4ym4gbucfu1t4ym4gbucfu1t5resdkucfu1tk4ntz7ucfu1tk4ntz7ucfu1tx7eukjucfu1tx7eukjucfu1v8qtp8fucfu1vfyrwdbucfu1vfyrwdbucfu1yjhep3qucfu1yjhep3qucfu1yq94k7wucfu1yq94k7wucfu1yrugnmbucfu1yrugnmbucfu4n2jusngucfu4n2jusngucfu4n93wr4xucfu4n93wr4xucfu4n93wrw1ucfu4n93wrw1ucfu4n9gnw9nucfu4n9gnw9nucfu4ndt4gw9ucfu4ndt4gw9ucfu4nuehzg6ucfu4nuehzg6ucfu4nvzrbnrucfu4pp4ygjducfu4pp4ygjducfu4ppsqfgyucfu4ppsqfgyucfu4r0xhdueucfu4r39f4eeucfu4r65zky9ucfu4r65zky9ucfu4r6kwgvzucfu4r6vdxb5ucfu4r7n98n9ucfu4r7n98n9ucfu4reckdz6ucfu4rtj1s0uucfu4rtj1s0uucfu4ry1jb1mucfu4ry1jb1mucfu4rzh5u9mucfu4rzh5u9mucfu6817yjd2ucfu6817yjd2ucfu684nx6mqucfu684nx6mqucfu68710jm4ucfu68kz6c8kucfu68kz6c8kucfu68xph3dcucfu68xph3dcucfu68z2phk9ucfu68z2phk9ucfu68zc7zrcucfu68zc7zrcucfu6bcj0qprucfu6bcj0qprucfu6cqr5eebucfu6cqr5eebucfu6cx13h3sucfu6cx13h3sucfu6cxum59yucfu718z2ft4ucfu718z2ft4ucfu71c9bu97ucfu71fhnq0qucfu71fzpdkpucfu7459sudhucfu74hmp09pucfu74jpuwqzucfu76c61h9qucfu76c61h9qucfu76fnj1juucfu76fnj1juucfu7ecwcbm2ucfu7ecwcbm2ucfu7sw5rwr3ucfu7sw5rwr3ucfu7swtmu3kucfu7swtmu3kucfu7swy49gfucfu7swy49gfucfu7sz9000rucfu7sz9y7fqucfu7sz9y7fqucfu7szf6he0ucfu7ub5eh53ucfu7ub5eh53ucfu7ubhnu67ucfu7v1g74vrucfu7v1g74vrucfu7v4wex58ucfu7v4wex58ucfu7v730qdwucfu7vkyfu1yucfu7vtdnhq7ucfu7vwmmbnjucfu7vz048pxucfu7vz048pxucfukn1ezfbqucfukn1ezfbqucfukn4qufgpucfukn6c5u3qucfukn773u9yucfukn7txx06ucfukn7vbtvxucfukn7vbtvxucfuknkp2198ucfuknkp2198ucfukns2bypjucfuknseqvsxucfuknseqvsxucfukntheb6c",
+        "failmessage": "Test failed!"
+      },
+      "Test33": {
+        "name": "Value PathLen_ = '9173'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#PathLen_",
+        "operation": "=",
+        "expectedresult": 9173,
+        "failmessage": "Test failed!"
+      },
+      "Test34": {
+        "name": "Value Status_ = '0'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#Status_",
+        "operation": "=",
+        "expectedresult": 0,
+        "failmessage": "Test failed!"
+      },
+      "Test35": {
+        "name": "Value TS_ = '0'",
+        "params": "day#2017-07-01%2000:00#2018-01-05%2010:37#262012#68556607",
+		"testmethod": "GetValue",
+		"methodparams": "7#TS_",
+        "operation": "=",
+        "expectedresult": 0,
+        "failmessage": "Test failed!"
+      }
+	}
+  }
+}

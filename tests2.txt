@@ -1,0 +1,132 @@
+  "Suite3": {
+    "name": "Test for FactPoints",
+    "request": "/ils/Mnt/MntFact/data?period=&from=&till=&DeviceID=&tgc=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of points = 7743",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 7743,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of fields for element 262014 point 580 = 43",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "580",
+        "operation": "=",
+        "expectedresult": 43,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Point 539 not exists, count of elements = 0",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "539",
+        "operation": "=",
+        "expectedresult": 0,
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value DeviceID='262014'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "591#DeviceID_",
+        "operation": "=",
+        "expectedresult": "262014",
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value PointDateTime='2017-10-17 10:16:52.000'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "633#PointDateTime_",
+        "operation": "=",
+        "expectedresult": "2017-10-17 10:16:52.000",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value Latitude='55.400215148926'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "29629#Latitude_",
+        "operation": "=",
+        "expectedresult": 55.400215148926,
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value Longitude='37.540573120117'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "29629#Longitude_",
+        "operation": "=",
+        "expectedresult": 37.540573120117,
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value Speed='3.77'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "69992#Speed_",
+        "operation": "=",
+        "expectedresult": 3.77,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value Len='0.022'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "69992#Len_",
+        "operation": "=",
+        "expectedresult": 0.022,
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value Address_='Ивановская обл., Южский р-н., Костяево д.'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "309075#Address_",
+        "operation": "=",
+        "expectedresult": "Ивановская обл., Южский р-н., Костяево д."	,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value TS_='3'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "462872#TS_",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value TS_='1'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "462871#TS_",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value PointTypeID_='1'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "212192#PointTypeID_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value PointTypeID_='0'",
+        "params": "day#2017-10-01%2000%3A00#2017-10-31%2023%3A59#262014#26147674",
+		"testmethod": "GetValue",
+		"methodparams": "212197#PointTypeID_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      }
+	}
+  },
