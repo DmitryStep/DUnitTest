@@ -137,6 +137,141 @@
         "operation": "=",
         "expectedresult": 600000,
         "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value Def='UNRESOLVED'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#Def",
+        "operation": "=",
+        "expectedresult": "UNRESOLVED",
+        "failmessage": "Test failed!"
+      },
+      "Test17": {
+        "name": "Value CargoCode_='АПЗК79'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#CargoCode_",
+        "operation": "=",
+        "expectedresult": "АПЗК79",
+        "failmessage": "Test failed!"
+      },
+      "Test18": {
+        "name": "Value UnloadingClientCode_='АП0079'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadingClientCode_",
+        "operation": "=",
+        "expectedresult": "АП0079",
+        "failmessage": "Test failed!"
+      },
+      "Test19": {
+        "name": "Value ClientName_='Аптека79'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#ClientName_",
+        "operation": "=",
+        "expectedresult": "Аптека79",
+        "failmessage": "Test failed!"
+      },
+      "Test20": {
+        "name": "Value ClientAddress_='Санкт-Петербург, просп. Елизарова, 12/14'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#ClientAddress_",
+        "operation": "=",
+        "expectedresult": "Санкт-Петербург, просп. Елизарова, 12/14",
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value Resolved_='0'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#Resolved_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test22": {
+        "name": "Value UserUnits0Size_='80'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UserUnits0Size_",
+        "operation": "=",
+        "expectedresult": 80,
+        "failmessage": "Test failed!"
+      },
+      "Test23": {
+        "name": "Value LoadDateTimeStart_='60000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadDateTimeStart_",
+        "operation": "=",
+        "expectedresult": 60000,
+        "failmessage": "Test failed!"
+      },
+      "Test24": {
+        "name": "Value LoadDateTimeEnd_='25200000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadDateTimeEnd_",
+        "operation": "=",
+        "expectedresult": 25200000,
+        "failmessage": "Test failed!"
+      },
+      "Test25": {
+        "name": "Value UnloadDateTimeEnd_='86280000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadDateTimeEnd_",
+        "operation": "=",
+        "expectedresult": 86280000,
+        "failmessage": "Test failed!"
+      },
+      "Test26": {
+        "name": "Value UnloadDateTimeStart_='0'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadDateTimeStart_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test27": {
+        "name": "Value UnloadDuration_='120000'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadDuration_",
+        "operation": "=",
+        "expectedresult": 120000,
+        "failmessage": "Test failed!"
+      },
+      "Test28": {
+        "name": "Value PictureUnloading_='0'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#PictureUnloading_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test29": {
+        "name": "Value WaitForUnloading_='1'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#WaitForUnloading_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test30": {
+        "name": "Value ClientsAreBinded_='1'",
+        "params": "38#1#2",
+		"testmethod": "GetValue",
+		"methodparams": "6811#ClientsAreBinded_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
       }
 	}  
   }

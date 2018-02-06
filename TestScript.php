@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 include "TestMethods.php";
 
@@ -54,7 +54,7 @@ function GetRequest($URL, $Request_str, $Parameters_str){
     $Result = rtrim($Result, "=");
   }
   else{
-    $Result = $Request_str;
+    $Result = $Request_str.$Params[0];
   }
   $Result = $URL.$Result;
   return $Result;
@@ -150,20 +150,21 @@ function RunTest($CurlVar, $URL, $Suite, $TestCase){
   $Request = GetRequest($URL, $Suite->request, $TestCase->params);
   try{
     $Response = SendRequest($CurlVar, $Request);
-    $JSON_Response = ParseJSONResponse($Response);
     echo $Response;
+    $JSON_Response = ParseJSONResponse($Response);
   }catch(Exception $e){
     $Result = Error($TestCase, $e->GetMessage());
     $IsError = true;
   }
+  $IsError = $IsError && ($JSON_Response != null);
   if (!$IsError){
     $Method = $TestCase->testmethod;
-    if ($TestCase->methodparams != ""){
+//    if ($TestCase->methodparams != ""){
       $method_params = GetParameters($TestCase->methodparams);
       $ActualResult = $Method($JSON_Response, $method_params);
-    }else{
-      $ActualResult = $Method($JSON_Response);
-    }
+//    }else{
+//      $ActualResult = $Method($JSON_Response);
+//    }
     $Result->actual = $ActualResult;
     $Result->expected = $TestCase->expectedresult;
     $Result = AssertTest($TestCase, $ActualResult);
@@ -304,7 +305,7 @@ $URL_str = "http://test.ils-glonass.ru";
 $StartDate = Date("d.m.Y h:m:s");
 $Full_time_beg = microtime(true);
 
-$suites = ParseJSONTests(readtestfile("tests6.txt"));
+$suites = ParseJSONTests(readtestfile("tests7.txt"));
 
 $ch = create_Curl_Connect($URL_str);
 $TestIndex = 0;

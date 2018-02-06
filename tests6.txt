@@ -4,7 +4,7 @@
     "request": "/ils/Mnt/MntSensors/data?DeviceID=",
     "Tests": {
       "Test1": {
-        "name": "Count of Plan Items = 2",
+        "name": "Count of Sensor Items = 2",
         "params": "262006",
 		"testmethod": "GetCount",
 		"methodparams": "",
@@ -32,7 +32,7 @@
       },
       "Test4": {
         "name": "Value SensorName_='Одноуровневые'",
-        "params": "38#1#2",
+        "params": "262006",
 		"testmethod": "GetValue",
 		"methodparams": "single#SensorName_",
         "operation": "=",
@@ -41,7 +41,7 @@
       },
       "Test5": {
         "name": "Value Def='SensorTypeRow'",
-        "params": "38#1#2",
+        "params": "262006",
 		"testmethod": "GetValue",
 		"methodparams": "single#Def",
         "operation": "=",
@@ -50,7 +50,7 @@
       },
       "Test6": {
         "name": "Value SensorName_='Многоуровневые'",
-        "params": "38#1#2",
+        "params": "262006",
 		"testmethod": "GetValue",
 		"methodparams": "multi#SensorName_",
         "operation": "=",
@@ -59,13 +59,370 @@
       },
       "Test7": {
         "name": "Value Def='SensorTypeRow'",
-        "params": "38#1#2",
+        "params": "262006",
 		"testmethod": "GetValue",
 		"methodparams": "multi#Def",
         "operation": "=",
         "expectedresult": "SensorTypeRow",
         "failmessage": "Test failed!"
-      }
+      },
+      "Test8": {
+        "name": "Count of SingleSensor Items = 10",
+        "params": "262006",
+		"testmethod": "GetCount",
+		"methodparams": "single",
+        "operation": "=",
+        "expectedresult": 10,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Count of MultiSensor Items = 20",
+        "params": "262006",
+		"testmethod": "GetCount",
+		"methodparams": "multi",
+        "operation": "=",
+        "expectedresult": 20,
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Count of SingleSensor Item Fields = 13",
+        "params": "262006",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "single#91",
+        "operation": "=",
+        "expectedresult": 13,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Count of MultiSensor Item Fields = 13",
+        "params": "262006",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "multi#101",
+        "operation": "=",
+        "expectedresult": 13,
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value of MultiSensor SensorName_ = '---'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#101#SensorName_",
+        "operation": "=",
+        "expectedresult": "---",
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value of MultiSensor Def = 'MultiLevel'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#102#Def",
+        "operation": "=",
+        "expectedresult": "MultiLevel",
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value of MultiSensor ParamNumber_ = '3'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#103#ParamNumber_",
+        "operation": "=",
+        "expectedresult": "3",
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value of MultiSensor Active_ = '0'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#104#Active_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value of MultiSensor ValueName_ = 'null'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#105#ValueName_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test17": {
+        "name": "Value of MultiSensor MinValue_ = '-30'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#111#MinValue_",
+        "operation": "=",
+        "expectedresult": -30,
+        "failmessage": "Test failed!"
+      },
+      "Test18": {
+        "name": "Value of MultiSensor MaxValue_ = 30",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#112#MaxValue_",
+        "operation": "=",
+        "expectedresult": 30,
+        "failmessage": "Test failed!"
+      },
+      "Test19": {
+        "name": "Value of MultiSensor K0_ = '0'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#115#K0_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test20": {
+        "name": "Value of MultiSensor K2_ = '1'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "multi#116#K2_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value of SingleSensor SensorName_ = '---'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#91#SensorName_",
+        "operation": "=",
+        "expectedresult": "---",
+        "failmessage": "Test failed!"
+      },
+      "Test22": {
+        "name": "Value of SingleSensor Def = 'SingleLevel'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#92#Def",
+        "operation": "=",
+        "expectedresult": "SingleLevel",
+        "failmessage": "Test failed!"
+      },
+      "Test23": {
+        "name": "Value of SingleSensor ParamNumber_ = '3'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#93#ParamNumber_",
+        "operation": "=",
+        "expectedresult": "3",
+        "failmessage": "Test failed!"
+      },
+      "Test24": {
+        "name": "Value of SingleSensor Active_ = '0'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#94#Active_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test25": {
+        "name": "Value of SingleSensor ValueName_ = 'null'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#95#ValueName_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test26": {
+        "name": "Value of SingleSensor MinValue_ = '0'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#96#MinValue_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test27": {
+        "name": "Value of SingleSensor MaxValue_ = '1'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#97#MaxValue_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test28": {
+        "name": "Value of SingleSensor K0_ = '0'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#98#K0_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test29": {
+        "name": "Value of SingleSensor K1_ = '1'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#99#K1_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test30": {
+        "name": "Value of SingleSensor K2_ = '1'",
+        "params": "262006",
+		"testmethod": "GetValue",
+		"methodparams": "single#99#K2_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+	  }	
 	}  
-  }
+  },
+  "Suite10": {
+    "name": "Test for LgsUnresolved",
+    "request": "/ils/Lgs/LgsUnresolved/data?project=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Unresolved Items = 1",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of Unresolved SubItems = 16",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "6811",
+        "operation": "=",
+        "expectedresult": 16,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Value of Def = 'UNRESOLVED'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#Def",
+        "operation": "=",
+        "expectedresult": "UNRESOLVED",
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Value of LoadingClient_ = 'null'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadingClient_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Value of UnloadingClient_ = 'Аптека79'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadingClient_",
+        "operation": "=",
+        "expectedresult": "Аптека79",
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value of LoadingClientID_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadingClientID_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value of UnloadingClientID_ = '998'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadingClientID_",
+        "operation": "=",
+        "expectedresult": 998,
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value of UnloadingLatitude_ = '59.896734'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadingLatitude_",
+        "operation": "=",
+        "expectedresult": 59.896734,
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value of UnloadingLongitude_ = '30.42522'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UnloadingLongitude_",
+        "operation": "=",
+        "expectedresult": "30.42522",
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value of LoadingLatitude_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadingLatitude_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value of LoadingLongitude_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#LoadingLongitude_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value of UserUnits0Size_ = '80'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UserUnits0Size_",
+        "operation": "=",
+        "expectedresult": 80,
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value of UserUnits1Size_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UserUnits1Size_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value of UserUnits2Size_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UserUnits2Size_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value of UserUnits3Size_ = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#UserUnits3Size_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value of CargoName_ = 'АПЗК79'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "6811#CargoName_",
+        "operation": "=",
+        "expectedresult": " АПЗК79",
+        "failmessage": "Test failed!"
+      }
+	}
+  }  
 }

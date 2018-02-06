@@ -1,0 +1,764 @@
+{
+  "Suite11": {
+    "name": "Test for LgsPlan",
+    "request": "/ils/Lgs/LgsPlan/data?project=",
+    "Tests": {
+      "Test1": {
+        "name": "Count of Plan Items = 2",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test2": {
+        "name": "Count of Plan SubItems = 8",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "plan",
+        "operation": "=",
+        "expectedresult": 8,
+        "failmessage": "Test failed!"
+      },
+      "Test3": {
+        "name": "Count of Unused SubItems = 2",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "unused",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test4": {
+        "name": "Count of Plan Fields = 22",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan",
+        "operation": "=",
+        "expectedresult": 22,
+        "failmessage": "Test failed!"
+      },
+      "Test5": {
+        "name": "Count of Unused Fields = 7",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "unused",
+        "operation": "=",
+        "expectedresult": 7,
+        "failmessage": "Test failed!"
+      },
+      "Test6": {
+        "name": "Value of Plan Name_ = 'итоговый'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Name_",
+        "operation": "=",
+        "expectedresult": "итоговый",
+        "failmessage": "Test failed!"
+      },
+      "Test7": {
+        "name": "Value of Plan Def = 'PLAN'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Def",
+        "operation": "=",
+        "expectedresult": "PLAN",
+        "failmessage": "Test failed!"
+      },
+      "Test8": {
+        "name": "Value of Plan TimeBeg = '2017-09-14 13:54:27.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 13:54:27.000",
+        "failmessage": "Test failed!"
+      },
+      "Test9": {
+        "name": "Value of Plan CostTip = '<table class='ils-costs-table'><tr><th></th><th>Рез-т</th><th></th><th>Коэфф.</th><th></th><th>Значение</th><th></th><th>Описание</th></tr><tr><td>+</td><td>0.00</td><td>=</td><td>10000.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за неразвезенные грузы за шт</td></tr><tr><td>+</td><td colspan='5'><b>113359.41</b></td><td>-</td><td><b>Сумма стоимостей маршрутов</b></td></tr></table>'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#CostTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-costs-table'><tr><th></th><th>Рез-т</th><th></th><th>Коэфф.</th><th></th><th>Значение</th><th></th><th>Описание</th></tr><tr><td>+</td><td>0.00</td><td>=</td><td>10000.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за неразвезенные грузы за шт</td></tr><tr><td>+</td><td colspan='5'><b>113359.41</b></td><td>-</td><td><b>Сумма стоимостей маршрутов</b></td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+      "Test10": {
+        "name": "Value of Plan Latitude = '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Latitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test11": {
+        "name": "Value of Plan Longitude = '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Longitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test12": {
+        "name": "Value of Plan CanDrag = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#CanDrag",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test13": {
+        "name": "Value of Plan AmofCargo = '101'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#AmofCargo",
+        "operation": "=",
+        "expectedresult": 101,
+        "failmessage": "Test failed!"
+      },
+      "Test14": {
+        "name": "Value of Plan UserUnits0Size = '26910'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 26910,
+        "failmessage": "Test failed!"
+      },
+      "Test15": {
+        "name": "Value of Plan UserUnits1Size = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#UserUnits1Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test16": {
+        "name": "Value of Plan UserUnits2Size = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#UserUnits2Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test17": {
+        "name": "Value of Plan UserUnits3Size = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#UserUnits3Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test18": {
+        "name": "Value of Plan MaxUserUnits2Load = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#MaxUserUnits2Load",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test19": {
+        "name": "Value of Plan MaxUserUnits3Load = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#MaxUserUnits3Load",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test20": {
+        "name": "Value of Plan MaxUserUnits0Load = '33000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#MaxUserUnits0Load",
+        "operation": "=",
+        "expectedresult": 33000,
+        "failmessage": "Test failed!"
+      },
+      "Test21": {
+        "name": "Value of Plan MaxUserUnits1Load = '1900'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#MaxUserUnits1Load",
+        "operation": "=",
+        "expectedresult": 1900,
+        "failmessage": "Test failed!"
+      },
+      "Test22": {
+        "name": "Value of Plan Duration = '2.7180029715498'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Duration",
+        "operation": "=",
+        "expectedresult": 2.7180029715498,
+        "failmessage": "Test failed!"
+      },
+      "Test23": {
+        "name": "Value of Plan Distance = '1414.1'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Distance",
+        "operation": "=",
+        "expectedresult": 1414.1,
+        "failmessage": "Test failed!"
+      },
+      "Test24": {
+        "name": "Value of Plan Cost = '113359.40665964'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Cost",
+        "operation": "=",
+        "expectedresult": 113359.40665964,
+        "failmessage": "Test failed!"
+      },
+      "Test25": {
+        "name": "Value of Plan Status = '2'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#Status",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test26": {
+        "name": "Value of unused Name_ = 'Неиспользованные машины'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#Name_",
+        "operation": "=",
+        "expectedresult": "Неиспользованные машины",
+        "failmessage": "Test failed!"
+      },
+      "Test27": {
+        "name": "Value of unused Def = 'UNUSED'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#Def",
+        "operation": "=",
+        "expectedresult": "UNUSED",
+        "failmessage": "Test failed!"
+      },
+      "Test28": {
+        "name": "Value of unused Latitude = '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#Latitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test29": {
+        "name": "Value of unused Longitude = '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#Longitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test30": {
+        "name": "Value of unused CanDrag = '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#CanDrag",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test31": {
+        "name": "Count of PlanAuto 'Авто_08' SubItems = '3'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "plan#p-C556",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test32": {
+        "name": "Count of PlanAuto 'Авто_08' Fields = '32'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan#p-C556",
+        "operation": "=",
+        "expectedresult": 32,
+        "failmessage": "Test failed!"
+      },
+      "Test33": {
+        "name": "Value of PlanAuto 'Авто_08' Name_ = 'Авто_08'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C556#Name_",
+        "operation": "=",
+        "expectedresult": "Авто_08",
+        "failmessage": "Test failed!"
+      },
+      "Test34": {
+        "name": "Value of PlanAuto 'Авто_08' Def = 'ROUTE'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C556#Def",
+        "operation": "=",
+        "expectedresult": "ROUTE",
+        "failmessage": "Test failed!"
+      },
+      "Test35": {
+        "name": "Value of PlanAuto 'Авто_08' Info = 'Водитель_8'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C556#Info",
+        "operation": "=",
+        "expectedresult": "Водитель_8",
+        "failmessage": "Test failed!"
+      },
+      "Test36": {
+        "name": "Value of PlanAuto 'Авто_03' Latitude = '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C551#Latitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test37": {
+        "name": "Value of PlanAuto 'Авто_03' Longitude = 1000",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C551#Longitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test38": {
+        "name": "Value of PlanAuto 'Авто_03' AmofCargo = 17",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C551#AmofCargo",
+        "operation": "=",
+        "expectedresult": 17,
+        "failmessage": "Test failed!"
+      },
+	  "Test39": {
+        "name": "Value of PlanAuto 'Авто_03' CalcStatusTip",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C551#CalcStatusTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-errors-table'><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>% загрузки по 1 показателю: 199% - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Превышение рабочего дня: 00:34 - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 19:58 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 19:31 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 19:07 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 18:43 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 18:09 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 17:40 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 17:15 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 16:24 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>% загрузки по 1 показателю: 190% - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Превышение рабочего дня: 00:18 - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 07:04 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 06:33 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 06:11 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 05:49 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 05:09 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 04:14 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 03:50 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 03:28 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 02:45 - За пределами лимита (4 шт.)</td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+	  "Test40": {
+        "name": "Value of PlanAuto 'Авто_03' CostTip",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C551#CostTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-costs-table'><tr><th></th><th>Рез-т</th><th></th><th>Коэфф.</th><th></th><th>Значение</th><th></th><th>Описание</th></tr><tr><td>+</td><td>500.00</td><td>=</td><td>500.00</td><td>*</td><td>1.00</td><td>-</td><td>Штраф за выезд машины на рейс</td></tr><tr><td>+</td><td>15286.33</td><td>=</td><td>50.00</td><td>*</td><td>305.73</td><td>-</td><td>Штраф за выезд раньше минимального времени выезда</td></tr><tr><td>+</td><td>10.00</td><td>=</td><td>10.00</td><td>*</td><td>1.00</td><td>-</td><td>Штраф за каждый дополнительный рейс машины</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>10.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за невыполнение условия \"большой машине - большой груз\" за каждый груз</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>50.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за ожидание за каждую минуту</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за опоздание за каждую минуту</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>50.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за расход топлива</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за превышение характеристики грузов за каждую ед</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за превышение максимального количества клиентов за каждого клиента</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за превышение макс количества ходок</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за превышение максимального пути за каждый км</td></tr><tr><td>+</td><td>0.00</td><td>=</td><td>100.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за превышение суммарного времени за каждый час</td></tr><tr><td>+</td><td>69.67</td><td>=</td><td>1000.00</td><td>*</td><td>0.07</td><td>-</td><td>Штраф за разброс грузов за каждую единицу площади разброса грузов</td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+      "Test41": {
+        "name": "Value of PlanAuto 'Авто_05' UserUnits0Size = 3483",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 3483,
+        "failmessage": "Test failed!"
+      },
+      "Test42": {
+        "name": "Value of PlanAuto 'Авто_05' UserUnits1Size = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#UserUnits1Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test43": {
+        "name": "Value of PlanAuto 'Авто_05' UserUnits2Size = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#UserUnits2Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test44": {
+        "name": "Value of PlanAuto 'Авто_05' UserUnits3Size = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#UserUnits3Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test45": {
+        "name": "Value of PlanAuto 'Авто_05' MaxUserUnits0Load = 4500",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#MaxUserUnits0Load",
+        "operation": "=",
+        "expectedresult": 4500,
+        "failmessage": "Test failed!"
+      },
+      "Test46": {
+        "name": "Value of PlanAuto 'Авто_05' MaxUserUnits1Load = 300",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#MaxUserUnits1Load",
+        "operation": "=",
+        "expectedresult": 300,
+        "failmessage": "Test failed!"
+      },
+      "Test47": {
+        "name": "Value of PlanAuto 'Авто_05' MaxUserUnits2Load = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#MaxUserUnits2Load",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test48": {
+        "name": "Value of PlanAuto 'Авто_05' MaxUserUnits3Load = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#MaxUserUnits3Load",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test49": {
+        "name": "Value of PlanAuto 'Авто_05' Duration = 0.41301666276348",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#Duration",
+        "operation": "=",
+        "expectedresult": 0.41301666276348,
+        "failmessage": "Test failed!"
+      },
+      "Test50": {
+        "name": "Value of PlanAuto 'Авто_05' SummWayLength = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C553#SummWayLength",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test51": {
+        "name": "Value of PlanAuto 'Авто_09' LoadDuration = 0.19444444444444",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#LoadDuration",
+        "operation": "=",
+        "expectedresult": 0.19444444444444,
+        "failmessage": "Test failed!"
+      },
+      "Test52": {
+        "name": "Value of PlanAuto 'Авто_09' UnloadDuration = 0.18333333333333",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#UnloadDuration",
+        "operation": "=",
+        "expectedresult": 0.18333333333333,
+        "failmessage": "Test failed!"
+      },
+      "Test53": {
+        "name": "Value of PlanAuto 'Авто_09' Status = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#Status",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test54": {
+        "name": "Value of PlanAuto 'Авто_09' CategoryValues_ = null",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#CategoryValues_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test55": {
+        "name": "Value of PlanAuto 'Авто_09' PermittedZone_ = 0",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#PermittedZone_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test56": {
+        "name": "Value of PlanAuto 'Авто_09' CalcStatus = 2",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#CalcStatus",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test57": {
+        "name": "Value of PlanAuto 'Авто_09' Cost = 7621.9804326466",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#Cost",
+        "operation": "=",
+        "expectedresult": 7621.9804326466,
+        "failmessage": "Test failed!"
+      },
+      "Test58": {
+        "name": "Value of PlanAuto 'Авто_09' Distance = 206.4",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#Distance",
+        "operation": "=",
+        "expectedresult": 206.4,
+        "failmessage": "Test failed!"
+      },
+      "Test59": {
+        "name": "Value of PlanAuto 'Авто_09' TimeBeg = '2017-09-14 08:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 08:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test60": {
+        "name": "Value of PlanAuto 'Авто_09' TimeEnd = '2017-09-14 11:29:48.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C557#TimeEnd",
+        "operation": "=",
+        "expectedresult": "2017-09-14 11:29:48.000",
+        "failmessage": "Test failed!"
+      },
+      "Test61": {
+        "name": "Count of PlanAuto 'Авто_01' TRIP Fields = 26",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan#p-C549#p-T413",
+        "operation": "=",
+        "expectedresult": 26,
+        "failmessage": "Test failed!"
+      },
+      "Test62": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Def= 'TRIP'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Def",
+        "operation": "=",
+        "expectedresult": "TRIP",
+        "failmessage": "Test failed!"
+      },
+      "Test63": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Name_= '1'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Name_",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test64": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Latitude= '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Latitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test65": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Longitude= '1000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Longitude",
+        "operation": "=",
+        "expectedresult": 1000,
+        "failmessage": "Test failed!"
+      },
+      "Test66": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP GeoColor= '#DC143C'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#GeoColor",
+        "operation": "=",
+        "expectedresult": "#DC143C",
+        "failmessage": "Test failed!"
+      },
+      "Test67": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP TimeBeg= '2017-09-14 08:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 08:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test68": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP AmofCargo= '3'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#AmofCargo",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test69": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Duration= '0.12712460115759'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Duration",
+        "operation": "=",
+        "expectedresult": "0.12712460115759",
+        "failmessage": "Test failed!"
+      },
+      "Test70": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Distance= '98.61'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Distance",
+        "operation": "=",
+        "expectedresult": 98.61,
+        "failmessage": "Test failed!"
+      },
+      "Test71": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP LoadDuration= '0.041666666666667'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#LoadDuration",
+        "operation": "=",
+        "expectedresult": 0.041666666666667,
+        "failmessage": "Test failed!"
+      },
+      "Test72": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP UnloadDuration= '0.019444444444444'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#UnloadDuration",
+        "operation": "=",
+        "expectedresult": 0.019444444444444,
+        "failmessage": "Test failed!"
+      },
+      "Test73": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP UserUnits0Size= '340'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 340,
+        "failmessage": "Test failed!"
+      },
+      "Test74": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP CalcStatusTip",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#CalcStatusTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-errors-table'><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>% загрузки по 1 показателю: 14% - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>% загрузки по 2 показателю: 0% - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Превышение максимума заказов: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Превышение максимума клиентов: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Превышение рабочего дня: 00:00 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Превышение пробега: 0 км - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Опоздание: 00:00 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Прибытие заранее: 00:00 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница длин наибольшего груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница ширин наибольшего груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница высот наибольшего груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 13:45 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 13:32 - За пределами лимита (4 шт.)</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 12:57 - За пределами лимита (4 шт.)</td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+      "Test75": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP CalcStatus= '2'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#CalcStatus",
+        "operation": "=",
+        "expectedresult": 2,
+        "failmessage": "Test failed!"
+      },
+      "Test76": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP MaxUserUnits0Load= '5000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#MaxUserUnits0Load",
+        "operation": "=",
+        "expectedresult": 5000,
+        "failmessage": "Test failed!"
+      },
+      "Test77": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP MaxUserUnits1Load= '100'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#MaxUserUnits1Load",
+        "operation": "=",
+        "expectedresult": 100,
+        "failmessage": "Test failed!"
+      },
+      "Test78": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP Status= '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#Status",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test79": {
+        "name": "Value of PlanAuto 'Авто_01' TRIP CategoryValues_= 'null'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#CategoryValues_",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test80": {
+        "name": "Count of PlanAuto 'Авто_01' TRIP SubItems= '4'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "plan#p-C549#p-T413",
+        "operation": "=",
+        "expectedresult": 4,
+        "failmessage": "Test failed!"
+      },
+      "Test81": {
+        "name": "Count of PlanAuto 'Авто_01' TRIPSTART Fields= '24'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1",
+        "operation": "=",
+        "expectedresult": 24,
+        "failmessage": "Test failed!"
+      },
+      "Test82": {
+        "name": "Count of PlanAuto 'Авто_01' CLIENT Fields= '30'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1",
+        "operation": "=",
+        "expectedresult": 30,
+        "failmessage": "Test failed!"
+      },
+      "Test83": {
+        "name": "Count of PlanAuto 'Авто_01' CLIENT SubItems= '1'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test84": {
+        "name": "Count of PlanAuto 'Авто_01' TRIPSTART SubItems= '3'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      }
+	}
+  }	
+}

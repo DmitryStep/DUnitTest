@@ -1,51 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-results time="02:01:42" date="27.01.2018" notrun="0" total="7">
-  <test-suite notrun="0" name="Test for MntSensors" total="7">
+<test-results time="09:02:42" date="06.02.2018" notrun="0" total="84">
+  <test-suite notrun="0" name="Test for LgsPlan" total="84">
     <results>
-      <test-case time="0.369" name="Count of Plan Items = 2" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = '0'. Expected = '2'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.151" name="Count of fields for singleItem = 4" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = '0'. Expected = '4'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.149" name="Count of fields for multiItem = 4" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = '0'. Expected = '4'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.153" name="Value SensorName_='Одноуровневые'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = 'Одноуровневые'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.148" name="Value Def='SensorTypeRow'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = 'SensorTypeRow'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.147" name="Value SensorName_='Многоуровневые'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = 'Многоуровневые'. Operation: '='</message>
-        </failure>
-      </test-case>
-      <test-case time="0.139" name="Value Def='SensorTypeRow'" result="Failure" executed="true" success="false">
-        <failure>
-          <message>Test failed! Actual = 'null'. Expected = 'SensorTypeRow'. Operation: '='</message>
-        </failure>
-      </test-case>
+      <test-case time="2.563" name="Count of Plan Items = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="2.199" name="Count of Plan SubItems = 8" result="Pass" executed="true" success="true"/>
+      <test-case time="1.728" name="Count of Unused SubItems = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="2.313" name="Count of Plan Fields = 22" result="Pass" executed="true" success="true"/>
+      <test-case time="1.725" name="Count of Unused Fields = 7" result="Pass" executed="true" success="true"/>
+      <test-case time="1.613" name="Value of Plan Name_ = 'итоговый'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.056" name="Value of Plan Def = 'PLAN'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.168" name="Value of Plan TimeBeg = '2017-09-14 13:54:27.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.088" name="Value of Plan CostTip = '&lt;table class='ils-costs-table'&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Рез-т&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Коэфф.&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Значение&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Описание&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+&lt;/td&gt;&lt;td&gt;0.00&lt;/td&gt;&lt;td&gt;=&lt;/td&gt;&lt;td&gt;10000.00&lt;/td&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;0.00&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;Штраф за неразвезенные грузы за шт&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+&lt;/td&gt;&lt;td colspan='5'&gt;&lt;b&gt;113359.41&lt;/b&gt;&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Сумма стоимостей маршрутов&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.894" name="Value of Plan Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.966" name="Value of Plan Longitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.639" name="Value of Plan CanDrag = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.185" name="Value of Plan AmofCargo = '101'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.695" name="Value of Plan UserUnits0Size = '26910'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.485" name="Value of Plan UserUnits1Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.063" name="Value of Plan UserUnits2Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.669" name="Value of Plan UserUnits3Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="68.142" name="Value of Plan MaxUserUnits2Load = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.293" name="Value of Plan MaxUserUnits3Load = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="48.897" name="Value of Plan MaxUserUnits0Load = '33000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.343" name="Value of Plan MaxUserUnits1Load = '1900'" result="Pass" executed="true" success="true"/>
+      <test-case time="39.077" name="Value of Plan Duration = '2.7180029715498'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.225" name="Value of Plan Distance = '1414.1'" result="Pass" executed="true" success="true"/>
+      <test-case time="44.237" name="Value of Plan Cost = '113359.40665964'" result="Pass" executed="true" success="true"/>
+      <test-case time="32.704" name="Value of Plan Status = '2'" result="Pass" executed="true" success="true"/>
+      <test-case time="13.081" name="Value of unused Name_ = 'Неиспользованные машины'" result="Pass" executed="true" success="true"/>
+      <test-case time="35.677" name="Value of unused Def = 'UNUSED'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.259" name="Value of unused Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="66.319" name="Value of unused Longitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.304" name="Value of unused CanDrag = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="6.112" name="Count of PlanAuto 'Авто_08' SubItems = '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.942" name="Count of PlanAuto 'Авто_08' Fields = '32'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.031" name="Value of PlanAuto 'Авто_08' Name_ = 'Авто_08'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.25" name="Value of PlanAuto 'Авто_08' Def = 'ROUTE'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.905" name="Value of PlanAuto 'Авто_08' Info = 'Водитель_8'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.539" name="Value of PlanAuto 'Авто_03' Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.018" name="Value of PlanAuto 'Авто_03' Longitude = 1000" result="Pass" executed="true" success="true"/>
+      <test-case time="1.802" name="Value of PlanAuto 'Авто_03' AmofCargo = 17" result="Pass" executed="true" success="true"/>
+      <test-case time="2.211" name="Value of PlanAuto 'Авто_03' CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.717" name="Value of PlanAuto 'Авто_03' CostTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.613" name="Value of PlanAuto 'Авто_05' UserUnits0Size = 3483" result="Pass" executed="true" success="true"/>
+      <test-case time="2.014" name="Value of PlanAuto 'Авто_05' UserUnits1Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.91" name="Value of PlanAuto 'Авто_05' UserUnits2Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="2.628" name="Value of PlanAuto 'Авто_05' UserUnits3Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="2.074" name="Value of PlanAuto 'Авто_05' MaxUserUnits0Load = 4500" result="Pass" executed="true" success="true"/>
+      <test-case time="1.693" name="Value of PlanAuto 'Авто_05' MaxUserUnits1Load = 300" result="Pass" executed="true" success="true"/>
+      <test-case time="2.093" name="Value of PlanAuto 'Авто_05' MaxUserUnits2Load = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.737" name="Value of PlanAuto 'Авто_05' MaxUserUnits3Load = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.564" name="Value of PlanAuto 'Авто_05' Duration = 0.41301666276348" result="Pass" executed="true" success="true"/>
+      <test-case time="2.031" name="Value of PlanAuto 'Авто_05' SummWayLength = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.669" name="Value of PlanAuto 'Авто_09' LoadDuration = 0.19444444444444" result="Pass" executed="true" success="true"/>
+      <test-case time="2.116" name="Value of PlanAuto 'Авто_09' UnloadDuration = 0.18333333333333" result="Pass" executed="true" success="true"/>
+      <test-case time="1.782" name="Value of PlanAuto 'Авто_09' Status = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.646" name="Value of PlanAuto 'Авто_09' CategoryValues_ = null" result="Pass" executed="true" success="true"/>
+      <test-case time="2.371" name="Value of PlanAuto 'Авто_09' PermittedZone_ = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.757" name="Value of PlanAuto 'Авто_09' CalcStatus = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="2.132" name="Value of PlanAuto 'Авто_09' Cost = 7621.9804326466" result="Pass" executed="true" success="true"/>
+      <test-case time="1.72" name="Value of PlanAuto 'Авто_09' Distance = 206.4" result="Pass" executed="true" success="true"/>
+      <test-case time="1.546" name="Value of PlanAuto 'Авто_09' TimeBeg = '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.001" name="Value of PlanAuto 'Авто_09' TimeEnd = '2017-09-14 11:29:48.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.664" name="Count of PlanAuto 'Авто_01' TRIP Fields = 26" result="Pass" executed="true" success="true"/>
+      <test-case time="2.168" name="Value of PlanAuto 'Авто_01' TRIP Def= 'TRIP'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.844" name="Value of PlanAuto 'Авто_01' TRIP Name_= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.189" name="Value of PlanAuto 'Авто_01' TRIP Latitude= '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.706" name="Value of PlanAuto 'Авто_01' TRIP Longitude= '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.219" name="Value of PlanAuto 'Авто_01' TRIP GeoColor= '#DC143C'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.836" name="Value of PlanAuto 'Авто_01' TRIP TimeBeg= '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.265" name="Value of PlanAuto 'Авто_01' TRIP AmofCargo= '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.217" name="Value of PlanAuto 'Авто_01' TRIP Duration= '0.12712460115759'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.955" name="Value of PlanAuto 'Авто_01' TRIP Distance= '98.61'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.621" name="Value of PlanAuto 'Авто_01' TRIP LoadDuration= '0.041666666666667'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.075" name="Value of PlanAuto 'Авто_01' TRIP UnloadDuration= '0.019444444444444'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.883" name="Value of PlanAuto 'Авто_01' TRIP UserUnits0Size= '340'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.148" name="Value of PlanAuto 'Авто_01' TRIP CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.717" name="Value of PlanAuto 'Авто_01' TRIP CalcStatus= '2'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.81" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits0Load= '5000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.937" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits1Load= '100'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.571" name="Value of PlanAuto 'Авто_01' TRIP Status= '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.664" name="Value of PlanAuto 'Авто_01' TRIP CategoryValues_= 'null'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.102" name="Count of PlanAuto 'Авто_01' TRIP SubItems= '4'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.717" name="Count of PlanAuto 'Авто_01' TRIPSTART Fields= '24'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.106" name="Count of PlanAuto 'Авто_01' CLIENT Fields= '30'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.789" name="Count of PlanAuto 'Авто_01' CLIENT SubItems= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.196" name="Count of PlanAuto 'Авто_01' TRIPSTART SubItems= '3'" result="Pass" executed="true" success="true"/>
     </results>
   </test-suite>
   <statistics>
-    <Stat tests="7"/>
-    <Stat failures="7"/>
+    <Stat tests="84"/>
+    <Stat failures="0"/>
     <Stat errors="0"/>
-    <Stat success-rate="0"/>
-    <Stat started-at="27.01.2018 02:01:41"/>
-    <Stat finished-at="27.01.2018 02:01:42"/>
-    <Stat runtime="1.257"/>
+    <Stat success-rate="100"/>
+    <Stat started-at="06.02.2018 09:02:19"/>
+    <Stat finished-at="06.02.2018 09:02:42"/>
+    <Stat runtime="502.775"/>
   </statistics>
 </test-results>
