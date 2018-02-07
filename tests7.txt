@@ -76,7 +76,7 @@
         "failmessage": "Test failed!"
       },
       "Test9": {
-        "name": "Value of Plan CostTip = '<table class='ils-costs-table'><tr><th></th><th>Рез-т</th><th></th><th>Коэфф.</th><th></th><th>Значение</th><th></th><th>Описание</th></tr><tr><td>+</td><td>0.00</td><td>=</td><td>10000.00</td><td>*</td><td>0.00</td><td>-</td><td>Штраф за неразвезенные грузы за шт</td></tr><tr><td>+</td><td colspan='5'><b>113359.41</b></td><td>-</td><td><b>Сумма стоимостей маршрутов</b></td></tr></table>'",
+        "name": "Value of Plan CostTip",
         "params": "38",
 		"testmethod": "GetValue",
 		"methodparams": "plan#CostTip",
@@ -757,6 +757,582 @@
 		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1",
         "operation": "=",
         "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test85": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART Name_= '№3'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#Name_",
+        "operation": "=",
+        "expectedresult": "№3",
+        "failmessage": "Test failed!"
+      },
+      "Test86": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART Info= 'test'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#Info",
+        "operation": "=",
+        "expectedresult": "test",
+        "failmessage": "Test failed!"
+      },
+      "Test87": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART Latitude= '60.058541794319'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#Latitude",
+        "operation": "=",
+        "expectedresult": 60.058541794319,
+        "failmessage": "Test failed!"
+      },
+      "Test88": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART Longitude= '30.426212694942'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#Longitude",
+        "operation": "=",
+        "expectedresult": 30.426212694942,
+        "failmessage": "Test failed!"
+      },
+      "Test89": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART AmofCargo= '3'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#AmofCargo",
+        "operation": "=",
+        "expectedresult": 3,
+        "failmessage": "Test failed!"
+      },
+      "Test90": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART Duration= '0.020833333333333'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#Duration",
+        "operation": "=",
+        "expectedresult": 0.020833333333333,
+        "failmessage": "Test failed!"
+      },
+      "Test91": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART LoadDuration= '0.020833333333333'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#LoadDuration",
+        "operation": "=",
+        "expectedresult": 0.020833333333333,
+        "failmessage": "Test failed!"
+      },
+      "Test92": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART WayGeoHash",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#WayGeoHash",
+        "operation": "=",
+        "expectedresult": "GR2xfk4u882xfk4u882xfk4u2s2xfk4u352xfk4u3e2xfk4u3u2xfk4u6h2xfk4u7r2xfk4ue82xfk4ue82xfk4uez2xfk4uez2xfk4uup2xfk4uup2xfk4vh12xfk4vh12xfk4vs92xfk4vs92xfk4vsd2xfk4vuc2xfk4vuc2xfk4yj12xfk4yt92xfk4yt92xfk4yvy2xfk4yvy2xfk4znj2xfk4znj2xfk4zqq2xfk4zwe2xfk4zwe2xfk4zwe2xfk4zyc2xfk4zyu2xfk4zyu2xfk5pt62xfk5r3f2xfk5r662xfk5r662xfk5r6c2xfk5r722xfk5rhw2xfk5rhw2xfk5rn72xfk5rp42xfk5x012xfk5x0b2xfk5x122xfk5x422xfk5wgx2xfk5wur2xfk5wuw2xfk5wvj2xfk5wvk2xfk5wve2xfk5wve2xfk5wvc2xfk5wwp2xfk5wwb2xfk5wre2xfk5wrf2xfk5y222xfk5y0x2xfk5y1j2xfk5y1t2xfk5y1t2xfk5y1u2xfk5y4k2xfk5y4v2xfk5yjm2xfk5yjm2xfk5ynt2xfk5ypj2xfk5ypj2xfk5ypq2xfkhn0q2xfkhn1q2xfkhn1q2xfkhn5q2xfkhn5q2xfkhnhz2xfkhnpp2xfkhq382xfkhq382xfkhq602xfkhq602xfkhq702xfkhq792xfkhqm12xfkhqr42xfkhw362xfkhw362xfkhw772xfkhwkg2xfkhwq72xfkhwq72xfkhwrg2xfkhwrg2xfkhy2k2xfkhy6h2xfkhy6s2xfkhy7h2xfkhy7u2xfkhy7u2xfkhykv2xfkjn2y2xfkjn3q2xfkjn3q2xfkjn3y2xfkjnqr2xfkjnrx2xfkjq2z2xfkjqd22xfkjqd22xfkjqw12xfkjqw12xfkjqx92xfkjw8d2xfkjw9d2xfkjw9d2xfkjwe42xfkjws62xfkjws62xfkjww52xfkjww52xfkjyeh2xfkjysh2xfkjyth2xfkjywv2xfkjywv2xfknn9w2xfknn9w2xfknnen2xfknney2xfknney2xfknnsw2xfknnsz2xfknnv82xfknny12xfknnyd2xfknnz72xfknqbz2xfknqbz2xfknr452xfknr452xfknrms2xfknrmv2xfknrmv2xfknrwb2xfknx9n2xfknx9n2xfknxc82xfknxgm2xfkq8je2xfkq8nw2xfkq8pp2xfkq8r82xfkq8rb2xfkqb222xfkqb2b2xfkqb1r2xfkqb1y2xfkqbj32xfkppbu2xfkppbu2xfkppg12xfkppez2xfkppsp2xfkppsp2xfkppsp2xfkpptt2xfkpr6m2xfkpr6m2xfkpr6v2xfkpx492xfkpwyk2xfkpwyg2xfkpwz62xfkpwz92xfkpyb02xfkpy8q2xfkpy9c2xfkpy7d2xfkpvzf2xfs0j9f2xfs0j6x2xfs0jn82xfs0jn82xfs0k9n2xfs0kjp2xfs0kjm2xfs0kjg2xfs0kjg2xfs0kn42xfs0kn62xfs0kn62xfs0knb2xfs07zp2xfs07zu2xfs0en52xfs0en52xfs0enb2xfs0dzw2xfs0dzv2xfs0fbh2xfs0fbh2xfs0fbk2xfs0fbk2xfs0fbs2xfs0fc52xfs0fcg2xfs0ffd2xfs0fff2xfs0fff2xfs0fvc2xfs14f82xfs16em2xfs1ds42xfs1dw42xfs1dw42xfs1dx12xfs1dxc2xfs1dxc2xfs1f812xfs1f812xfs1fdb2xfs44rv2xfs466s2xfs46k72xfs46m52xfs46m52xfs46qe2xfs46qe2xfs4dq92xfs544n2xfs56h52xfs56he2xfs56he2xfs56j42xfs56j42xfs56jf2xfs56nf2xfs5czj2xfsh3u32xfsh9xy2xfshcxu2xfsj1dg2xfsj1sg2xfsj3s12xfsj92p2xfsj93x2xfsj93x2xfsj96r2xfsj96r2xfsj9e02xfsj9e22xfsj9t62xfsj9xy2xfsjcc22xfsjcfd2xfsjcfd2xfsjcg42xfsjcg72xfsjcuh2xfsjcuv2xfsjfj82xfsjfn62xfsjfpw2xfsn4232xfsn4232xfsn46p2xfsn4d92xfsn4df2xfsn4v72xfsn4yx2xfsn5p32xfsn7052xfsn70t2xfsn71r2xfsn73c2xfsn76g2xfsn77h2xfsn77y2xfsn7s22xfsn7t42xfsn7tv2xfsn7yb2xfsn7z42xfsn7z42xfsn7z62xfsn7z62xfsnebj2xfsnebq2xfsns172xfsns692xfsns7y2xfsnssg2xfsnstm2xfsnsvb2xfsnsvb2xfsntp22xfsnv0m2xfsnv362xfsnvd92xfsnvd92xfsnvgc2xfsnvgc2xfsnyj02xfsnynj2xfsnynj2xfspn8y2xfspn8y2xfspnfx2xfspnfx2xfspp4c2xfsppk32xfsppke2xfsppt82xfsppwt2xfsppzd2xfsprbx2xfsprbx2xfsr21y2xfsr2692xfsr27w2xfsr27z2xfsr27z2xfsr2ss2xfsr2su2xfsr2v92xfsr2v92xfsr2v92xfsr2ym2xfsr3pk2xfsr92u2xfsr9982xfsr9982xfsr9g72xfsrdjq2xfsrdqm2xfsrdx72xfsrfcp2xfsrge82xfsrgyp2xfsrgyp2xfsrupn2xfsrur32xfsrur32xfsrurd2xfsrurd2xfu2h892xfu2h892xfu2h8u2xfu2hc82xfu2hcd2xfu2j492xfu2j4g2xfu2j4g2xfu2j7g2xfu2j7g2xfu2jsf2xfu2jsf2xfu2jyk2xfu2jyk2xfu2np72xfu2npy2xfu2npy2xfu2q212xfu2q212xfu2q272xfu2q272xfu2q942xfu2qcf2xfu2r492xfu2r722xfu2r7t2xfu2rs42xfu2rsr2xfu2rus2xfu82hb2xfu82jj2xfu82m62xfu82mx2xfu82tt2xfu82vf2xfu83jg2xfu83mc2xfu83mz2xfu83tw2xfu83v92xfu83v92xfu86m32xfu86m32xfu86vj2xfu87s92xfu87u22xfu8khj2xfu8kge2xfu8kge2xfu8m592xfu8m592xfu8m7r2xfu8me52xfu8me52xfu8men2xfu8q6x2xfu8q6x2xfu8r642xfu8r642xfu8rcs2xfub2182xfub2182xfub2402xfub2572xfub2kb2xfub2kb2xfub2mv2xfub2xh2xfub2xx2xfub2xx2xfub2z82xfub2z82xfub2zc2xfub2zc2xfub8b42xfub8b52xfub8bq2xfub9092xfub90g2xfub91p2xfub91p2xfub93e2xfub93z2xfub9dq2xfub9dq2xfubd5k2xfubd5w2xfubd5w2xfubds32xfubds32xfubds62xfubds62xfubdse2xfubejy2xfubejy2xfubez72xfubez72xfubu942xfubu9h2xfubu9h2xfubu9q2xfubu9q2xfubuc22xfubv402xfubv402xfubv7p2xfubv7p2xfubvun2xfubvun2xfubyhy2xfubyhy2xfubyy12xfubyy12xfubznv2xfubzr02xfubzr02xfv10dq2xfv10dq2xfv115x2xfv115x2xfv14jy2xfv14jy2xfv14q52xfv14qm2xfv14qm2xfv179j2xfv1kgg2xfv1kgg2xfv1kgu2xfv1mh02xfv1mh02xfv1mhm2xfv1mvc2xfv1mvc2xfv1qn62xfv1qn62xfv1qnz2xfv1qnz2xfv1qzb2xfv1qzb2xfv1x082xfv1x0d2xfv1x0y2xfv1x0y2xfv1x362xfv1xgm2xfv38mh2xfv38mr2xfv38mr2xfv3c942xfv3c942xfv3c9k2xfv3c9k2xfv3cf52xfv3cf52xfv3fkq2xfv3fvv2xfv3fvv2xfv3gnz2xfv3gnz2xfv3grk2xfv3grk2xfv65852xfv65bf2xfv65bf2xfv65cn2xfv6h1e2xfv6h1e2xfv6h1y2xfv6h3f2xfv6hfn2xfv6hfn2xfv6j6m2xfv6n4e2xfv6n4x2xfv6n4x2xfv6n6z2xfv6p5r2xfv6p5r2xfv6pun2xfvd0h02xfvd0hj2xfvd0hj2xfvd0k22xfvd0k22xfvd0km2xfvd0km2xfvd0st2xfvd0sx2xfvd0sx2xfvd0u82xfvd0u82xfvd1mh2xfvd1mh2xfvd1mr2xfvd1mr2xfvd1te2xfvd1y02xfvd1y02xfvd1y12xfvd1y12xfvd4nc2xfvd4nc2xfvd4r32xfvd4r32xfvd6802xfvd6802xfvd6ch2xfvd6ch2xfvd7132xfvd7132xfvd71y2xfvd71y2xfvd76m2xfvd76m2xfvd7dg2xfvd7dg2xfvd7gd2xfvd7gd2xfvdkkb2xfvdkkb2xfvdktd2xfvdktd2xfvdktv2xfvdktv2xfvdky12xfvdky12xfvdmn82xfvdmn82xfvdmnf2xfvdmnu2xfvdmnu2xfvdt072xfvdt072xfvdt1e2xfvdt452xfvdt452xfvdt4n2xfvdt4n2xfvdt602xfvdt602xfvdtd12xfvdtd12xfvdtd42xfvdtd42xfvdtdh2xfvdtdh2xfvdtdn2xfvdtfn2xfvdtfp2xfvdtfp2xfvdw602xfvdw602xfvdw6h2xfvdwdn2xfvdwdn2xfvdx4n2xfvdx4n2xfvdx6h2xfvdx3y2xfvdx3y2xfvdx9b2xfvdxcc2xfvf81b2xfvf81c2xfvf81c2xfvf81z2xfvf89g2xfvf89u2xfvf89u2xfvf89u2xfvf89u2xfvf89z2xfvf8cc2xfvf8cc2xfvf8cy2xfvf91f2xfvf91f2xfvf91v2xfvf93b2xfvf93b2xfvf93g2xfvf99b2xfvf99b2xfvf9cd2xfvf9cd2xfvfd3t2xfvfd3t2xfvfd9d2xfvfdct2xfvfe1d2xfvfe172xfvfe172xfvfe1r2xfvfe3r2xfvfe972xfvfe972xfvfe9q2xfvfe9q2xfvfech2xfvfech2xfvfs1j2xfvfs1j2xfvfs1n2xfvfs1p2xfvfs1p2xfvfs392xfvfs7r2xfvfs7r2xfvfssg2xfvfssu2xfvfssu2xfvfsth2xfvfsy22xfvfsy22xfvfszt2xfvfszt2xfvfszx2xfvftpn2xfvftpn2xfvftqf2xfvftqf2xfvftw72xfvftw72xfvftwn2xfvftwn2xfvfwj82xfvfwj82xfvfwjm2xfvfwjm2xfvfws82xfvfws82xfvfwu42xfvfwu42xfvfwgv2xfvfwgv2xfvfx582xfvfx582xfvfx5s2xfvfx5s2xfvfx702xfvfx702xfvfx6u2xfvfx6u2xfvfxdb2xfvfxdb2xfvfxcv2xfvfxcv2xfy48892xfy48892xfy48b32xfy48b42xfy48b52xfy48b52xfy48bk2xfy48bk2xfy48cn2xfy48cn2xfy49k32xfy49k92xfy49k92xfy49kf2xfy49kf2xfy49m42xfy49x12xfy4c852xfy4c8t2xfy4c8t2xfy4c9r2xfy4cgh2xfy4cgq2xfy4cgq2xfy4cgy2xfy4cgy2xfy4fh22xfy4fh22xfy4fhd2xfy4fhd2xfy4fhg2xfy4fj52xfy4fj52xfy4fjh2xfy4fmp2xfy4fmp2xfy4ft02xfy4ft02xfy4ftn2xfy4ftn2xfy4ftp2xfy4ftp2xfy4fv52xfy4fv52xfy4fvq2xfy4fvq2xfy4gj22xfy4gj22xfy4gjm2xfy4gjm2xfy4gjq2xfy4gjq2xfy4gm72xfy4gm72xfy4gmk2xfy4gmk2xfy4gmr2xfy4gmr2xfy4gt22xfy4gt22xfy4gv22xfy4gv22xfy4gvm2xfy4gvm2xfy4gvq2xfy4uj22xfy4uj62xfy4uj62xfy4gzx2xfy4gzx2xfy55bm2xfy55bu2xfy55bu2xfy55by2xfy55by2xfy5h0b2xfy5h0b2xfy5h142xfy5h142xfy5h1h2xfy5h1h2xfy5h1p2xfy5h302xfy5h312xfy5h312xfy5h8c2xfy5h8c2xfy5h8c2xfy5h9v2xfy5h9v2xfy5hf82xfy5hf82xfy5hfb2xfy5hfb2xfy5hg12xfy5hg12xfy5hgs2xfy5hgs2xfy5hux2xfy5hux2xfy5jj62xfy5jje2xfy5jje2xfy5jju2xfy5jnj2xfy5jnq2xfy5jnq2xfy5jr02xfy5jr02xfy5m2h2xfy5m2h2xfy5m2m2xfy5m2m2xfy5m2w2xfy5m2w2xfy5m8b2xfy5m932xfy5m9d2xfy5m9d2xfy5m9g2xfy5m9g2xfy5m9g2xfy5mdm2xfy5mdy2xfy5mdy2xfy5mg32xfy5mg32xfy5muw2xfy5muw2xfy5mvp2xfy5qj22xfy5qj22xfy5qj42xfy5qjj2xfy5qkb2xfy5qkb2xfy5qkr2xfy5qkr2xfy5qs22xfy5qs22xfy5qgm2xfy5qgm2xfy5r502xfy5r502xfy5r512xfy5r512xfy5r662xfy5r662xfy5rd02xfy5r9b2xfy5rc22xfy5rc62xfy5rch2xfy5rbv2xfy72082xfy72082xfy72062xfy72062xfy72062xfy72062xfy720h2xfy720h2xfy720j2xfy720j2xfy70pv2xfy70pv2xfy70rk2xfy70rk2xfy70x62xfy70x62xfy70xr2xfy70xr2xfy70z62xfy70z62xfy70ze2xfy72bq2xfy72bx2xfy72bz2xfy731u2xfy731u2xfy737k2xfy737k2xfy73s32xfy73s32xfy73sd2xfy73sd2xfy73sg2xfy73sg2xfy73su2xfy73su2xfy73vb2xfy73vb2xfy76p22xfy76pd2xfy76pd2xfy76pd2xfy76pk2xfy76qg2xfy76qg2xfy76qt2xfy76qt2xfy76tu2xfy76tu2xfy76v22xfy76v22xfy76uv2xfy76uw2xfy76ux2xfy76ux2xfy77h32xfy775v2xfy775v2xfy775y2xfy775z2xfy775z2xfy77792xfy77772xfy77772xfy77db2xfy77db2xfy77d92xfy77d92xfy77dn2xfy77dn2xfy77ck2xfy77cm2xfy77cq2xfy77cq2xfy7k7u2xfy7kkn2xfy7kkn2xfy7ktk2xfy7ktk2xfy7kty2xfy7kty2xfy7mnj2xfy7mnn2xfy7mq02xfy7mq12xfy7mq42xfy7mq52xfy7mqj2xfy7mmy2xfy7mmz2xfy7msy2xfy7msy2xfy7q5c2xfy7q6t2xfy7q6t2xfy7qc22xfy7qbg2xfy7qbg2xfy7qcn2xfy7r122xfy7ry02xfye86x2xfye86x2xfye8u92xfye8v52xfye8vv2xfye8vy2xfye8vy2xfye9n22xfye9n22xfye9n22xfyec9f2xfyefj32xfyefjd2xfyefjd2xfys5nh2xfys5nh2xfys5rg2xfys7902xfys7uu2xfys7uu2xfys7vj2xfys7vq2xfys7vq2xfys7vx2xfys7vz2xfyskjb2xfyskjb2xfyskn32xfysknd2xfysknd2xfyss3u2xfyss3u2xfyss6q2xfyss6q2xfyss6x2xfyss6x2xfyssvb2xfysv4j2xfysv4j2xfysv712xfysv712xfysv762xfysv762xfysv7g2xfytjbu2xfytjbu2xfytn4f2xfytn572xfytn572xfytn5u2xfytnq22xfytnq22xfytqs32xfytqsf2xfytqwj2xfytqwj2xfytqwm2xfytqwm2xfytqxw2xfytwc62xfytwcd2xfytwcd2xfytwcc2xfytwcb2xfytwcb2xfytw3f2xfytw3f2xfytwf12xfytwf12xfytwfm2xfytwfm2xfytx422xfytx422xfytx4k2xfytx4k2xfyv9522xfyv9522xfyv9gg2xfyv9gg2xfyv9gy2xfyv9gy2xfyvd5c2xfyvd5c2xfyvdhh2xfyvdhh2xfyvdhj2xfyvdhj2xfyvdkn2xfyvdkn2xfyvemt2xfyvemt2xfyvey42xfyvey42xfyveyk2xfyveyq2xfyvsn82xfyvsn82xfyvsne2xfyvsne2xfyvsr42xfyvsr42xfyvv942xfyvv9q2xfyvv9q2xfyvvc62xfyvy632xfyvy632xfyvy6x2xfyvy6x2xfyvydd2xfyvydy2xfyvydy2xfyvz532xfyvz532xfyvz572xfyvz5m2xfyvz5r2xfyvz732xfyvz7n2xfyvz7n2xfyvz6z2xfyvzdw2xfzjb1u2xfzjb1u2xfzjb362xfzjb362xfzjb902xfzjb902xfzjbbd2xfzjbbd2xfzj9pz2xfzj9rb2xfzj9re2xfzj9re2xfzj9rt2xfzj9xm2xfzj9xm2xfzjdqc2xfzjdwd2xfzjdwd2xfzjdws2xfzjemt2xfzjemt2xfzjetd2xfzjets2xfzjetm2xfzjetm2xfzjskv2xfzjskv2xfzjskx2xfzjskx2xfzjss82xfzjss82xfzjt7c2xfzjt7u2xfzjt7u2xfzjtee2xfzjtew2xfzjtg22xfzjtg22xfzjx3y2xfzjx9e2xfzjx9e2xfzjx9j2xfzjx9j2xfzjx872xfzjrrn2xfzjrqs2xfzjrqs2xfzjr5e2xfzjr4c2xfzjqby2xfzjqby2xfzjnzu2xfzjnzu2xfzjntp2xfzjntp2xfzjnsw2xfzjnsj2xfzjnsj2xfzjnu42xfzjngv2xfzjngv2xfzjp762xfzjp762xfzjp772xfzjp772xfzjpfg2xfzjpfu2xfzjpfu2xfzjpfy2xfzm04s2xfzm04s2xfzm0622xfzm0622xfzm0dp2xfzm0dp2xfzm1382xfzm1382xfzm1392xfzm13r2xfzm13r2xfzm1ch2xfzm1ch2xfzm1by2xfzm1by2xfzm40c2xfzm40c2xfzm40x2xfzm40x2xfzm48m2xfzm48m2xfzm48r2xfzm48r2xfzkgpz2xfzkgrc2xfzkgrc2xfzkuyp2xfzkvn42xfzkvn42xfzkvjy2xfzkyss2xfzkyss2xfzkzhh2xfzkzhn2xfzkzhn2xfzkzk42xfzkzes2xfzkzes2xfzsb5k2xfzsb5k2xfzsb5j2xfzsb5j2xfzsb7h2xfzsb7h2xfzsbf82xfzsbf82xfzsbfr2xfzsbfr2xfzsc612xfzsc612xfzsc9b2xfzsc9b2xfzscce2xfzscce2xfzsccs2xfzsccs2xfzsg082xfzsg0k2xfzsg0k2xfzsg0v2xfzsg4p2xfzsgk12xfzsgk12xfzsgqh2xfzsgqh2xfzt5992xfzt5992xfzt5de2xfzt5de2xfzt5sw2xfzt5sw2xfzt5tr2xfzt5tr2xfzt5z32xfzt7ck2xfzt7gz2xfzt7gz2xfztkh02xfztkn72xfztkn72xfztkpv2xfztkpv2xfzts0y2xfzts0y2xfzts622xfzts622xfzts692xfzts762xfzts762xfzts7d2xfztsqq2xfztsqq2xfztsrp2xfztsxb2xfztsxb2xfztsxb2xfztsxb2xfztuev2xfztuev2xfztutx2xfztutx2xfztuy22xfztuy22xfzwhbe2xfzwhfj2xfzwhfj2xfzwhfm2xfzwhfm2xfzwhgn2xfzwhun2xfzwhvm2xfzwhyk2xfzwhz42xfzwhz42xfzwk9u2xfzwk7y2xfzwkm22xfzwkp12xfzwkp12xfzwkp72xfzwkp72xfzwkru2xfzws812xfzwt1p2xfzwt3x2xfzwtd52xfzwtg12xfzwtuq2xfzwwjk2xfzwwjk2xfzwwrw2xfzwyf12xfzwyf12xfzwzqm2xfzwzqm2xfzwzxe2xfzwzxe2xfzxpbf2xfzz0412xfzz0712xfzz0ef2xfzz0ud2xfzz0ud2xfzz1zp2xfzz1zp2xfzz71v2xfzz71v2xfzz76k2xfzz76k2xfzz7gt2xfzz7gt2xfzzkkz2xfzzktr2xfzzktr2xfzzkve2xfzzkve2xfzzmnk2xfzzmq82xfzzmx72xfzzmx72xfzzmxm2xfzzx7m2xfzzxe8884bp9p3884bp9p3884bp9px884bp9rf884bp9rf884bpc2j884bpc8y884bpc8y884bpghh884bpgk388500hbq88500hbq88500j0z88500j3h88500j3h88500j3r88500jf088500jf088500pw188500pw188500pyb88500pyg88500pyg885020ps885020ps885020rc8850222r8850222r885026h4885026h4885026t1885026tk885026tq885026tq885026vg885027nk885027rj885027rj88502t5j88502tuy88502wmd88508ben88508bgd88508ck888508ck888508ckd88508ctw88508ctw88508ctw88508ctv88508cwj88508cwm88508cww88508cwy88508cwz88508cz088508cz088508cz388508cz688508cze88508czs88508czt88508czx88508czx88508fp888508fpd88508fpe88508fpt88508fpw88508fr288508fr188508fr488508fr488508frr88508fxd88508fxd885094bk885094bk885094bm88509533885095dn885095dn885095fy885095fy88509h7g88509huc88509hvq88509hvq88509jjd88509jjd88509jjz88509jwd88509jzk88509jzk88509qcy88509rgc8850c2y48850c2yr8850cd1r8850cekj8850cekn8850cekn8850csjy8850csjy8850csz68850cszw8850cszw8850cubk8850cube8850cube8850cuee8850cuee8850f5gs8850f7618850f7618850f75m8850f7hh8850f7hh8850f7j88850f7j88850f6yp8850f6yp8850f7n58850f7n58850f7nq8850f7y28850f7y28850fkn78850fkn78850fmwd8850fmwd8850fqn98850fqn98850frnx8850frnx8850frwe8850frwe8850fryc8850fryu885142ng885142qf885142qu885142rj885142rn885142rn885142x2885142x9885142xf885142xf8851489t885148v5885148v588514c1688514c5n88514c5n88514ck388514cmv88514cwc88514cxt88515416885154168851541e8851541e8851544h8851544k8851544g88515450885151gh885151ed8851515y8851515c885150gd885150dg885150dg8850fzzd8850fzzd8850fzwg8850fzrn8850fzr78850fzrf8850gp298850gp298850gp2g8850gp3q8850gp9f8850gp9f8850gpds8850gpdu8850gpe78850gpe98850gpe88850gp7w8850gp7s8850gj788850gj5e8850ghgw8850ghg68850ghej8850ghd98850ghd98850gh6r8850gh3v8850gh3k8850gh2t8850fury8850fux38850fuwv8850fuy98850fvjy8850fvjy8850fvms8850fyj08850fykb8850fykb8850fyst8850fyst8850fzk58850fzk588514b5988514bdw88514bdw88514c9488514dwd88514dy088514dy088514ej188514ee888514ee888514efj88514s1988514s1988514kx488514m5y88514m5y88514m9d88514m9d88514nkt88511zpc88511zks88511zdj88511xzu885138jg885132vp885131vb88512fgd88512et988512s2j88512s2j88512kxh88512kvt88512mhw88512mkn88512mev88512q5288512q7j88512qdx88512qdx88512r4188512r3j88512r3j88512r8k88512pz688512pyp885180hv885180738851803d88518025884cxbr4884cxbmb884cxbhh884crzfx884crzcg884crz9p884crz2p884crz2p884crxru884crxru884crxpp884crxny884crxnt884crxnj884crxjw884crxjw884crx7q884crx7q884crxur884crxur884cx8hd884cx8mm884cx8td884cx8tz884cx8vf884cx8yh884cx9n0884cx9n5884cx9nq884cx9q7884cx9w6884cx9w6884cx9y8884cx9y8884cx9ye884cxdnb884cxdnb884cxdp1884cxdp1884cxg1u884cxgdf884cxgg2884cxgg2884cxgeu884cxgs4884cxgs1884cxgs2884cxgks884cxgkb884cxghu884cxfv2884cxfn2884cxcyd884cxcxn884cxcxn884cxcxh884cxcrx884cxcrf8851810q88518114885180cu885180en885180es885180es885180s4885180s2885180ny885180pd88512rbs88512r9q88512rd188512r6f88512r5788512qgu88512qsn88512mvs88512mwj88512mqt88512mpp88512mpe88512sbj88512sb888512s9988512s6k88512s6b88512s5t88512sh988512evs88512eyb8851348y885133nx885133nx8851390b8851390b885138sk885138sk885138sq885138u9885139mj885139mj885139me885139pp885139pp885139pv885139pv88513c0k88513c0k88513bu088513bu088513bu688513ch988513cmk88513cmk885164bp8851653p8851653p885165cv885165cv88516h4588516h4588516he088516he088516nz788516nz788516r0p88516r2488516r2488516r2m88516r2m88516r2q88516r2q88516px388516pv088516pv088516pfw",
+        "failmessage": "Test failed!"
+      },
+      "Test93": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART CalcStatusTip",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#CalcStatusTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-errors-table'><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Опоздание: 00:00 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница длин груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница ширин груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница высот груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 12:57 - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 13:32 - За пределами лимита</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 13:45 - За пределами лимита</td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+      "Test94": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART TimeBeg= '2017-09-14 08:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 08:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test95": {
+        "name": "Value of PlanAuto 'Авто_01' TRIPSTART UserUnits0Size= '340'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WG3V1#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 340,
+        "failmessage": "Test failed!"
+      },
+      "Test96": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Def= 'CLIENT'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Def",
+        "operation": "=",
+        "expectedresult": "CLIENT",
+        "failmessage": "Test failed!"
+      },
+      "Test97": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Name_= 'Аптека4'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Name_",
+        "operation": "=",
+        "expectedresult": "Аптека4",
+        "failmessage": "Test failed!"
+      },
+      "Test98": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Code= 'АП0004'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Code",
+        "operation": "=",
+        "expectedresult": "АП0004",
+        "failmessage": "Test failed!"
+      },
+      "Test99": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Info= 'Санкт-Петербург, ул. Маршала Захарова, 62'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Info",
+        "operation": "=",
+        "expectedresult": "Санкт-Петербург, ул. Маршала Захарова, 62",
+        "failmessage": "Test failed!"
+      },
+      "Test100": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Latitude= '59.8496192'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Latitude",
+        "operation": "=",
+        "expectedresult": 59.8496192,
+        "failmessage": "Test failed!"
+      },
+      "Test101": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Longitude= '30.2135689'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Longitude",
+        "operation": "=",
+        "expectedresult": 30.2135689,
+        "failmessage": "Test failed!"
+      },
+      "Test102": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT AmofCargo= '1'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#AmofCargo",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test103": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT TimeBeg= '2017-09-14 09:02:19.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 09:02:19.000",
+        "failmessage": "Test failed!"
+      },
+      "Test104": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Duration= '0.0013888888888889'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Duration",
+        "operation": "=",
+        "expectedresult": 0.0013888888888889,
+        "failmessage": "Test failed!"
+      },
+      "Test105": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT Distance= '36.349998474121'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#Distance",
+        "operation": "=",
+        "expectedresult": 36.349998474121,
+        "failmessage": "Test failed!"
+      },
+      "Test106": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UnloadDateTimeBegin= '2017-09-25 00:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#UnloadDateTimeBegin",
+        "operation": "=",
+        "expectedresult": "2017-09-25 00:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test107": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UnloadDateTimeEnd= '2017-09-14 07:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#UnloadDateTimeEnd",
+        "operation": "=",
+        "expectedresult": "2017-09-14 07:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test108": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UnloadDuration= '0.0013888888888889'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#UnloadDuration",
+        "operation": "=",
+        "expectedresult": 0.0013888888888889,
+        "failmessage": "Test failed!"
+      },
+      "Test109": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UserUnits0Size= '58'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 58,
+        "failmessage": "Test failed!"
+      },
+      "Test110": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT CalcStatusTip",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#CalcStatusTip",
+        "operation": "=",
+        "expectedresult": "<table class='ils-errors-table'><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Опоздание: 00:00 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница длин груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница ширин груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/inf.png' height='16' /></td><td>Разница высот груза и машины: 0 - ОК</td></tr><tr><td><img src='/ils/images/icon/err.png' height='16' /></td><td>Прибытие заранее: 13:45 - За пределами лимита</td></tr></table>",
+        "failmessage": "Test failed!"
+      },
+      "Test111": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING Def= 'UNLOADING'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#Def",
+        "operation": "=",
+        "expectedresult": "UNLOADING",
+        "failmessage": "Test failed!"
+      },
+      "Test112": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING Name_= ' АПЗК04'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#Name_",
+        "operation": "=",
+        "expectedresult": " АПЗК04",
+        "failmessage": "Test failed!"
+      },
+      "Test113": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING Latitude= '59.8496192'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#Latitude",
+        "operation": "=",
+        "expectedresult": 59.8496192,
+        "failmessage": "Test failed!"
+      },
+      "Test114": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING Longitude= '30.2135689'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#Longitude",
+        "operation": "=",
+        "expectedresult": 30.2135689,
+        "failmessage": "Test failed!"
+      },
+      "Test115": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING CargoToLoad= '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#CargoToLoad",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test116": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING TimeBeg= '2017-09-14 09:02:19.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#TimeBeg",
+        "operation": "=",
+        "expectedresult": "2017-09-14 09:02:19.000",
+        "failmessage": "Test failed!"
+      },
+      "Test117": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING Duration= '0.0013888888888889'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#Duration",
+        "operation": "=",
+        "expectedresult": 0.0013888888888889,
+        "failmessage": "Test failed!"
+      },
+      "Test118": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDuration= '0.0069444444444444'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#LoadDuration",
+        "operation": "=",
+        "expectedresult": 0.0069444444444444,
+        "failmessage": "Test failed!"
+      },
+      "Test119": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDuration= '0.0013888888888889'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UnloadDuration",
+        "operation": "=",
+        "expectedresult": 0.0013888888888889,
+        "failmessage": "Test failed!"
+      },
+      "Test120": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadingClientID= '923'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UnloadingClientID",
+        "operation": "=",
+        "expectedresult": 923,
+        "failmessage": "Test failed!"
+      },
+      "Test121": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits0Size= '58'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UserUnits0Size",
+        "operation": "=",
+        "expectedresult": 58,
+        "failmessage": "Test failed!"
+      },
+      "Test122": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDateTimeBegin= '2017-09-25 00:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UnloadDateTimeBegin",
+        "operation": "=",
+        "expectedresult": "2017-09-25 00:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test123": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDateTimeEnd= '2017-09-24 23:58:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UnloadDateTimeEnd",
+        "operation": "=",
+        "expectedresult": "2017-09-24 23:58:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test124": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDateTimeBegin= '2017-09-14 00:01:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#LoadDateTimeBegin",
+        "operation": "=",
+        "expectedresult": "2017-09-14 00:01:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test125": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDateTimeEnd= '2017-09-14 07:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#LoadDateTimeEnd",
+        "operation": "=",
+        "expectedresult": "2017-09-14 07:00:00.000",
+        "failmessage": "Test failed!"
+      },
+      "Test126": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits1Size= '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UserUnits1Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test127": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits2Size= '2017-09-14 07:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UserUnits2Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test128": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits3Size= '2017-09-14 07:00:00.000'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#UserUnits3Size",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test129": {
+        "name": "Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadingClientID= '0'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105#LoadingClientID",
+        "operation": "=",
+        "expectedresult": "null",
+        "failmessage": "Test failed!"
+      },
+      "Test130": {
+        "name": "Count of PlanAuto 'Авто_01' CLIENT UNLOADING Fields= '26'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "plan#p-C549#p-T413#p-T413WC923V1#p-T413A3105",
+        "operation": "=",
+        "expectedresult": 26,
+        "failmessage": "Test failed!"
+      },
+      "Test131": {
+        "name": "Count of Unused 'Авто_02' Fields= '19'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "unused#C550",
+        "operation": "=",
+        "expectedresult": 19,
+        "failmessage": "Test failed!"
+      },
+      "Test132": {
+        "name": "Value of Unused 'Авто_02' Def= 'CAR'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#Def",
+        "operation": "=",
+        "expectedresult": "CAR",
+        "failmessage": "Test failed!"
+      },
+      "Test133": {
+        "name": "Value of Unused 'Авто_02' Name_= 'Авто_02'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#Name_",
+        "operation": "=",
+        "expectedresult": "Авто_02",
+        "failmessage": "Test failed!"
+      },
+      "Test134": {
+        "name": "Value of Unused 'Авто_02' GeoColor= '#FF7F50'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#GeoColor",
+        "operation": "=",
+        "expectedresult": "#FF7F50",
+        "failmessage": "Test failed!"
+      },
+      "Test135": {
+        "name": "Count of Unused 'Авто_02' SubItems= '1'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "unused#C550",
+        "operation": "=",
+        "expectedresult": "1",
+        "failmessage": "Test failed!"
+      },
+      "Test136": {
+        "name": "Count of UNUSED_TRIP550 'Авто_02' Fields= '14'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "unused#C550#UNUSED_TRIP550",
+        "operation": "=",
+        "expectedresult": 14,
+        "failmessage": "Test failed!"
+      },
+      "Test134": {
+        "name": "Value of UNUSED_TRIP550 'Авто_02' Def= 'TRIP'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#Def",
+        "operation": "=",
+        "expectedresult": "TRIP",
+        "failmessage": "Test failed!"
+      },
+      "Test136": {
+        "name": "Count of UNUSED_TRIP550 'Авто_02' SubItems= '1'",
+        "params": "38",
+		"testmethod": "GetCount",
+		"methodparams": "unused#C550#UNUSED_TRIP550",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test136": {
+        "name": "Count of UNUSED_GARAGE550 'Авто_02' Fields= '14'",
+        "params": "38",
+		"testmethod": "GetFieldsCount",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550",
+        "operation": "=",
+        "expectedresult": 14,
+        "failmessage": "Test failed!"
+      },
+      "Test137": {
+        "name": "Value of UNUSED_TRIP550 'Авто_02' GeoColor= '#FF7F50'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#GeoColor",
+        "operation": "=",
+        "expectedresult": "#FF7F50",
+        "failmessage": "Test failed!"
+      },
+      "Test138": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' Def= 'TRIPSTART'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#Def",
+        "operation": "=",
+        "expectedresult": "TRIPSTART",
+        "failmessage": "Test failed!"
+      },
+      "Test139": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' Latitude= '60.058541794319'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#Latitude",
+        "operation": "=",
+        "expectedresult": 60.058541794319,
+        "failmessage": "Test failed!"
+      },
+      "Test140": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' Longitude= '30.426212694942'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#Longitude",
+        "operation": "=",
+        "expectedresult": 30.426212694942,
+        "failmessage": "Test failed!"
+      },
+      "Test141": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' Name_= '№3'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#Name_",
+        "operation": "=",
+        "expectedresult": "№3",
+        "failmessage": "Test failed!"
+      },
+      "Test142": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' GeoColor= '#FF7F50'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#GeoColor",
+        "operation": "=",
+        "expectedresult": "#FF7F50",
+        "failmessage": "Test failed!"
+      },
+      "Test143": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' Info= 'test'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#Info",
+        "operation": "=",
+        "expectedresult": "test",
+        "failmessage": "Test failed!"
+      },
+      "Test144": {
+        "name": "Value of UNUSED_GARAGE550 'Авто_02' no= '1'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#UNUSED_GARAGE550#no",
+        "operation": "=",
+        "expectedresult": 1,
+        "failmessage": "Test failed!"
+      },
+      "Test145": {
+        "name": "Value of UNUSED_TRIP550 'Авто_02' Name_= '1'",
+        "params": "38",
+		"testmethod": "GetValue",
+		"methodparams": "unused#C550#UNUSED_TRIP550#Name_",
+        "operation": "=",
+        "expectedresult": 1,
         "failmessage": "Test failed!"
       }
 	}

@@ -150,7 +150,7 @@ function RunTest($CurlVar, $URL, $Suite, $TestCase){
   $Request = GetRequest($URL, $Suite->request, $TestCase->params);
   try{
     $Response = SendRequest($CurlVar, $Request);
-    echo $Response;
+//    echo $Response;
     $JSON_Response = ParseJSONResponse($Response);
   }catch(Exception $e){
     $Result = Error($TestCase, $e->GetMessage());

@@ -1,100 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-results time="09:02:42" date="06.02.2018" notrun="0" total="84">
-  <test-suite notrun="0" name="Test for LgsPlan" total="84">
+<test-results time="11:02:48" date="06.02.2018" notrun="0" total="145">
+  <test-suite notrun="0" name="Test for LgsPlan" total="145">
     <results>
-      <test-case time="2.563" name="Count of Plan Items = 2" result="Pass" executed="true" success="true"/>
-      <test-case time="2.199" name="Count of Plan SubItems = 8" result="Pass" executed="true" success="true"/>
-      <test-case time="1.728" name="Count of Unused SubItems = 2" result="Pass" executed="true" success="true"/>
-      <test-case time="2.313" name="Count of Plan Fields = 22" result="Pass" executed="true" success="true"/>
-      <test-case time="1.725" name="Count of Unused Fields = 7" result="Pass" executed="true" success="true"/>
-      <test-case time="1.613" name="Value of Plan Name_ = 'итоговый'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.056" name="Value of Plan Def = 'PLAN'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.168" name="Value of Plan TimeBeg = '2017-09-14 13:54:27.000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.088" name="Value of Plan CostTip = '&lt;table class='ils-costs-table'&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Рез-т&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Коэфф.&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Значение&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;Описание&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+&lt;/td&gt;&lt;td&gt;0.00&lt;/td&gt;&lt;td&gt;=&lt;/td&gt;&lt;td&gt;10000.00&lt;/td&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;0.00&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;Штраф за неразвезенные грузы за шт&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;+&lt;/td&gt;&lt;td colspan='5'&gt;&lt;b&gt;113359.41&lt;/b&gt;&lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Сумма стоимостей маршрутов&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.894" name="Value of Plan Latitude = '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.966" name="Value of Plan Longitude = '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.639" name="Value of Plan CanDrag = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.185" name="Value of Plan AmofCargo = '101'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.695" name="Value of Plan UserUnits0Size = '26910'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.485" name="Value of Plan UserUnits1Size = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.063" name="Value of Plan UserUnits2Size = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.669" name="Value of Plan UserUnits3Size = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="68.142" name="Value of Plan MaxUserUnits2Load = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.293" name="Value of Plan MaxUserUnits3Load = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="48.897" name="Value of Plan MaxUserUnits0Load = '33000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.343" name="Value of Plan MaxUserUnits1Load = '1900'" result="Pass" executed="true" success="true"/>
-      <test-case time="39.077" name="Value of Plan Duration = '2.7180029715498'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.225" name="Value of Plan Distance = '1414.1'" result="Pass" executed="true" success="true"/>
-      <test-case time="44.237" name="Value of Plan Cost = '113359.40665964'" result="Pass" executed="true" success="true"/>
-      <test-case time="32.704" name="Value of Plan Status = '2'" result="Pass" executed="true" success="true"/>
-      <test-case time="13.081" name="Value of unused Name_ = 'Неиспользованные машины'" result="Pass" executed="true" success="true"/>
-      <test-case time="35.677" name="Value of unused Def = 'UNUSED'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.259" name="Value of unused Latitude = '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="66.319" name="Value of unused Longitude = '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.304" name="Value of unused CanDrag = '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="6.112" name="Count of PlanAuto 'Авто_08' SubItems = '3'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.942" name="Count of PlanAuto 'Авто_08' Fields = '32'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.031" name="Value of PlanAuto 'Авто_08' Name_ = 'Авто_08'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.25" name="Value of PlanAuto 'Авто_08' Def = 'ROUTE'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.905" name="Value of PlanAuto 'Авто_08' Info = 'Водитель_8'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.539" name="Value of PlanAuto 'Авто_03' Latitude = '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.018" name="Value of PlanAuto 'Авто_03' Longitude = 1000" result="Pass" executed="true" success="true"/>
-      <test-case time="1.802" name="Value of PlanAuto 'Авто_03' AmofCargo = 17" result="Pass" executed="true" success="true"/>
-      <test-case time="2.211" name="Value of PlanAuto 'Авто_03' CalcStatusTip" result="Pass" executed="true" success="true"/>
-      <test-case time="1.717" name="Value of PlanAuto 'Авто_03' CostTip" result="Pass" executed="true" success="true"/>
-      <test-case time="1.613" name="Value of PlanAuto 'Авто_05' UserUnits0Size = 3483" result="Pass" executed="true" success="true"/>
-      <test-case time="2.014" name="Value of PlanAuto 'Авто_05' UserUnits1Size = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.91" name="Value of PlanAuto 'Авто_05' UserUnits2Size = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="2.628" name="Value of PlanAuto 'Авто_05' UserUnits3Size = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="2.074" name="Value of PlanAuto 'Авто_05' MaxUserUnits0Load = 4500" result="Pass" executed="true" success="true"/>
-      <test-case time="1.693" name="Value of PlanAuto 'Авто_05' MaxUserUnits1Load = 300" result="Pass" executed="true" success="true"/>
-      <test-case time="2.093" name="Value of PlanAuto 'Авто_05' MaxUserUnits2Load = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.737" name="Value of PlanAuto 'Авто_05' MaxUserUnits3Load = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.564" name="Value of PlanAuto 'Авто_05' Duration = 0.41301666276348" result="Pass" executed="true" success="true"/>
-      <test-case time="2.031" name="Value of PlanAuto 'Авто_05' SummWayLength = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.669" name="Value of PlanAuto 'Авто_09' LoadDuration = 0.19444444444444" result="Pass" executed="true" success="true"/>
-      <test-case time="2.116" name="Value of PlanAuto 'Авто_09' UnloadDuration = 0.18333333333333" result="Pass" executed="true" success="true"/>
-      <test-case time="1.782" name="Value of PlanAuto 'Авто_09' Status = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.646" name="Value of PlanAuto 'Авто_09' CategoryValues_ = null" result="Pass" executed="true" success="true"/>
-      <test-case time="2.371" name="Value of PlanAuto 'Авто_09' PermittedZone_ = 0" result="Pass" executed="true" success="true"/>
-      <test-case time="1.757" name="Value of PlanAuto 'Авто_09' CalcStatus = 2" result="Pass" executed="true" success="true"/>
-      <test-case time="2.132" name="Value of PlanAuto 'Авто_09' Cost = 7621.9804326466" result="Pass" executed="true" success="true"/>
-      <test-case time="1.72" name="Value of PlanAuto 'Авто_09' Distance = 206.4" result="Pass" executed="true" success="true"/>
-      <test-case time="1.546" name="Value of PlanAuto 'Авто_09' TimeBeg = '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.001" name="Value of PlanAuto 'Авто_09' TimeEnd = '2017-09-14 11:29:48.000'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.664" name="Count of PlanAuto 'Авто_01' TRIP Fields = 26" result="Pass" executed="true" success="true"/>
-      <test-case time="2.168" name="Value of PlanAuto 'Авто_01' TRIP Def= 'TRIP'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.844" name="Value of PlanAuto 'Авто_01' TRIP Name_= '1'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.189" name="Value of PlanAuto 'Авто_01' TRIP Latitude= '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.706" name="Value of PlanAuto 'Авто_01' TRIP Longitude= '1000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.219" name="Value of PlanAuto 'Авто_01' TRIP GeoColor= '#DC143C'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.836" name="Value of PlanAuto 'Авто_01' TRIP TimeBeg= '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.265" name="Value of PlanAuto 'Авто_01' TRIP AmofCargo= '3'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.217" name="Value of PlanAuto 'Авто_01' TRIP Duration= '0.12712460115759'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.955" name="Value of PlanAuto 'Авто_01' TRIP Distance= '98.61'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.621" name="Value of PlanAuto 'Авто_01' TRIP LoadDuration= '0.041666666666667'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.075" name="Value of PlanAuto 'Авто_01' TRIP UnloadDuration= '0.019444444444444'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.883" name="Value of PlanAuto 'Авто_01' TRIP UserUnits0Size= '340'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.148" name="Value of PlanAuto 'Авто_01' TRIP CalcStatusTip" result="Pass" executed="true" success="true"/>
-      <test-case time="1.717" name="Value of PlanAuto 'Авто_01' TRIP CalcStatus= '2'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.81" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits0Load= '5000'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.937" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits1Load= '100'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.571" name="Value of PlanAuto 'Авто_01' TRIP Status= '0'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.664" name="Value of PlanAuto 'Авто_01' TRIP CategoryValues_= 'null'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.102" name="Count of PlanAuto 'Авто_01' TRIP SubItems= '4'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.717" name="Count of PlanAuto 'Авто_01' TRIPSTART Fields= '24'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.106" name="Count of PlanAuto 'Авто_01' CLIENT Fields= '30'" result="Pass" executed="true" success="true"/>
-      <test-case time="1.789" name="Count of PlanAuto 'Авто_01' CLIENT SubItems= '1'" result="Pass" executed="true" success="true"/>
-      <test-case time="2.196" name="Count of PlanAuto 'Авто_01' TRIPSTART SubItems= '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.376" name="Count of Plan Items = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="1.5" name="Count of Plan SubItems = 8" result="Pass" executed="true" success="true"/>
+      <test-case time="2.106" name="Count of Unused SubItems = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="2.192" name="Count of Plan Fields = 22" result="Pass" executed="true" success="true"/>
+      <test-case time="1.723" name="Count of Unused Fields = 7" result="Pass" executed="true" success="true"/>
+      <test-case time="1.499" name="Value of Plan Name_ = 'итоговый'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.855" name="Value of Plan Def = 'PLAN'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.583" name="Value of Plan TimeBeg = '2017-09-14 13:54:27.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.918" name="Value of Plan CostTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.581" name="Value of Plan Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.924" name="Value of Plan Longitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.628" name="Value of Plan CanDrag = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.465" name="Value of Plan AmofCargo = '101'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.822" name="Value of Plan UserUnits0Size = '26910'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.547" name="Value of Plan UserUnits1Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.998" name="Value of Plan UserUnits2Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.644" name="Value of Plan UserUnits3Size = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.902" name="Value of Plan MaxUserUnits2Load = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.571" name="Value of Plan MaxUserUnits3Load = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.428" name="Value of Plan MaxUserUnits0Load = '33000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.944" name="Value of Plan MaxUserUnits1Load = '1900'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.633" name="Value of Plan Duration = '2.7180029715498'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.952" name="Value of Plan Distance = '1414.1'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.567" name="Value of Plan Cost = '113359.40665964'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.966" name="Value of Plan Status = '2'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.634" name="Value of unused Name_ = 'Неиспользованные машины'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.413" name="Value of unused Def = 'UNUSED'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.893" name="Value of unused Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.637" name="Value of unused Longitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.038" name="Value of unused CanDrag = '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.537" name="Count of PlanAuto 'Авто_08' SubItems = '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.026" name="Count of PlanAuto 'Авто_08' Fields = '32'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.61" name="Value of PlanAuto 'Авто_08' Name_ = 'Авто_08'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.515" name="Value of PlanAuto 'Авто_08' Def = 'ROUTE'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.808" name="Value of PlanAuto 'Авто_08' Info = 'Водитель_8'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.707" name="Value of PlanAuto 'Авто_03' Latitude = '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.916" name="Value of PlanAuto 'Авто_03' Longitude = 1000" result="Pass" executed="true" success="true"/>
+      <test-case time="1.558" name="Value of PlanAuto 'Авто_03' AmofCargo = 17" result="Pass" executed="true" success="true"/>
+      <test-case time="2.008" name="Value of PlanAuto 'Авто_03' CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.65" name="Value of PlanAuto 'Авто_03' CostTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.945" name="Value of PlanAuto 'Авто_05' UserUnits0Size = 3483" result="Pass" executed="true" success="true"/>
+      <test-case time="1.575" name="Value of PlanAuto 'Авто_05' UserUnits1Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.402" name="Value of PlanAuto 'Авто_05' UserUnits2Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.87" name="Value of PlanAuto 'Авто_05' UserUnits3Size = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.663" name="Value of PlanAuto 'Авто_05' MaxUserUnits0Load = 4500" result="Pass" executed="true" success="true"/>
+      <test-case time="1.894" name="Value of PlanAuto 'Авто_05' MaxUserUnits1Load = 300" result="Pass" executed="true" success="true"/>
+      <test-case time="1.743" name="Value of PlanAuto 'Авто_05' MaxUserUnits2Load = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.973" name="Value of PlanAuto 'Авто_05' MaxUserUnits3Load = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.558" name="Value of PlanAuto 'Авто_05' Duration = 0.41301666276348" result="Pass" executed="true" success="true"/>
+      <test-case time="1.564" name="Value of PlanAuto 'Авто_05' SummWayLength = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.823" name="Value of PlanAuto 'Авто_09' LoadDuration = 0.19444444444444" result="Pass" executed="true" success="true"/>
+      <test-case time="1.576" name="Value of PlanAuto 'Авто_09' UnloadDuration = 0.18333333333333" result="Pass" executed="true" success="true"/>
+      <test-case time="1.999" name="Value of PlanAuto 'Авто_09' Status = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.92" name="Value of PlanAuto 'Авто_09' CategoryValues_ = null" result="Pass" executed="true" success="true"/>
+      <test-case time="1.976" name="Value of PlanAuto 'Авто_09' PermittedZone_ = 0" result="Pass" executed="true" success="true"/>
+      <test-case time="1.637" name="Value of PlanAuto 'Авто_09' CalcStatus = 2" result="Pass" executed="true" success="true"/>
+      <test-case time="1.434" name="Value of PlanAuto 'Авто_09' Cost = 7621.9804326466" result="Pass" executed="true" success="true"/>
+      <test-case time="1.863" name="Value of PlanAuto 'Авто_09' Distance = 206.4" result="Pass" executed="true" success="true"/>
+      <test-case time="1.683" name="Value of PlanAuto 'Авто_09' TimeBeg = '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.33" name="Value of PlanAuto 'Авто_09' TimeEnd = '2017-09-14 11:29:48.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.99" name="Count of PlanAuto 'Авто_01' TRIP Fields = 26" result="Pass" executed="true" success="true"/>
+      <test-case time="1.746" name="Value of PlanAuto 'Авто_01' TRIP Def= 'TRIP'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.959" name="Value of PlanAuto 'Авто_01' TRIP Name_= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.585" name="Value of PlanAuto 'Авто_01' TRIP Latitude= '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.026" name="Value of PlanAuto 'Авто_01' TRIP Longitude= '1000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.556" name="Value of PlanAuto 'Авто_01' TRIP GeoColor= '#DC143C'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.481" name="Value of PlanAuto 'Авто_01' TRIP TimeBeg= '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.822" name="Value of PlanAuto 'Авто_01' TRIP AmofCargo= '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.515" name="Value of PlanAuto 'Авто_01' TRIP Duration= '0.12712460115759'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.002" name="Value of PlanAuto 'Авто_01' TRIP Distance= '98.61'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.577" name="Value of PlanAuto 'Авто_01' TRIP LoadDuration= '0.041666666666667'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.049" name="Value of PlanAuto 'Авто_01' TRIP UnloadDuration= '0.019444444444444'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.619" name="Value of PlanAuto 'Авто_01' TRIP UserUnits0Size= '340'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.028" name="Value of PlanAuto 'Авто_01' TRIP CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.568" name="Value of PlanAuto 'Авто_01' TRIP CalcStatus= '2'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.497" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits0Load= '5000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.824" name="Value of PlanAuto 'Авто_01' TRIP MaxUserUnits1Load= '100'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.616" name="Value of PlanAuto 'Авто_01' TRIP Status= '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.88" name="Value of PlanAuto 'Авто_01' TRIP CategoryValues_= 'null'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.631" name="Count of PlanAuto 'Авто_01' TRIP SubItems= '4'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.989" name="Count of PlanAuto 'Авто_01' TRIPSTART Fields= '24'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.788" name="Count of PlanAuto 'Авто_01' CLIENT Fields= '30'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.76" name="Count of PlanAuto 'Авто_01' CLIENT SubItems= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.129" name="Count of PlanAuto 'Авто_01' TRIPSTART SubItems= '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.545" name="Value of PlanAuto 'Авто_01' TRIPSTART Name_= '№3'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.036" name="Value of PlanAuto 'Авто_01' TRIPSTART Info= 'test'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.587" name="Value of PlanAuto 'Авто_01' TRIPSTART Latitude= '60.058541794319'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.959" name="Value of PlanAuto 'Авто_01' TRIPSTART Longitude= '30.426212694942'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.636" name="Value of PlanAuto 'Авто_01' TRIPSTART AmofCargo= '3'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.405" name="Value of PlanAuto 'Авто_01' TRIPSTART Duration= '0.020833333333333'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.839" name="Value of PlanAuto 'Авто_01' TRIPSTART LoadDuration= '0.020833333333333'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.742" name="Value of PlanAuto 'Авто_01' TRIPSTART WayGeoHash" result="Pass" executed="true" success="true"/>
+      <test-case time="2.948" name="Value of PlanAuto 'Авто_01' TRIPSTART CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.778" name="Value of PlanAuto 'Авто_01' TRIPSTART TimeBeg= '2017-09-14 08:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.491" name="Value of PlanAuto 'Авто_01' TRIPSTART UserUnits0Size= '340'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.121" name="Value of PlanAuto 'Авто_01' CLIENT Def= 'CLIENT'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.618" name="Value of PlanAuto 'Авто_01' CLIENT Name_= 'Аптека4'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.99" name="Value of PlanAuto 'Авто_01' CLIENT Code= 'АП0004'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.608" name="Value of PlanAuto 'Авто_01' CLIENT Info= 'Санкт-Петербург, ул. Маршала Захарова, 62'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.05" name="Value of PlanAuto 'Авто_01' CLIENT Latitude= '59.8496192'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.601" name="Value of PlanAuto 'Авто_01' CLIENT Longitude= '30.2135689'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.1" name="Value of PlanAuto 'Авто_01' CLIENT AmofCargo= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.503" name="Value of PlanAuto 'Авто_01' CLIENT TimeBeg= '2017-09-14 09:02:19.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.513" name="Value of PlanAuto 'Авто_01' CLIENT Duration= '0.0013888888888889'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.907" name="Value of PlanAuto 'Авто_01' CLIENT Distance= '36.349998474121'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.528" name="Value of PlanAuto 'Авто_01' CLIENT UnloadDateTimeBegin= '2017-09-25 00:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.075" name="Value of PlanAuto 'Авто_01' CLIENT UnloadDateTimeEnd= '2017-09-14 07:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.643" name="Value of PlanAuto 'Авто_01' CLIENT UnloadDuration= '0.0013888888888889'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.149" name="Value of PlanAuto 'Авто_01' CLIENT UserUnits0Size= '58'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.795" name="Value of PlanAuto 'Авто_01' CLIENT CalcStatusTip" result="Pass" executed="true" success="true"/>
+      <test-case time="1.572" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING Def= 'UNLOADING'" result="Pass" executed="true" success="true"/>
+      <test-case time="3.707" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING Name_= ' АПЗК04'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.162" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING Latitude= '59.8496192'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.654" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING Longitude= '30.2135689'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.05" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING CargoToLoad= '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.286" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING TimeBeg= '2017-09-14 09:02:19.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.842" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING Duration= '0.0013888888888889'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.658" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDuration= '0.0069444444444444'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.75" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDuration= '0.0013888888888889'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.444" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadingClientID= '923'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.687" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits0Size= '58'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.465" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDateTimeBegin= '2017-09-25 00:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.977" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UnloadDateTimeEnd= '2017-09-24 23:58:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.646" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDateTimeBegin= '2017-09-14 00:01:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.421" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadDateTimeEnd= '2017-09-14 07:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.093" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits1Size= '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.616" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits2Size= '2017-09-14 07:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.417" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING UserUnits3Size= '2017-09-14 07:00:00.000'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.38" name="Value of PlanAuto 'Авто_01' CLIENT UNLOADING LoadingClientID= '0'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.626" name="Count of PlanAuto 'Авто_01' CLIENT UNLOADING Fields= '26'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.158" name="Count of Unused 'Авто_02' Fields= '19'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.121" name="Value of Unused 'Авто_02' Def= 'CAR'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.922" name="Value of Unused 'Авто_02' Name_= 'Авто_02'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.252" name="Value of UNUSED_TRIP550 'Авто_02' Def= 'TRIP'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.649" name="Count of Unused 'Авто_02' SubItems= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.026" name="Count of UNUSED_GARAGE550 'Авто_02' Fields= '14'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.848" name="Value of UNUSED_TRIP550 'Авто_02' GeoColor= '#FF7F50'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.537" name="Value of UNUSED_GARAGE550 'Авто_02' Def= 'TRIPSTART'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.119" name="Value of UNUSED_GARAGE550 'Авто_02' Latitude= '60.058541794319'" result="Pass" executed="true" success="true"/>
+      <test-case time="2.401" name="Value of UNUSED_GARAGE550 'Авто_02' Longitude= '30.426212694942'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.658" name="Value of UNUSED_GARAGE550 'Авто_02' Name_= '№3'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.476" name="Value of UNUSED_GARAGE550 'Авто_02' GeoColor= '#FF7F50'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.963" name="Value of UNUSED_GARAGE550 'Авто_02' Info= 'test'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.981" name="Value of UNUSED_GARAGE550 'Авто_02' no= '1'" result="Pass" executed="true" success="true"/>
+      <test-case time="1.808" name="Value of UNUSED_TRIP550 'Авто_02' Name_= '1'" result="Pass" executed="true" success="true"/>
     </results>
   </test-suite>
   <statistics>
-    <Stat tests="84"/>
+    <Stat tests="145"/>
     <Stat failures="0"/>
     <Stat errors="0"/>
     <Stat success-rate="100"/>
-    <Stat started-at="06.02.2018 09:02:19"/>
-    <Stat finished-at="06.02.2018 09:02:42"/>
-    <Stat runtime="502.775"/>
+    <Stat started-at="06.02.2018 11:02:21"/>
+    <Stat finished-at="06.02.2018 11:02:48"/>
+    <Stat runtime="267.111"/>
   </statistics>
 </test-results>
