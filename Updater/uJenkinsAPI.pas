@@ -21,8 +21,8 @@ type
     FPassword: string;
     function SetAuthParamsForRequest: boolean;
     function GetFullJobsPath(const AJobsPath: string): string;
-    procedure EnumJSONPairs(var AResult: TStringList; const AJSONObject: TJSONObject);
     function GetBuildFieldName(const ABuildState: TBuildState): string;
+    procedure EnumJSONPairs(var AResult: TStringList; const AJSONObject: TJSONObject);
   public
     constructor Create(const AJenkinsURL, AUsername, APassword: string);
     destructor Destroy;

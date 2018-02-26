@@ -63,6 +63,7 @@ var
   Res1: TStringList;
   i: integer;
   LastReleaseName: string;
+  ServicesList: TStringList;
 begin
   Memo1.Clear;
   ListBox1.Clear;
@@ -81,6 +82,11 @@ begin
   begin
     ListBox1.Items.Add(Res1.Strings[i]);
   end;
+  ServicesList := TStringList.Create();
+  ServicesList := ServManager.GetServicesList;
+  for i := 0 to ServicesList.Count - 1 do
+    Listbox1.Items.Add(ServicesList.Strings[i]);
+  FreeAndNil(ServicesList);
   LastReleaseName := Jenk.GetLastReleaseName('ILS Monitoring Project/ILS Monitoring Release');
   Label1.Caption := Jenk.GetLastReleaseNumber('ILS Monitoring Project/ILS Monitoring Release', 'release/') + #10#13 + LastReleaseName;
 

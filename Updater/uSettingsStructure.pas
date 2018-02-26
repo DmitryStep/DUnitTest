@@ -2,10 +2,23 @@ unit uSettingsStructure;
 
 interface
 
+uses
+  Classes;
+
 type
+  TFiles = TStringList;
+  TServices  = TStringList;
+  TTasks = TStringList;
+
   TServerSettings = packed record
     s_ServerName: string;
     s_UserName: string;
+    s_Password: string;
+  end;
+
+  TJenkinsSettings = packed record
+    s_URL: string;
+    s_User: string;
     s_Password: string;
   end;
 
@@ -16,10 +29,14 @@ type
 
   TProgramSettings = packed record
     s_ProgramName: string;
-    s_SourceURL: string;
+    s_IniSectionName: string;
     s_SourcePath: string;
     s_ReleaseTemplate: string;
     s_DestinationDir: string;
+    s_LastBuild: string;
+    sl_Files: TFiles;
+    sl_Services: TServices;
+    sl_Tasks: TTasks;
   end;
 
   TReleaseSettings = packed record
@@ -33,11 +50,8 @@ type
     s_IniFilePath: string;
   end;
 
-  TServicesNames = string;
-
   TDatabases = array of TDatabaseSettings;
   TPrograms  = array of TProgramSettings;
-  TServices  = array of TServicesNames;
 
 implementation
 

@@ -3,7 +3,7 @@ unit uServicesManager;
 interface
 
 uses
-  System.Classes, System.SysUtils, Windows, WinSvc, uShellApi;
+  System.Classes, System.SysUtils, Windows, WinSvc, uShellApi, Tlhelp32;
 
 type
   TServiceManager = class(TObject)
@@ -13,11 +13,13 @@ type
     constructor Create;
     destructor Destroy; override;
     function GetLocalName: string;
+    function GetServicesList: TStringList;
+    function FindServiceName(const AServiceNamePart: string): string;
     function GetServiceState(const aServiceName: string): DWord;
     function StopService(const aServiceName: string): boolean;
     function RunService(const aServiceName: string): boolean;
-    function ForseStopService(const aServiceName: string): boolean;
-    function ForseStartService(const aServiceName: string): boolean;
+    function KillProcess(const aTaskFileName: string): Integer;
+    function StartProcess(const aTaskFileName: string): boolean;
   end;
 
 
@@ -43,6 +45,68 @@ var
 begin
    GetComputerName(buf,sizebuf);
    Result:=StrPas(buf);
+end;
+
+
+function TServiceManager.GetServicesList: TStringList;
+var
+  SCManagerHandle: THandle;
+  ServiceMode: integer;
+  ServiceStatus: integer;
+  pcbBytesNeeded: DWORD;
+  lpServicesReturned: DWORD;
+  lpResumeHandle: DWORD;
+  i: DWORD;
+  lpServices: array of TEnumServiceStatus;
+begin
+  SCManagerHandle := OpenSCManager(PChar(FMachineName), Nil, GENERIC_READ);
+  if SCManagerHandle = 0 then Exit;
+  ServiceMode := SERVICE_WIN32;
+  ServiceStatus := SERVICE_STATE_ALL;
+  lpResumeHandle := 0;
+  EnumServicesStatus(SCManagerHandle,
+                     ServiceMode,
+                     ServiceStatus,
+                     lpServices[0],
+                     0,
+                     pcbBytesNeeded,
+                     lpServicesReturned,
+                     lpResumeHandle);
+  SetLength(lpServices, pcbBytesNeeded div SizeOf(TEnumServiceStatus) + 1);
+  lpResumeHandle := 0;
+  EnumServicesStatus(SCManagerHandle,
+                     ServiceMode,
+                     ServiceStatus,
+                     lpServices[0],
+                     Length(lpServices) * SizeOf(TEnumServiceStatus),
+                     pcbBytesNeeded,
+                     lpServicesReturned,
+                     lpResumeHandle);
+  if lpServicesReturned > 0 then
+    for i := 0 to lpServicesReturned - 1 do
+      Result.Add(lpServices[i].lpServiceName);
+  CloseServiceHandle(SCManagerHandle)
+end;
+
+
+function TServiceManager.FindServiceName(const AServiceNamePart: string): string;
+var
+  i: integer;
+  ServicesList: TStringList;
+begin
+  Result := AServiceNamePart;
+  ServicesList := TStringList.Create();
+  try
+    ServicesList := GetServicesList();
+    for i := 0 to ServicesList.Count - 1 do
+      if pos(Result, ServicesList.Strings[i]) > 0 then
+      begin
+        Result := ServicesList.Strings[i];
+        Break;
+      end;
+  finally
+    FreeAndNil(ServicesList);
+  end;
 end;
 
 
@@ -135,15 +199,33 @@ begin
 end;//StopService
 
 
-function TServiceManager.ForseStopService(const aServiceName: string): boolean;
+function TServiceManager.KillProcess(const aTaskFileName: string): Integer;
+const
+  PROCESS_TERMINATE = $0001;
+var
+  ContinueLoop: BOOL;
+  FSnapshotHandle: THandle;
+  FProcessEntry32: TProcessEntry32;
 begin
-  ShellExecute(0, '', 'TASKKILL', '/F /IM ' + aServiceName + ' /T', '', SW_HIDE);
-  Result := GetLastError = 0;
+  Result := 0;
+  FSnapshotHandle := CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+  FProcessEntry32.dwSize := SizeOf(FProcessEntry32);
+  ContinueLoop := Process32First(FSnapshotHandle, FProcessEntry32);
+  while Integer(ContinueLoop) <> 0 do
+  begin
+    if ((UpperCase(ExtractFileName(FProcessEntry32.szExeFile)) = UpperCase(aTaskFileName))
+    or (UpperCase(FProcessEntry32.szExeFile) = UpperCase(aTaskFileName))) then
+      Result := Integer(TerminateProcess(
+    OpenProcess(PROCESS_TERMINATE, BOOL(0), FProcessEntry32.th32ProcessID), 0));
+    ContinueLoop := Process32Next(FSnapshotHandle, FProcessEntry32);
+  end;
+  CloseHandle(FSnapshotHandle);
 end;
 
-function TServiceManager.ForseStartService(const aServiceName: string): boolean;
+
+function TServiceManager.StartProcess(const aTaskFileName: string): boolean;
 begin
-  ShellExecute(0, '', '', aServiceName, '', SW_HIDE);
+  ShellExecute(0, '', '', aTaskFileName, '', SW_HIDE);
   Result := GetLastError = 0;
 end;
 

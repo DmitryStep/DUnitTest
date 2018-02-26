@@ -12,10 +12,6 @@ procedure ShellExecute(const AWnd: HWND;
                        const AShowCmd: Integer = SW_SHOWNORMAL);
 procedure WinExec(const ACmdLine: String;
                   const ACmdShow: UINT = SW_SHOWNORMAL);
-procedure UnpackFiles(const ASourceZip: string;
-                      const ADestinationFolder: string);
-procedure CopyFiles(const ASource: string; const ADestination: string);
-
 
 implementation
 
@@ -87,19 +83,6 @@ begin
   {$WARN SYMBOL_PLATFORM ON}
   CloseHandle(PI.hThread);
   CloseHandle(PI.hProcess);
-end;
-
-
-procedure UnpackFiles(const ASourceZip: string;
-                      const ADestinationFolder: string);
-begin
-
-end;
-
-
-procedure CopyFiles(const ASource: string; const ADestination: string);
-begin
-
 end;
 
 

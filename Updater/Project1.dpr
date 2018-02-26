@@ -7,7 +7,10 @@ uses
   uServicesManager in 'uServicesManager.pas',
   uSettingsManager in 'uSettingsManager.pas',
   uSettingsStructure in 'uSettingsStructure.pas',
-  uShellAPI in 'uShellAPI.pas';
+  uShellAPI in 'uShellAPI.pas',
+  uController in 'uController.pas',
+  uBackupManager in 'uBackupManager.pas',
+  uUpdateManager in 'uUpdateManager.pas';
 
 {$R *.res}
 
