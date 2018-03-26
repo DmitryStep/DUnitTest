@@ -11,15 +11,26 @@ type
     FMachineName: string;
   public
     constructor Create;
-    destructor Destroy; override;
     function GetLocalName: string;
-    function GetServicesList: TStringList;
-    function FindServiceName(const AServiceNamePart: string): string;
+
+    // Возвращает список служб, содержащих в имени заданное значение
+    function GetServicesList(var AResultList: TStringList;
+                              const AServiceNamePart: string): integer;
+
+    // Возвращает состояние заданной службы
     function GetServiceState(const aServiceName: string): DWord;
+
+    // Останавливает службу
     function StopService(const aServiceName: string): boolean;
+
+    // Запускает службу
     function RunService(const aServiceName: string): boolean;
-    function KillProcess(const aTaskFileName: string): Integer;
-    function StartProcess(const aTaskFileName: string): boolean;
+
+    // Убивает таску в памяти
+    function KillTask(const aTaskFileName: string): Integer;
+
+    // Запускает файл
+    function StartTask(const aTaskFileName: string): boolean;
   end;
 
 
@@ -29,26 +40,22 @@ constructor TServiceManager.Create;
 begin
   FMachineName := GetLocalName();
   inherited Create();
-end;
-
-
-destructor TServiceManager.Destroy;
-begin
-  inherited Destroy;
-end;
+end; // Create
 
 
 function TServiceManager.GetLocalName: string;
 var
    buf: array[0..MAX_COMPUTERNAME_LENGTH] of char;
    sizebuf: dword;
+
 begin
    GetComputerName(buf,sizebuf);
    Result:=StrPas(buf);
-end;
+end; // GetLocalName
 
 
-function TServiceManager.GetServicesList: TStringList;
+function TServiceManager.GetServicesList(var AResultList: TStringList;
+                                         const AServiceNamePart: string): integer;
 var
   SCManagerHandle: THandle;
   ServiceMode: integer;
@@ -59,6 +66,7 @@ var
   i: DWORD;
   lpServices: array of TEnumServiceStatus;
 begin
+  Result := 0;
   SCManagerHandle := OpenSCManager(PChar(FMachineName), Nil, GENERIC_READ);
   if SCManagerHandle = 0 then Exit;
   ServiceMode := SERVICE_WIN32;
@@ -84,30 +92,11 @@ begin
                      lpResumeHandle);
   if lpServicesReturned > 0 then
     for i := 0 to lpServicesReturned - 1 do
-      Result.Add(lpServices[i].lpServiceName);
-  CloseServiceHandle(SCManagerHandle)
-end;
-
-
-function TServiceManager.FindServiceName(const AServiceNamePart: string): string;
-var
-  i: integer;
-  ServicesList: TStringList;
-begin
-  Result := AServiceNamePart;
-  ServicesList := TStringList.Create();
-  try
-    ServicesList := GetServicesList();
-    for i := 0 to ServicesList.Count - 1 do
-      if pos(Result, ServicesList.Strings[i]) > 0 then
-      begin
-        Result := ServicesList.Strings[i];
-        Break;
-      end;
-  finally
-    FreeAndNil(ServicesList);
-  end;
-end;
+      if pos(AServiceNamePart, lpServices[i].lpServiceName) > 0 then
+        AResultList.Add(lpServices[i].lpServiceName);
+  CloseServiceHandle(SCManagerHandle);
+  Result := AResultList.Count;
+end; // GetServicesList
 
 
 function TServiceManager.GetServiceState(const aServiceName: string): DWord;
@@ -117,6 +106,7 @@ var
   hStat: DWord;
   h_svc: SC_Handle;
 begin
+  if aServiceName = '' then Exit;
   hStat := 1;
   h_manager := OpenSCManager(PChar(FMachineName) ,nil, SC_MANAGER_CONNECT);
   if h_manager > 0 then
@@ -131,7 +121,7 @@ begin
     CloseServiceHandle(h_manager);
   end;
   Result := hStat;
-end;
+end; // GetServiceState
 
 
 function TServiceManager.RunService(const aServiceName: string): boolean;
@@ -141,6 +131,7 @@ var
   Temp: PChar;
   dwCheckPoint: DWord;
 begin
+  if aServiceName = '' then Exit;
   svc_status.dwCurrentState := 1;
   h_manager := OpenSCManager(PChar(FMachineName), nil, SC_MANAGER_CONNECT);
   if h_manager > 0 then
@@ -165,7 +156,7 @@ begin
     CloseServiceHandle(h_manager);
   end;
   Result := SERVICE_RUNNING = svc_status.dwCurrentState;
-end;
+end; // RunService
 
 
 function TServiceManager.StopService(const aServiceName: string): boolean;
@@ -174,6 +165,7 @@ var
   svc_status: TServiceStatus;
   dwCheckPoint: DWord;
 begin
+  if aServiceName = '' then Exit;
   h_manager:=OpenSCManager(PChar(FMachineName), nil, SC_MANAGER_CONNECT);
   if h_manager > 0 then
   begin
@@ -196,38 +188,48 @@ begin
     CloseServiceHandle(h_manager);
   end;
   Result := SERVICE_STOPPED = svc_status.dwCurrentState;
-end;//StopService
+end; // StopService
 
 
-function TServiceManager.KillProcess(const aTaskFileName: string): Integer;
+function TServiceManager.KillTask(const aTaskFileName: string): Integer;
 const
   PROCESS_TERMINATE = $0001;
 var
   ContinueLoop: BOOL;
   FSnapshotHandle: THandle;
   FProcessEntry32: TProcessEntry32;
+  FExeName: string;
+  ExePos: integer;
 begin
+  ExePos := pos('.exe', aTaskFileName);
+  if ExePos > 0 then
+    FExeName := Copy(aTaskFileName, 1, ExePos + 3);
   Result := 0;
-  FSnapshotHandle := CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-  FProcessEntry32.dwSize := SizeOf(FProcessEntry32);
-  ContinueLoop := Process32First(FSnapshotHandle, FProcessEntry32);
-  while Integer(ContinueLoop) <> 0 do
+  if aTaskFileName <> '' then
   begin
-    if ((UpperCase(ExtractFileName(FProcessEntry32.szExeFile)) = UpperCase(aTaskFileName))
-    or (UpperCase(FProcessEntry32.szExeFile) = UpperCase(aTaskFileName))) then
-      Result := Integer(TerminateProcess(
-    OpenProcess(PROCESS_TERMINATE, BOOL(0), FProcessEntry32.th32ProcessID), 0));
-    ContinueLoop := Process32Next(FSnapshotHandle, FProcessEntry32);
+    FSnapshotHandle := CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    FProcessEntry32.dwSize := SizeOf(FProcessEntry32);
+    ContinueLoop := Process32First(FSnapshotHandle, FProcessEntry32);
+    while Integer(ContinueLoop) <> 0 do
+    begin
+      if (UpperCase(ExtractFileName(FProcessEntry32.szExeFile)) = UpperCase(FExeName))
+          or (UpperCase(FProcessEntry32.szExeFile) = UpperCase(FExeName))
+      then
+        Result := Integer(TerminateProcess(
+      OpenProcess(PROCESS_TERMINATE, BOOL(0), FProcessEntry32.th32ProcessID), 0));
+      ContinueLoop := Process32Next(FSnapshotHandle, FProcessEntry32);
+    end;
+    CloseHandle(FSnapshotHandle);
   end;
-  CloseHandle(FSnapshotHandle);
-end;
+end; // KillProcess
 
 
-function TServiceManager.StartProcess(const aTaskFileName: string): boolean;
+function TServiceManager.StartTask(const aTaskFileName: string): boolean;
 begin
-  ShellExecute(0, '', '', aTaskFileName, '', SW_HIDE);
+  if ATaskFileName <> '' then
+    WinExec(aTaskFileName, SW_HIDE);
   Result := GetLastError = 0;
-end;
+end; // StartProcess
 
 
 end.

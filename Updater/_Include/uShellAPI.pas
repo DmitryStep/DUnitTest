@@ -5,13 +5,25 @@ interface
 uses
  ShellApi, ActiveX, Windows, SysUtils;
 
+const
+  { Дублируем ShowWindow() Commands, чтоб не подключать каждый раз ShellApi вместе с uShellAPI}
+  SW_HIDE = 0;
+  SW_SHOW = 5;
+
+
 procedure ShellExecute(const AWnd: HWND;
                        const AOperation, AFileName: String;
                        const AParameters: String = '';
                        const ADirectory: String = '';
                        const AShowCmd: Integer = SW_SHOWNORMAL);
+
 procedure WinExec(const ACmdLine: String;
                   const ACmdShow: UINT = SW_SHOWNORMAL);
+
+procedure CopyFiles(const ASourceDir: string; const ADestDir: string);
+procedure ArchiveFiles(const ASourceFiles: string; const ADestArchive: string);
+procedure UnarchiveFiles(const ASourceArchive: string; const ADestPath: string);
+
 
 implementation
 
@@ -50,7 +62,7 @@ begin
     if NeedUnitialize then
       CoUninitialize;
   end;
-end;
+end; // ShellExecute
 
 
 // Copyright from http://www.gunsmoker.ru/2015/01/never-use-ShellExecute.html
@@ -83,7 +95,50 @@ begin
   {$WARN SYMBOL_PLATFORM ON}
   CloseHandle(PI.hThread);
   CloseHandle(PI.hProcess);
-end;
+end; // WinExec
 
+
+procedure CopyFiles(const ASourceDir: string; const ADestDir: string);
+const
+  cCmdCopyTemplate = 'xcopy "<SOURCE>" "<DESTINATION>" /E /Y';
+var
+  s_CmdLine: string;
+begin
+  s_CmdLine := StringReplace(cCmdCopyTemplate, '<SOURCE>',
+                             ASourceDir, [rfReplaceAll]);
+  s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
+                             ADestDir, [rfReplaceAll]);
+  if pos('*.*', ASourceDir) = 0 then
+    s_CmdLine := StringReplace(s_CmdLine, '/E', '', [rfReplaceAll]);
+  WinExec(s_CmdLine, SW_HIDE);
+end; // CopyFiles
+
+
+procedure ArchiveFiles(const ASourceFiles: string; const ADestArchive: string);
+const
+  cCmdArchTemplate = '"c:\Program Files\7-zip\7z.exe" a -sdel -tzip -ssw -mx7 "<DESTINATION>" "<SOURCE>"';
+var
+  s_CmdLine: string;
+begin
+  s_CmdLine := StringReplace(cCmdArchTemplate, '<SOURCE>',
+                             ASourceFiles, [rfReplaceAll]);
+  s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
+                             ADestArchive, [rfReplaceAll]);
+  WinExec(s_CmdLine, SW_HIDE);
+end; // ArchiveFiles
+
+
+procedure UnarchiveFiles(const ASourceArchive: string; const ADestPath: string);
+const
+  cCmdUnArchTemplate = '"c:\Program Files\7-zip\7z.exe" x -o"<DESTINATION>" -y -aoa "<SOURCE>"';
+var
+  s_CmdLine: string;
+begin
+  s_CmdLine := StringReplace(cCmdUnArchTemplate, '<SOURCE>',
+                             ASourceArchive, [rfReplaceAll]);
+  s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
+                             ADestPath, [rfReplaceAll]);
+  WinExec(s_CmdLine, SW_HIDE);
+end; // UnarchiveFiles
 
 end.

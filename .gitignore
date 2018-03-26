@@ -6,3 +6,12 @@ Calc_2/Test/__history/
 *.res
 Calc_2/Test/Win32/Debug/dunit.ini
 *.exe
+Updater/_Include/__history/
+Updater/DesktopTest/__history/
+Updater/Service/__history/
+*.log
+Updater/Test/__history/Project1Tests.dpr.~10~
+Updater/Test/__history/Project1Tests.dpr.~11~
+Updater/Test/__history/
+*.cmd
+Updater/Test/Win32/Debug/dunit.ini
