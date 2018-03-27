@@ -118,16 +118,19 @@ var
   s_TempSrcStr: string;
 begin
   AResultList.Clear;
-  s_TempSrcStr := ASourceStr;
-  i_PosDelimiter := pos(cDelimiter, ASourceStr);
-  while i_PosDelimiter > 0 do
+  if ASourceStr <> '' then
   begin
-    s_TempStr := copy(s_TempSrcStr, 1, i_PosDelimiter - 1);
-    AResultList.Add(s_TempStr);
-    delete(s_TempSrcStr, 1, i_PosDelimiter);
-    i_PosDelimiter := pos(cDelimiter, s_TempSrcStr);
+    s_TempSrcStr := ASourceStr;
+    i_PosDelimiter := pos(cDelimiter, ASourceStr);
+    while i_PosDelimiter > 0 do
+    begin
+      s_TempStr := copy(s_TempSrcStr, 1, i_PosDelimiter - 1);
+      AResultList.Add(s_TempStr);
+      delete(s_TempSrcStr, 1, i_PosDelimiter);
+      i_PosDelimiter := pos(cDelimiter, s_TempSrcStr);
+    end;
+    AResultList.Add(s_TempSrcStr);
   end;
-  AResultList.Add(s_TempSrcStr);
 end; // StrToList
 
 
