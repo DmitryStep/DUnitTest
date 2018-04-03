@@ -9,6 +9,8 @@ const
   { Дублируем ShowWindow() Commands, чтоб не подключать каждый раз ShellApi вместе с uShellAPI}
   SW_HIDE = 0;
   SW_SHOW = 5;
+  WAIT = true;
+  NOWAIT = false;
 
 
 procedure ShellExecute(const AWnd: HWND;
@@ -18,7 +20,8 @@ procedure ShellExecute(const AWnd: HWND;
                        const AShowCmd: Integer = SW_SHOWNORMAL);
 
 procedure WinExec(const ACmdLine: String;
-                  const ACmdShow: UINT = SW_SHOWNORMAL);
+                  const ACmdShow: UINT = SW_HIDE;
+                  const AIsWait: boolean = WAIT);
 
 procedure CopyFiles(const ASourceDir: string; const ADestDir: string);
 procedure ArchiveFiles(const ASourceFiles: string; const ADestArchive: string);
@@ -67,7 +70,8 @@ end; // ShellExecute
 
 // Copyright from http://www.gunsmoker.ru/2015/01/never-use-ShellExecute.html
 procedure WinExec(const ACmdLine: String;
-                  const ACmdShow: UINT = SW_SHOWNORMAL);
+                  const ACmdShow: UINT = SW_HIDE;
+                  const AIsWait: boolean = WAIT);
 var
   SI: TStartupInfo;
   PI: TProcessInformation;
@@ -93,8 +97,16 @@ begin
                            {$ENDIF},
                            nil, nil, SI, PI));
   {$WARN SYMBOL_PLATFORM ON}
-  CloseHandle(PI.hThread);
-  CloseHandle(PI.hProcess);
+  with PI do
+  begin
+    if AIsWait then
+    begin
+      WaitForInputIdle(hProcess, INFINITE);
+      WaitforSingleObject(hProcess, INFINITE);
+    end;
+    CloseHandle(hThread);
+    CloseHandle(hProcess);
+  end
 end; // WinExec
 
 
@@ -108,9 +120,9 @@ begin
                              ASourceDir, [rfReplaceAll]);
   s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
                              ADestDir, [rfReplaceAll]);
-  if pos('*.*', ASourceDir) = 0 then
+  if (pos('*.*', ASourceDir) = 0) then
     s_CmdLine := StringReplace(s_CmdLine, '/E', '', [rfReplaceAll]);
-  WinExec(s_CmdLine, SW_HIDE);
+  WinExec(s_CmdLine, SW_HIDE, WAIT);
 end; // CopyFiles
 
 
@@ -124,7 +136,7 @@ begin
                              ASourceFiles, [rfReplaceAll]);
   s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
                              ADestArchive, [rfReplaceAll]);
-  WinExec(s_CmdLine, SW_HIDE);
+  WinExec(s_CmdLine, SW_HIDE, WAIT);
 end; // ArchiveFiles
 
 
@@ -138,7 +150,7 @@ begin
                              ASourceArchive, [rfReplaceAll]);
   s_CmdLine := StringReplace(s_CmdLine, '<DESTINATION>',
                              ADestPath, [rfReplaceAll]);
-  WinExec(s_CmdLine, SW_HIDE);
+  WinExec(s_CmdLine, SW_HIDE, WAIT);
 end; // UnarchiveFiles
 
 end.

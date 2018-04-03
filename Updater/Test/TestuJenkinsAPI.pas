@@ -13,7 +13,7 @@ interface
 
 uses
   TestFramework, System.SysUtils, DBXJSON, IdHTTP, IdTCPClient, uJenkinsAPI,
-  System.Classes, IdTCPConnection, Forms;
+  System.Classes, IdTCPConnection, Forms, uLogManager;
 
 type
   // Test methods for class TJenkinsAPI
@@ -24,6 +24,7 @@ type
     FJenkinsAPI1: TJenkinsAPI;
     FResult: TStringList;
     FFileName: string;
+    FLogManager: TLogManager;
   public
     procedure SetUp; override;
     procedure TearDown; override;
@@ -46,17 +47,20 @@ implementation
 
 procedure TestTJenkinsAPI.SetUp;
 begin
+  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true);
   FFileName := '';
   FJenkinsAPI := TJenkinsAPI.Create('http://test.ils-glonass.ru:8080/job/ILS Web Project/job/ILSWebLogistic_Release',
                                     'release/',
                                     'DStepanov',
                                     'DS123',
-                                    bsAll);
+                                    bsAll,
+                                    FLogManager);
   FJenkinsAPI1 := TJenkinsAPI.Create('http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Master',
                                     '',
                                     'DStepanov',
                                     'DS123',
-                                    bsAll);
+                                    bsAll,
+                                    FLogManager);
   FResult := TStringList.Create;
 end;
 
@@ -67,6 +71,7 @@ begin
   FreeAndNil(FResult);
   FreeAndNil(FJenkinsAPI);
   FreeAndNil(FJenkinsAPI1);
+  FreeAndNil(FLogManager);
 end;
 
 procedure TestTJenkinsAPI.TestGetReleasesList;

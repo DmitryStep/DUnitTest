@@ -7,7 +7,8 @@ uses
   uDeployManager in '..\_Include\uDeployManager.pas',
   uJenkinsAPI in '..\_Include\uJenkinsAPI.pas',
   uServicesManager in '..\_Include\uServicesManager.pas',
-  uShellAPI in '..\_Include\uShellAPI.pas';
+  uShellAPI in '..\_Include\uShellAPI.pas',
+  uLogManager in '..\_Include\uLogManager.pas';
 
 {$R *.res}
 

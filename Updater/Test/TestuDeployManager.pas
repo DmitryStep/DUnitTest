@@ -13,7 +13,7 @@ interface
 
 uses
   TestFramework, uServicesManager, uShellAPI, VCL.ExtCtrls, uDeployManager, Classes,
-  uJenkinsAPI, SysUtils, uConfigManager, Forms;
+  uJenkinsAPI, SysUtils, uConfigManager, Forms, uLogManager;
 
 type
   // Test methods for class TDeployManager
@@ -23,6 +23,7 @@ type
     FDeployManager: TDeployManager;
   private
     FConfigManager: TConfigManager;
+    FLogManager: TLogManager;
   public
     procedure SetUp; override;
     procedure TearDown; override;
@@ -38,16 +39,18 @@ implementation
 
 procedure TestTDeployManager.SetUp;
 begin
+  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true);
   FConfigManager := TConfigManager.Create(ExtractFilePath(Application.ExeName) +
                                           'testconfig.ini');
   if FConfigManager.LoadSettings then
-    FDeployManager := TDeployManager.Create(FConfigManager);
+    FDeployManager := TDeployManager.Create(FConfigManager, FLogManager);
 end;
 
 procedure TestTDeployManager.TearDown;
 begin
   FreeAndNil(FDeployManager);
   FreeAndNil(FConfigManager);
+  FreeAndNil(FLogManager);
 end;
 
 procedure TestTDeployManager.TestCreateDirectories;

@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{14759BC1-7E32-4B09-817A-D189D5EAC637}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Autodeploy.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Test\AutodeployTests.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Autodeploy">
+			<MSBuild Projects="Autodeploy.dproj"/>
+		</Target>
+		<Target Name="Autodeploy:Clean">
+			<MSBuild Projects="Autodeploy.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Autodeploy:Make">
+			<MSBuild Projects="Autodeploy.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="AutodeployTests">
+			<MSBuild Projects="Test\AutodeployTests.dproj"/>
+		</Target>
+		<Target Name="AutodeployTests:Clean">
+			<MSBuild Projects="Test\AutodeployTests.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="AutodeployTests:Make">
+			<MSBuild Projects="Test\AutodeployTests.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Autodeploy;AutodeployTests"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Autodeploy:Clean;AutodeployTests:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Autodeploy:Make;AutodeployTests:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

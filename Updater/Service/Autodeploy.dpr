@@ -2,14 +2,20 @@ program Autodeploy;
 
 uses
   Vcl.SvcMgr,
-  uAutodeployService in 'uAutodeployService.pas' {AutodeployService: TService},
+  uAutodeployService in 'uAutodeployService.pas' {ILSAutodeployService: TService},
   uConfigManager in '..\_Include\uConfigManager.pas',
   uDeployManager in '..\_Include\uDeployManager.pas',
   uJenkinsAPI in '..\_Include\uJenkinsAPI.pas',
   uServicesManager in '..\_Include\uServicesManager.pas',
-  uShellAPI in '..\_Include\uShellAPI.pas';
+  uShellAPI in '..\_Include\uShellAPI.pas',
+  uLogManager in '..\_Include\uLogManager.pas',
+  SysUtils;
 
 {$R *.RES}
+
+
+var
+  WorkParam: string;
 
 begin
   // Windows 2003 Server requires StartServiceCtrlDispatcher to be
@@ -28,6 +34,17 @@ begin
   //
   if not Application.DelayInitialize or Application.Installing then
     Application.Initialize;
-  Application.CreateForm(TAutodeployService, AutodeployService);
+  Application.CreateForm(TILSAutodeployService, ILSAutodeployService);
+  WorkParam := ILSAutodeployService.GetServiceInstance;
+  if ( WorkParam <> '') then
+  begin
+    ILSAutodeployService.Name := 'ILSAutodeployService_' + WorkParam;
+    ILSAutodeployService.DisplayName := 'ILS Autodeploy Service ' + WorkParam;
+  end
+  else
+  begin
+    ILSAutodeployService.Name := 'ILSAutodeployService';
+    ILSAutodeployService.DisplayName := 'ILS Autodeploy Service ';
+  end;
   Application.Run;
 end.

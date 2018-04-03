@@ -1,6 +1,10 @@
-object AutodeployService: TAutodeployService
+object ILSAutodeployService: TILSAutodeployService
   OldCreateOrder = False
-  DisplayName = 'AutodeployService'
+  AllowPause = False
+  DisplayName = 'ILS Autodeploy Service '
+  BeforeInstall = ServiceBeforeInstallUninstall
+  AfterInstall = ServiceAfterInstall
+  BeforeUninstall = ServiceBeforeInstallUninstall
   OnStart = ServiceStart
   OnStop = ServiceStop
   Height = 150

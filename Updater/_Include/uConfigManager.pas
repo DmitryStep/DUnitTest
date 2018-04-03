@@ -6,6 +6,21 @@ uses
   System.SysUtils, System.Classes, System.IniFiles, Forms;
 
 type
+  TLoggerSettings = packed record
+    s_LogDir: string;
+    s_LogFileName: string;
+    b_IsUseDataInLogFilename: boolean;
+    s_LogDetalization: string;
+    s_IsUseErrorFile: boolean;
+  end;
+
+  TProxySettings = packed record
+    s_ProxyHost: string;
+    i_ProxyPort: integer;
+    s_ProxyUser: string;
+    s_ProxyPass: string;
+  end;
+
   TGlobalSettings = packed record
     s_JenkinsUser: string;
     s_JenkinsPass: string;
@@ -18,6 +33,10 @@ type
     i_CheckPeriod: integer;
     s_TempDir: string;
     b_IsMaster: boolean;
+    b_IsArchiveOld: boolean;
+    s_ArchiveDir: string;
+    LoggerSettings: TLoggerSettings;
+    ProxySettings: TProxySettings;
   end;
 
   TDatabaseSettings = packed record
@@ -90,6 +109,7 @@ begin
   inherited Create(FIniFile);
 end; // Create
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 destructor TConfigManager.Destroy;
 var
@@ -106,6 +126,7 @@ begin
   inherited Destroy;
 end; // Destroy
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 procedure TConfigManager.StrToList(var AResultList: TStringList;
                                    const ASourceStr: string);
@@ -133,6 +154,7 @@ begin
   end;
 end; // StrToList
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 procedure TConfigManager.LoadGlobalSettings;
 begin
@@ -141,19 +163,48 @@ begin
     s_JenkinsUser := ReadString('GLOBAL', 'JENKINSUSER', '');
     s_JenkinsPass := ReadString('GLOBAL', 'JENKINSPASS', '');
     s_DatabaseServer := ReadString('GLOBAL', 'DBSERVER', '');
-    s_DatabaseUser := ReadString('GLOBAL', 'DBUSER', 'sa');
-    s_DatabasePass := ReadString('GLOBAL', 'DBPASS', 'SAsql123');
+    s_DatabaseUser := ReadString('GLOBAL', 'DBUSER', '');
+    s_DatabasePass := ReadString('GLOBAL', 'DBPASS', '');
     s_DBUpdaterDir := ReadString('GLOBAL', 'DBUPDATER', '');
     s_CurrentRelease := ReadString('GLOBAL', 'RELEASE', '7.0.0');
+    if s_CurrentRelease = '' then
+      s_CurrentRelease := '7.0.0';
     b_UseStableBuilds := ReadBool('GLOBAL', 'USESTABLEBUILDS', true);
     i_CheckPeriod := ReadInteger('GLOBAL', 'CHECKPERIOD', 0);
     s_TempDir := ReadString('GLOBAL',
                             'TEMPDIR',
-                            ExtractFilePath(Application.ExeName) + 'TEMP');
+                            ExtractFilePath(ParamStr(0)) + 'TEMP');
+    if s_TempDir = '' then
+      s_TempDir := ExtractFilePath(ParamStr(0)) + 'TEMP';
     b_IsMaster := ReadBool('GLOBAL', 'MASTER', true);
+    b_IsArchiveOld := ReadBool('GLOBAL', 'ARCHIVE', true);
+    s_ArchiveDir := ReadString('GLOBAL',
+                               'ARCHIVEDIR',
+                               ExtractFilePath(ParamStr(0)) + 'ARCHIVE');
+    if s_ArchiveDir = '' then
+      s_ArchiveDir := ExtractFilePath(ParamStr(0)) + 'ARCHIVE';
+
+    ProxySettings.s_ProxyHost := ReadString('PROXY', 'SERVER', '');
+    ProxySettings.i_ProxyPort := ReadInteger('PROXY', 'PORT', 3128);
+    ProxySettings.s_ProxyUser := ReadString('PROXY', 'USER', '');
+    ProxySettings.s_ProxyPass := ReadString('PROXY', 'PASSWORD', '');
+
+    LoggerSettings.s_LogDir :=  ReadString('LOGGER', 'LOGDIR',
+                            ExtractFilePath(ParamStr(0)) + 'LOGS');
+    if LoggerSettings.s_LogDir = '' then
+      LoggerSettings.s_LogDir := ExtractFilePath(ParamStr(0)) + 'LOGS';
+    LoggerSettings.s_LogFileName := ReadString('LOGGER', 'LOGFILE', 'LogFile.log');
+    if LoggerSettings.s_LogFileName = '' then
+      LoggerSettings.s_LogFileName := 'LogFile.log';
+    LoggerSettings.b_IsUseDataInLogFilename := ReadBool('LOGGER', 'USEDATAINFILENAME', true);
+    LoggerSettings.s_IsUseErrorFile := ReadBool('LOGGER', 'USEERRORFILE', true);
+    LoggerSettings.s_LogDetalization := ReadString('LOGGER', 'DETALIZATION', 'INFO');
+    if LoggerSettings.s_LogDetalization = '' then
+      LoggerSettings.s_LogDetalization := 'INFO';
   end;
 end; // LoadGlobalSettings
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 procedure TConfigManager.LoadProgramsSettings;
 var
@@ -175,9 +226,13 @@ begin
         s_SourceUser := ReadString(s_Sections.Strings[i],
                                    'USER',
                                    FGlobalSettings.s_JenkinsUser);
+        if s_SourceUser = '' then
+          s_SourceUser := FGlobalSettings.s_JenkinsUser;
         s_SourcePass := ReadString(s_Sections.Strings[i],
                                    'PASS',
                                    FGlobalSettings.s_JenkinsPass);
+        if s_SourcePass = '' then
+          s_SourcePass := FGlobalSettings.s_JenkinsPass;
         s_SourceReleaseDir := ReadString(s_Sections.Strings[i],
                                          'RELEASESRC',
                                          '');
@@ -185,12 +240,18 @@ begin
         Database.s_DatabaseServer := ReadString(s_Sections.Strings[i],
                                        'DBSERVER',
                                        FGlobalSettings.s_DatabaseServer);
+        if Database.s_DatabaseServer = '' then
+          Database.s_DatabaseServer := FGlobalSettings.s_DatabaseServer;
         Database.s_DatabaseUser := ReadString(s_Sections.Strings[i],
                                      'DBUSER',
                                      FGlobalSettings.s_DatabaseUser);
+        if Database.s_DatabaseUser = '' then
+          Database.s_DatabaseUser := FGlobalSettings.s_DatabaseUser;
         Database.s_DatabasePass := ReadString(s_Sections.Strings[i],
                                      'DBPASS',
                                      FGlobalSettings.s_DatabasePass);
+        if Database.s_DatabasePass = '' then
+          Database.s_DatabasePass := FGlobalSettings.s_DatabasePass;
         Database.s_DatabaseName := ReadString(s_Sections.Strings[i],
                                               'DBNAME', '');
         s_TempStr := ReadString(s_Sections.Strings[i], 'FILES', '');
@@ -203,6 +264,8 @@ begin
         sl_ProgramTasks := TStringList.Create;
         StrToList(sl_ProgramTasks, s_TempStr);
         s_CurrentBuild := ReadString(s_Sections.Strings[i], 'BUILD', '0');
+        if s_CurrentBuild = '' then
+          s_CurrentBuild := '0';
         b_IsDeploy := ReadBool(s_Sections.Strings[i], 'DEPLOY', true);
         b_IsZipPacked := ReadBool(s_Sections.Strings[i], 'PACKED', true);
       end;
@@ -210,6 +273,7 @@ begin
   FreeAndNil(s_Sections);
 end; // LoadProgramsSettings
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 function TConfigManager.LoadSettings: boolean;
 begin
@@ -222,6 +286,7 @@ begin
   end;
 end; // LoadSettings
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 procedure TConfigManager.SetRelease(const AReleaseNumber: string);
 begin
@@ -229,6 +294,7 @@ begin
   FGlobalSettings.s_CurrentRelease := AReleaseNumber;
 end; // SetRelease
 
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 procedure TConfigManager.SetBuild(var AProgram: TProgramSettings;
                                   const ABuildNumber: string);
@@ -237,5 +303,4 @@ begin
   AProgram.s_CurrentBuild := ABuildNumber;
 end; // SetBuild
 
-
-end.
+end. // uConfigManager

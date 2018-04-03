@@ -24,7 +24,9 @@ uses
   uConfigManager in '..\_Include\uConfigManager.pas',
   TestuDeployManager in 'TestuDeployManager.pas',
   uDeployManager in '..\_Include\uDeployManager.pas',
-  uShellAPI in '..\_Include\uShellAPI.pas';
+  uShellAPI in '..\_Include\uShellAPI.pas',
+  TestuLogManager in 'TestuLogManager.pas',
+  uLogManager in '..\_Include\uLogManager.pas';
 
 {R *.RES}
 
