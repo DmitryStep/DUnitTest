@@ -1,25 +1,5 @@
 <?php
 
-// Get filename with testresults
-function GetTestResultsFilename(){
-  return $argv[1];
-}
-
-// Get XML filename
-function GetXMLOutputFilename(){
-  return $argv[2];
-}
-
-// Get start datetime of test's running
-function GetStartDateTime(){
-  return Date($argv[3]);
-}
-
-// Get finish datetime of test's running
-function GetFinishDateTime(){
-  return Date($argv[4]);
-}
-
 // Convert string of file to array
 function GetStringAsArray($String){
   $Result = explode("|", $String);
@@ -48,8 +28,11 @@ function GetTestResult($TestResultStr){
 }
 
 // Parsing of file with TestResults
-function ParseTestResults($TestFile){
-  $testdata = false;
+// If file output with header - HasHeaders = true
+function ParseTestResults($TestFile, $HasHeaders){
+
+  // поменять на false
+  $testdata = !$HasHeaders;
   $StrNo = 0;
 
   $Fields = explode(",", "MODE,REPLAN,OPTIM,DIFF,COST,DIST,POINTS,ORDERS,TASKS");
@@ -64,13 +47,17 @@ function ParseTestResults($TestFile){
       $TestResultArr = GetStringAsArray($CurrentString);
       if ($testdata) {
         $TestResults[$StrNo]->suitename = "ILS Logistics Tests";
-        $TestName = $TestResultArr[0].".";
+        $TestName = $TestResultArr[0].":";
         for ($i = 0; $i < 9; $i++) {
-          $TestName = $TestName." ".$Fields[$i]."=".$TestResultArr[$i + 2].".";
+          $TestName = $TestName." ".$Fields[$i]."=".$TestResultArr[$i + 2].";";
         }
-        $TestResults[$StrNo]->testname = $TestName;
+        $TestResults[$StrNo]->testname = str_replace(".", ",", $TestName);
         $TestResults[$StrNo]->testresult = GetTestResult($TestResultArr[1]);
-        $TestResults[$StrNo]->errorStackTrace = "";
+		if ($TestResults[$StrNo]->testresult == "Error"){
+			$TestResults[$StrNo]->errorStackTrace = $TestResultArr[1];
+		} else {
+			$TestResults[$StrNo]->errorStackTrace = "";
+		}
         $TestResults[$StrNo]->duration = $TestResultArr[11];
         $StrNo++;
       }
@@ -84,10 +71,11 @@ function ParseTestResults($TestFile){
 }
 
 // Output Test Results into log in JUnit-format
-function OutputToXMLLog($output_file, $TestResultsArray, $FullDuration, $StartDateTime, $FinishDateTime){
+function OutputToXMLLog($output_file, $TestResultsArray, $StartDateTime){
   $failures = 0;
   $passed = 0;
   $errors = 0;
+  $FullDuration = 0;
 
   $XML_doc = new DomDocument("1.0", "UTF-8");
   $TestReport = $XML_doc->appendChild($XML_doc->createElement('test-results'));
@@ -121,6 +109,7 @@ function OutputToXMLLog($output_file, $TestResultsArray, $FullDuration, $StartDa
       $Attr = $XML_doc->CreateAttribute('time');
       $Attr->value = $TestResult->duration;
       $TestCase->appendChild($Attr);
+      $FullDuration = $FullDuration + $TestResult->duration;
       $Attr = $XML_doc->CreateAttribute('name');
       $Attr->value = $TestResult->testname;
       $TestCase->appendChild($Attr);
@@ -143,7 +132,12 @@ function OutputToXMLLog($output_file, $TestResultsArray, $FullDuration, $StartDa
         $TestCase->appendChild($Attr);
         $Fail = $TestCase->appendChild($XML_doc->createElement('failure'));
         $Msg = $Fail->appendChild($XML_doc->createElement('message'));
-        $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+        if ($TestResult->errorStackTrace == ""){
+          $Msg->appendChild($XML_doc->createTextNode("Test failed!"));
+        }
+        else{
+          $Msg->appendChild($XML_doc->createTextNode($TestResult->errorStackTrace));
+        }
       }
       else{
         $errors++;
@@ -187,7 +181,7 @@ function OutputToXMLLog($output_file, $TestResultsArray, $FullDuration, $StartDa
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
   $Attr = $XML_doc->CreateAttribute('finished-at');
-  $Attr->value = $FinishDateTime;
+  $Attr->value = $StartDateTime;
   $Stat->appendChild($Attr);
   $Stat = $FullStat->appendChild($XML_doc->createElement('Stat'));
   $Attr = $XML_doc->CreateAttribute('runtime');
@@ -198,18 +192,27 @@ function OutputToXMLLog($output_file, $TestResultsArray, $FullDuration, $StartDa
   $XML_doc->save($output_file);
 }
 
+echo "ScriptFile = ";
+echo __FILE__;
+echo "\n";
 
-$testfilename = GetTestResultsFilename();
+$dir = __DIR__;
+echo "ScriptDir = ".$dir."\n";
+
+$testfilename = "tests.res";
+echo "InputFile = ".$testfilename."\n";
+
+$XMLfilename = "Logistic-tests.xml";
+echo "OutputFile = ".$XMLfilename."\n";
 
 if (file_exists($testfilename)){
-  $XMLfilename = GetXMLOutputFilename();
 
-  $StartDate = GetStartDateTime();
-  $FinishDate = GetFinishDateTime();
-  $FullDuration = Round($FinishDate - $StartDate, 3);
+  $StartDate = Date("d.m.Y h:m:s");
 
-  $TestResults = ParseTestResults($testfilename);
-  OutputToXMLLog($XMLfilename, $TestResults, $FullDuration, $StartDate, $FinishDate);
+  $TestResults = ParseTestResults($testfilename, true);
+  OutputToXMLLog($XMLfilename, $TestResults, $StartDate);
+} else {
+  echo "OutputFile not Found!";
 }
 
 ?>

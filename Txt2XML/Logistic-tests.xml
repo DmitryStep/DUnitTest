@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-results time="10:02:14" date="08.02.2018" notrun="0" total="85">
+  <test-suite notrun="0" name="ILS Logistics Tests" total="85">
+    <results>
+      <test-case time="3.697" name="func/categories/delivery001: MODE=0; REPLAN=2; OPTIM=0; DIFF=1; COST=362,984; DIST=362,984; POINTS=13674; ORDERS=100; TASKS=3;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.047" name="func/zones/delivery001: MODE=0; REPLAN=2; OPTIM=0; DIFF=1; COST=9200; DIST=-44,4333; POINTS=1179; ORDERS=35; TASKS=4;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.046" name="func/zones/delivery002: MODE=0; REPLAN=2; OPTIM=0; DIFF=1; COST=4114,68; DIST=-31,0693; POINTS=1179; ORDERS=35; TASKS=5;" result="Pass" executed="true" success="true"/>
+      <test-case time="5.99" name="func/zones/permitted001: MODE=0; REPLAN=2; OPTIM=0; DIFF=1; COST=2,34999e+07; DIST=-117,838; POINTS=13674; ORDERS=100; TASKS=4;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="penalties/BigCarBigCargos/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=1000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/BigCarBigCargos/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=2000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Cargos/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=100; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="penalties/Cargos/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=100; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Clients/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=100; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Clients/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=100; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/CrossingRoutes/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=100; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Failure" executed="true" success="false">
+        <failure>
+          <message>Test failed!</message>
+        </failure>
+      </test-case>
+      <test-case time="0" name="penalties/CrossingRoutes/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=50; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Failure" executed="true" success="false">
+        <failure>
+          <message>Test failed!</message>
+        </failure>
+      </test-case>
+      <test-case time="0" name="penalties/Dispersion/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=6,07073; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Dispersion/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=4,96321; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/FuelComsumption/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=380,546; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/FuelComsumption/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=471,471; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Height/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=3000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Height/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=3000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/Late/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=40066,7; DIST=216,387; POINTS=63; ORDERS=103; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Late/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=0; COST=249167; DIST=118,414; POINTS=63; ORDERS=103; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Length/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=1000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Length/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=1000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/LengthWeight/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=4,13002; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/LengthWeight/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=7,08911; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/MaxLength/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=26,1093; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/MaxTrips/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=300; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/MaxTrips/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=300; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/Priority/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=30000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Priority/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=30000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/RatioLengthPath/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=7,61093; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/RatioLengthPath/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=9,42941; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/RatioSummaryTime/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=43,5278; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/RatioSummaryTime/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=43,9722; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/SummaryTime/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=42,1111; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/SummaryTime/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=42,5556; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UnresolvedCargos/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=20000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UnresolvedCargos/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=20000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="penalties/UseCars/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=5000; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UseCars/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=5000; DIST=0; POINTS=9; ORDERS=5; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits1/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=9000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/UserUnits1/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=7000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits2/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=200; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits2/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=70000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits3/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=6000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="penalties/UserUnits3/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=70; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits4/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=7000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/UserUnits4/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=700; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="penalties/Volume/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=1,986e+10; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Volume/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=150; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Waiting/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=5660,67; DIST=216,387; POINTS=63; ORDERS=103; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Waiting/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=0; COST=6700,83; DIST=118,414; POINTS=63; ORDERS=103; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="penalties/Width/Delivery001: MODE=0; REPLAN=0; OPTIM=0; DIFF=1; COST=2000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="penalties/Width/Transit001: MODE=1; REPLAN=0; OPTIM=0; DIFF=1; COST=2000; DIST=0; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/functions/001: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=18,9365; DIST=18,9365; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="trivial/functions/002: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=85,325; DIST=85,325; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/functions/003: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=59,727; DIST=59,727; POINTS=8; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="trivial/functions/004: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=59,727; DIST=59,727; POINTS=8; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/functions/005: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=59,4029; DIST=59,4029; POINTS=8; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="trivial/functions/006: MODE=1; REPLAN=0; OPTIM=0; DIFF=0; COST=1,29544; DIST=1,29544; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/functions/007: MODE=1; REPLAN=0; OPTIM=0; DIFF=0; COST=0,562401; DIST=0,562401; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/functions/008: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=85,325; DIST=85,325; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.794" name="trivial/one_route/001: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=40,0278; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.794" name="trivial/one_route/002: MODE=0; REPLAN=0; OPTIM=1; DIFF=1; COST=-45,2972; DIST=-45,2972; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.81" name="trivial/one_route/003: MODE=0; REPLAN=1; OPTIM=0; DIFF=1; COST=-45,2972; DIST=-45,2972; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="2.184" name="trivial/one_route/004: MODE=0; REPLAN=1; OPTIM=1; DIFF=1; COST=0; DIST=0; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/one_route/005: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=0; DIST=85,325; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/one_route/006: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=285,325; DIST=85,325; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.856" name="trivial/one_route/007: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=40,0278; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="3.276" name="trivial/one_route/008: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=66,5646; DIST=66,5646; POINTS=8; ORDERS=4; TASKS=3;" result="Pass" executed="true" success="true"/>
+      <test-case time="4.555" name="trivial/optimize/001: MODE=0; REPLAN=0; OPTIM=1; DIFF=0; COST=239,654; DIST=239,654; POINTS=13674; ORDERS=19; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="4.508" name="trivial/optimize/002: MODE=0; REPLAN=0; OPTIM=1; DIFF=0; COST=42,658; DIST=42,658; POINTS=13674; ORDERS=3; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.7" name="trivial/planner/001: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=42,658; DIST=42,658; POINTS=13674; ORDERS=3; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.701" name="trivial/planner/002: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=542,658; DIST=42,658; POINTS=13674; ORDERS=3; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="3.416" name="trivial/planner/003: MODE=0; REPLAN=1; OPTIM=0; DIFF=1; COST=0; DIST=0; POINTS=13674; ORDERS=3; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.685" name="trivial/planner/004: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=7,5416; DIST=7,5416; POINTS=2; ORDERS=1; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.015" name="trivial/planner/005: MODE=1; REPLAN=1; OPTIM=0; DIFF=0; COST=0; DIST=57,2089; POINTS=13674; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="1.731" name="trivial/planner/006: MODE=1; REPLAN=1; OPTIM=0; DIFF=0; COST=482,821; DIST=48,2821; POINTS=13674; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/timeline/001: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=40,0278; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/timeline/002: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=40,0278; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/timeline/003: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=15801,7; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0" name="trivial/timeline/004: MODE=0; REPLAN=0; OPTIM=0; DIFF=0; COST=5163,36; DIST=40,0278; POINTS=8; ORDERS=4; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="0.016" name="trivial/transit/001: MODE=1; REPLAN=0; OPTIM=0; DIFF=0; COST=70001,8; DIST=1,75956; POINTS=9; ORDERS=5; TASKS=1;" result="Pass" executed="true" success="true"/>
+      <test-case time="4.118" name="trivial/zones/friend: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=3673,29; DIST=167,329; POINTS=14; ORDERS=13; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="3.619" name="trivial/zones/with: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=5,00351e+06; DIST=150,777; POINTS=14; ORDERS=13; TASKS=2;" result="Pass" executed="true" success="true"/>
+      <test-case time="7.223" name="trivial/zones/without: MODE=0; REPLAN=1; OPTIM=0; DIFF=0; COST=3,00376e+06; DIST=175,633; POINTS=14; ORDERS=13; TASKS=2;" result="Pass" executed="true" success="true"/>
+    </results>
+  </test-suite>
+  <statistics>
+    <Stat tests="85"/>
+    <Stat failures="2"/>
+    <Stat errors="0"/>
+    <Stat success-rate="97.65"/>
+    <Stat started-at="08.02.2018 10:02:14"/>
+    <Stat finished-at="08.02.2018 10:02:14"/>
+    <Stat runtime="56.998"/>
+  </statistics>
+</test-results>
