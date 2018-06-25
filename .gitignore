@@ -1,0 +1,7 @@
+*.local
+*.identcache
+*.dcu
+Calc_2/Test/__history/
+*.res
+*.tvsconfig
+Calc_2/Test/Win32/Debug/dunit.ini
