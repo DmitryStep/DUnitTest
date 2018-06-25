@@ -25,6 +25,7 @@ uses
   uShellAPI in '..\..\_Include\uShellAPI.pas',
   uLogManager in '..\..\_Include\uLogManager.pas';
 
+
 {$R *.RES}
 
 begin

@@ -14,7 +14,7 @@ interface
 uses
   TestFramework, System.SysUtils, Vcl.Graphics, Vcl.SvcMgr, Winapi.Windows,
   uConfigManager, uLogManager, Vcl.Controls, Vcl.Dialogs, Winapi.Messages,
-  uDeployManager, uAutodeployService, System.Classes, WinSvc;
+  uDeployManager, uAutodeployService, System.Classes;
 
 type
   // Test methods for class TILSAutodeployService
@@ -26,9 +26,11 @@ type
     procedure SetUp; override;
     procedure TearDown; override;
   published
+{    procedure TestServiceStart;
+    procedure TestServiceStop;  }
+    procedure TestServiceBeforeInstall;
+    procedure TestServiceBeforeUninstall;
     procedure TestGetServiceInstance;
-    procedure TestServiceStart;
-    procedure TestServiceStop;
   end;
 
 implementation
@@ -44,30 +46,46 @@ begin
   FILSAutodeployService := nil;
 end;
 
-procedure TestTILSAutodeployService.TestGetServiceInstance;
-var
-  ReturnValue: string;
-begin
-//  FILSAutodeployService.Name := 'Service_Test';
-  ReturnValue := FILSAutodeployService.GetServiceInstance;
-  CheckEquals('', ReturnValue, '');
-end;
-
-
+{
 procedure TestTILSAutodeployService.TestServiceStart;
 var
   Started: Boolean;
+  Sender: TService;
 begin
-//  FILSAutodeployService.ServiceStart(nil, Started);
-  CheckTrue(Started);
+  // TODO: Setup method call parameters
+  FILSAutodeployService.ServiceStart(Sender, Started);
+  // TODO: Validate method results
 end;
 
 procedure TestTILSAutodeployService.TestServiceStop;
 var
   Stopped: Boolean;
+  Sender: TService;
 begin
-//  FILSAutodeployService.ServiceStop(nil, Stopped);
-  CheckTrue(Stopped);
+  // TODO: Setup method call parameters
+  FILSAutodeployService.ServiceStop(Sender, Stopped);
+  // TODO: Validate method results
+end;                 }
+
+procedure TestTILSAutodeployService.TestServiceBeforeInstall;
+begin
+  FILSAutodeployService.ServiceBeforeInstall(nil);
+  CheckEquals('ILSAutodeployService', FILSAutodeployService.Name);
+end;
+
+procedure TestTILSAutodeployService.TestServiceBeforeUninstall;
+begin
+  FILSAutodeployService.ServiceBeforeUninstall(nil);
+  CheckEquals('ILSAutodeployService', FILSAutodeployService.Name);
+end;
+
+procedure TestTILSAutodeployService.TestGetServiceInstance;
+var
+  ReturnValue: string;
+begin
+  FILSAutodeployService.Name := 'Service_Test';
+  ReturnValue := FILSAutodeployService.GetServiceInstance;
+  CheckEquals('Test', ReturnValue, '');
 end;
 
 initialization

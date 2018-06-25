@@ -16,3 +16,5 @@ Updater/Test/__history/
 *.cmd
 Updater/Test/Win32/Debug/dunit.ini
 *.skincfg
+Updater/Service/Test/__history/
+Updater/Service/Test/Win32/Debug/dunit.ini

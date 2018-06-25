@@ -147,7 +147,6 @@
 					<TestFramework>DUnit / Delphi Win32</TestFramework>
 					<TestRunner>GUI</TestRunner>
 					<SourceProjectName>C:\Users\Sciv\Documents\RAD Studio\Projects\AutoDeployer\Service\Autodeploy.dproj</SourceProjectName>
-					<TestProjectName/>
 				</UnitTesting>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>

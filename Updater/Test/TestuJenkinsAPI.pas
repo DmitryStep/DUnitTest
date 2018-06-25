@@ -47,7 +47,7 @@ implementation
 
 procedure TestTJenkinsAPI.SetUp;
 begin
-  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true);
+  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true, 'DEBUG', true);
   FFileName := '';
   FJenkinsAPI := TJenkinsAPI.Create('http://test.ils-glonass.ru:8080/job/ILS Web Project/job/ILSWebLogistic_Release',
                                     'release/',
@@ -87,7 +87,7 @@ var
   ReturnValue: string;
 begin
   ReturnValue := FJenkinsAPI.GetLastReleaseNumber;
-  CheckEquals('7.1.4', ReturnValue, '');
+  CheckEquals('7.1.10', ReturnValue, '');
 end;
 
 procedure TestTJenkinsAPI.TestGetLastBuildNumber;
@@ -156,7 +156,7 @@ procedure TestTJenkinsAPI.TestGetLastBuildNumber1;
 var
   ReturnValue: string;
 begin
-  ReturnValue := FJenkinsAPI.GetLastBuildNumber(bsFailed);
+  ReturnValue := FJenkinsAPI.GetLastBuildNumber(bsStable);
   CheckEquals('0', ReturnValue, '');
 end;
 
@@ -164,7 +164,7 @@ procedure TestTJenkinsAPI.TestGetLastBuildNumber2;
 var
   ReturnValue: string;
 begin
-  ReturnValue := FJenkinsAPI.GetLastBuildNumber('7.1.4', bsStable);
+  ReturnValue := FJenkinsAPI.GetLastBuildNumber('7.1.10', bsStable);
   CheckEquals('15', ReturnValue, '');
 end;
 

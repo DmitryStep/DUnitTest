@@ -539,7 +539,8 @@ begin
   if FConfigManager.Programs[AProgramIndex].b_IsZipPacked then
     UnpackProgram(AProgramIndex, s_FileName);
   StopAllServicesAndTasks(AProgramIndex);
-  BackupProgram(AProgramIndex);
+  if FConfigManager.GlobalSettings.b_IsArchiveOld then
+    BackupProgram(AProgramIndex);
   CopyProgram(AProgramIndex);
   if FConfigManager.Programs[AProgramIndex].Database.s_DatabaseName <> '' then
     UpdateDatabase(AProgramIndex);
@@ -830,18 +831,18 @@ end; // CheckAllReleases
 function TDeployManager.CheckAllBuilds: boolean;
 var
   i: integer;
-  s_NextBuild: string;
-  s_CurrBuild: string;
+  s_NextBuild: integer;
+  s_CurrBuild: integer;
 begin
-  Result := true;
+  Result := false;
   for i := 0 to FProgramsCount - 1 do
   begin
-    s_CurrBuild := FConfigManager.Programs[i].s_CurrentBuild;
-    s_NextBuild := CheckNewBuild(i);
+    s_CurrBuild := StrToInt(FConfigManager.Programs[i].s_CurrentBuild);
+    s_NextBuild := StrToInt(CheckNewBuild(i));
     FLogger.WriteDebugMessageToLog('Итерация ' + IntToStr(i)) ;
-    FLogger.WriteDebugMessageToLog('s_CurrBuild = ' + s_CurrBuild) ;
-    FLogger.WriteDebugMessageToLog('s_NextBuild = ' + s_NextBuild);
-    Result := Result and (s_NextBuild > s_CurrBuild);
+    FLogger.WriteDebugMessageToLog('s_CurrBuild = ' + IntToStr(s_CurrBuild));
+    FLogger.WriteDebugMessageToLog('s_NextBuild = ' + IntToStr(s_NextBuild));
+    Result := s_NextBuild > s_CurrBuild;
     FLogger.WriteDebugMessageToLog('Результат итерации: ' + BoolToStr(Result));
     if not Result then
     begin

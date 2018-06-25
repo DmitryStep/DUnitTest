@@ -82,7 +82,7 @@ type
 
 
 const
-  cBuildFieldName: array [TBuildState] of string = ('lastBuild',
+  cBuildFieldName: array [TBuildState] of string = ('lastCompletedBuild',
                                                     'lastStableBuild',
                                                     'lastUnstableBuild',
                                                     'lastFailedBuild');
@@ -269,6 +269,25 @@ end; // GetReleasesList
 function TJenkinsAPI.GetLastReleaseNumber: string;
 var
   sl_ReleasesList: TStringList;
+
+function GetMaxReleaseNumber(AReleasesList: TStringList): string;
+var
+  i: integer;
+  i_MaxRelease: integer;
+  i_CurrentRelease: integer;
+begin
+  Result := AReleasesList.Strings[0];
+  i_MaxRelease := 0;
+  for i := 0 to AReleasesList.Count - 1 do
+  begin
+    i_CurrentRelease := StrToInt(StringReplace(AReleasesList.Strings[i], '.', '', [rfReplaceAll]));
+    i_MaxRelease := StrToInt(StringReplace(Result, '.', '', [rfReplaceAll]));
+    if i_CurrentRelease > i_MaxRelease then
+      Result := AReleasesList.Strings[i];
+  end
+end;
+
+
 begin
   if FReleasesDir = '' then
     Result := ''
@@ -281,7 +300,7 @@ begin
         GetReleasesList(sl_ReleasesList);
         if not sl_ReleasesList.Sorted then
           sl_ReleasesList.Sort;
-        Result := StringReplace(sl_ReleasesList.Strings[sl_ReleasesList.Count - 1],
+        Result := StringReplace(GetMaxReleaseNumber(sl_ReleasesList),
                                 FReleasesDir,
                                 '',
                                 [rfReplaceAll]);

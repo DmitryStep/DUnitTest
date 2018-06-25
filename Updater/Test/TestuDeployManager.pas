@@ -39,7 +39,7 @@ implementation
 
 procedure TestTDeployManager.SetUp;
 begin
-  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true);
+  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'Test.log', true, 'DEBUG', true);
   FConfigManager := TConfigManager.Create(ExtractFilePath(Application.ExeName) +
                                           'testconfig.ini');
   if FConfigManager.LoadSettings then

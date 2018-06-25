@@ -37,7 +37,7 @@ implementation
 
 procedure TestTLogManager.SetUp;
 begin
-  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'TestLog.log', false);
+  FLogManager := TLogManager.Create(ExtractFilePath(ParamStr(0)), 'TestLog.log', false, 'DEBUG', true);
   AssignFile(FLogFile, ExtractFilePath(ParamStr(0)) + 'TestLog.log');
 end;
 

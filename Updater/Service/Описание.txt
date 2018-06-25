@@ -1,0 +1,84 @@
+﻿Описание автодеплоера
+
+1. Установка сервиса
+Сервис поддерживает установку в обычном режиме: Autodeploy /INSTALL - в этом случае будет установлена служба ILSAutodeployService 
+
+и в облачном режиме (несколько служб работают с одного exe-файла): Autodeploy /work:<Имя службы> /INSTALL - будет установлена служба: ILSAutodeployService_<Имя службы>
+
+Пример: Autodeploy /work:Release /INSTALL установит ILSAutodeployService_Release.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Настройки
+Настройки для обычной службы задаются файлом Autodeploy.ini, для облачной - Autodeploy<Имя службы>.ini (пример: AutodeployRelease.ini)
+Содержимое файла настроек можно найти в прилагаемом файле AutodeployFull.ini 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Настройка логирования
+Если задан параметр USEERRORFILE - ошибки дублируются в отдельный файл, имя которого совпадает с файлом основного лога, а расширение = err (например, для файла лога logfile.log файл ошибок будет logfile.err)	   
+Параметр USEDATAINFILENAME влияет на формирование имени файла лога (использовать ли текущую дату в имени файла). Если он задан - имя файла складывается из значения параметра LOGFILE, имени сервиса, переданного в параметре /work и текущей даты.
+
+Пример: 
+LOGFILE=log.log
+USEDATAINFILENAME=0
+USEERRORFILE=1
+
+лог обычного сервиса (ILSAutodeployService) будет называться log.log, лог ошибок - log.err
+лог облачного сервиса (ILSAutodeployService_Release) - logRelease.log, лог ошибок - logRelease.err
+
+При USEDATAINFILENAME=1
+
+лог обычного сервиса (ILSAutodeployService) будет называться log_04.04.2018.log, лог ошибок - log_04.04.2018.err
+лог облачного сервиса (ILSAutodeployService_Release) - logRelease_04.04.2018.log, лог ошибок - logRelease_04.04.2018.err
+
+
+
+Логирование имеет три уровня детализации: DEBUG, INFO, ERROR
+DEBUG - будет выводиться подробная информация о процессе деплоя, включая получаемые ответы от Дженкинса, значения внутренних переменных на разных этапах. Пример:
+
+       04.04.2018 7:19:29     INFO:          ......... AUTODEPLOY STARTED! .........
+       04.04.2018 7:19:29     INFO:          Сервис работает в режиме отслеживания релизных веток!
+       04.04.2018 7:19:29    DEBUG:          Определён URL апи для получения списка релизов: http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release//api/json
+       04.04.2018 7:19:31    DEBUG:          Получен ответ от сервера: {"_class":"org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject","actions":[{},{},{},{"_class":"com.cloudbees.plugins.credentials.ViewCredentialsAction"}],"description":"","displayName":"ILSWebLogistic_Release","displayNameOrNull":null,"fullDisplayName":"ILS Web Project » ILSWebLogistic_Release","fullName":"ILS Web Project/ILSWebLogistic_Release","name":"ILSWebLogistic_Release","url":"http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release/","healthReport":[],"jobs":[{"_class":"org.jenkinsci.plugins.workflow.job.WorkflowJob","name":"release%2F7.1.4","url":"http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release/job/release%252F7.1.4/","color":"blue"},{"_class":"org.jenkinsci.plugins.workflow.job.WorkflowJob","name":"release%2F7.1.5","url":"http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release/job/release%252F7.1.5/","color":"blue"}],"primaryView":{"_class":"jenkins.branch.MultiBranchProjectViewHolder$ViewImpl","name":"default","url":"http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release/"},"views":[{"_class":"jenkins.branch.MultiBranchProjectViewHolder$ViewImpl","name":"default","url":"http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release/"}]}
+       04.04.2018 7:19:31    DEBUG:          Найден релиз: 7.1.4
+       04.04.2018 7:19:31    DEBUG:          Найден релиз: 7.1.5
+       04.04.2018 7:19:31    DEBUG:          Количество релизов: 2
+       04.04.2018 7:19:31    DEBUG:          Номер последнего релиза: 7.1.5
+       04.04.2018 7:19:31    DEBUG:          Для проекта №0 определён s_NewRelease = 7.1.5
+       04.04.2018 7:19:31    DEBUG:          Для проекта №0 определён Result = s_NewRelease = 7.1.5
+       04.04.2018 7:19:31    DEBUG:          FProgramsCount = 1
+       04.04.2018 7:19:31    DEBUG:          s_CurrRelease = 7.1.5
+       04.04.2018 7:19:31    DEBUG:          s_PrevRelease = 7.1.1
+       04.04.2018 7:19:31    DEBUG:          Результат выполнения функции CheckAllReleases: -1
+
+INFO - будет выводиться общая информация о процессе:
+
+       04.04.2018 7:52:50     INFO:          ......... AUTODEPLOY STARTED! .........
+       04.04.2018 7:52:50     INFO:          Сервис работает в режиме отслеживания релизных веток!
+       04.04.2018 7:52:50     INFO:          Изменения релизов во ВСЕХ отслеживаемых проектах не обнаружены!
+       04.04.2018 7:52:50     INFO:          Проверка изменения билда для каждого проекта.
+       04.04.2018 7:52:50     INFO:          Обнаружено изменение билда проекта WEBLOGISTIC: 14 -> 15
+       04.04.2018 7:52:50     INFO:          ------ Деплой проекта WEBLOGISTIC начат! ------
+       04.04.2018 7:52:50     INFO:          Скачивание артефактов.
+       04.04.2018 7:52:51     INFO:          Обнаружен признак архива. Скачиваем только первый артефакт из списка!
+       04.04.2018 7:52:51     INFO:          Количество артефактов: 1
+		URL артефакта: http://test.ils-glonass.ru:8080/job/ILS%20Web%20Project/job/ILSWebLogistic_Release//job/release%2F7.1.5/15/artifact/Release.zip
+		Имя файла артефакта: Release.zip
+       04.04.2018 7:52:53     INFO:          Закачка завершена!
+       04.04.2018 7:52:53     INFO:          Распаковка D:\TEMP\Release\Release.zip в D:\TEMP\Release\WEBLOGISTIC
+       04.04.2018 7:53:11     INFO:          Остановка сервисов и процессов.
+       04.04.2018 7:53:11     INFO:          Завершение остановки сервисов и процессов.
+       04.04.2018 7:53:11     INFO:          Бэкап программы D:\WAMP\ILS\*.* в D:\TEMP\BackUp\WEBLOGISTIC\*.*
+       04.04.2018 7:53:42     INFO:          Копирование программы D:\TEMP\Release\WEBLOGISTIC\www\*.* в D:\WAMP\ILS\*.*
+       04.04.2018 7:53:47     INFO:          Копирование программы D:\TEMP\Release\WEBLOGISTIC\*.txt в D:\WAMP\ILS\..\*.*
+       04.04.2018 7:53:47     INFO:          Запуск сервисов и процессов
+       04.04.2018 7:53:47     INFO:          Завершение запуска сервисов и процессов.
+       04.04.2018 7:53:47     INFO:          Упаковка предыдущей версии WEBLOGISTIC в D:\ARCH\WEBLOGISTIC_715_14.zip
+       04.04.2018 7:54:17     INFO:          ----- Деплой проекта WEBLOGISTIC завершён! ------
+       04.04.2018 7:54:17     INFO:          ......... AUTODEPLOY FINISHED! .........
+
+ERROR - будут выводиться только ошибки
+
+По умолчанию, если параметр DETALIZATION пуст или не задан, устанавливается уровень INFO.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
