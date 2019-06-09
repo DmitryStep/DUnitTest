@@ -9,12 +9,15 @@ import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.AuthPage;
 import utils.WebDriverManager;
 
 public class AuthPageSteps extends WebDriverManager {
 
     private AuthPage _authPage = null;
+
+    //----------------------------------------- Hooks -----------------------------------------------------
 
     @Before
     public void beforeTest(){
@@ -23,7 +26,7 @@ public class AuthPageSteps extends WebDriverManager {
 
     @After
     public void afterTest() {
-        _driver.manage().deleteAllCookies();
+        deleteCookies();
         _authPage = null;
     }
 
@@ -34,64 +37,40 @@ public class AuthPageSteps extends WebDriverManager {
     @Если("^Авторизоваться с логином (.*) и паролем (.*)$")
     @When("^Authorize with login (.*) and password (.*)$")
     public AuthPage Authorize(String login, String password){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         _authPage.typeLogin(login);
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
         _authPage.typePassword(password);
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.authButton()));
         return _authPage.clickAuthButton();
-    }
-
-    @Если("Нажать на логотип")
-    @When("Click logo")
-    public AuthPage clickLogo() {
-        return _authPage.clickLogo();
     }
 
     @Если("Нажать ILS Plan")
     @When("Click ILS Plan")
     public AuthPage clickILSPlan() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSPlanButton()));
         return _authPage.clickILSPlanButton();
     }
 
     @Если("Нажать ILS Fact")
     @When("Click ILS Fact")
     public AuthPage clickILSFact() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSFactButton()));
         return _authPage.clickILSFactButton();
     }
 
     @Если("Нажать ILS Admin")
     @When("Click ILS Admin")
     public AuthPage clickILSAdmin() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSAdminButton()));
         return _authPage.clickILSAdminButton();
     }
-
 
     @Если("Нажать ILS Oper")
     @When("Click ILS Oper")
     public AuthPage clickILSOper() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSOperButton()));
         return _authPage.clickILSOperButton();
-    }
-
-    @Если("Кликнуть по версии")
-    @When("Click version")
-    public AuthPage clickVersion() {
-        return _authPage.clickVersion();
-    }
-
-    @Если("Нажать меню пользователя")
-    @When("Click usermenu")
-    public void clickUser() {
-        _authPage.clickUserMenu();
-    }
-
-    @Если("Нажать Выход")
-    @When("Click Exit")
-    public AuthPage clickExit() {
-        return _authPage.clickMenuUserExit();
-    }
-
-    @Если("Выбрать язык (.*)")
-    @When("Select language (.*)")
-    public AuthPage selectLanguage(String language) {
-        return _authPage.selectLanguage(language);
     }
 
     //--------------------------------------- Assertions --------------------------------------------------
@@ -99,36 +78,42 @@ public class AuthPageSteps extends WebDriverManager {
     @То("Логин = (.*)")
     @Then("Login = (.*)")
     public void AssertLogin(String ExpectedLogin){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         Assert.assertEquals(ExpectedLogin, _authPage.loginTextField().getText());
     }
 
     @То("Логин пустой")
     @Then("Login is empty")
     public void AssertLoginIsEmpty(){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         AssertLogin("");
     }
 
     @То("Логин не пустой")
     @Then("Login is not rmpty")
     public void AssertLoginIsNotEmpty(){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         Assert.assertNotEquals("", _authPage.loginTextField().getText());
     }
 
     @То("Пароль = (.*)")
     @Then("Password = (.*)")
     public void AssertPassword(String ExpectedPassword){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
         Assert.assertEquals(ExpectedPassword, _authPage.passwordTextField().getText());
     }
 
     @То("Пароль пустой")
     @Then("Password is empty")
     public void AssertPasswordIsEmpty(){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
         AssertPassword("");
     }
 
     @То("Пароль не пустой")
     @Then("Password is not empty")
     public void AssertPasswordIsNotEmpty(){
+        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
         Assert.assertNotEquals("", _authPage.passwordTextField().getText());
     }
 

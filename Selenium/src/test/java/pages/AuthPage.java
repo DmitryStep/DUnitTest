@@ -4,8 +4,7 @@ import baseclasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import java.util.List;
+
 
 public class AuthPage extends BasePage {
 
@@ -16,16 +15,6 @@ public class AuthPage extends BasePage {
     }
 
     // ---------------------------------- AuthoriZation WebElements ---------------------------------------------
-
-    // Заголовок страницы
-    public String pageTitle() {
-        return _driver.findElement(By.xpath("/html/body/div[2]/div[2]/h1")).getText();
-    }
-
-    // Логотип
-    public WebElement Logo() {
-        return _driver.findElement(By.xpath("/html/body/div[2]/div[1]/a/img"));
-    }
 
     // Кнопка авторизации
     public WebElement authButton() {
@@ -57,30 +46,6 @@ public class AuthPage extends BasePage {
     }
 
     // ----------------------------------- Service Choise WebElements --------------------------------------
-
-    // Раскрывающееся меню пользователя
-    public WebElement menuUser() {
-        return _driver.findElement(By.id("dropdownMenuLink"));
-    }
-
-    // Пункты меню пользователя
-    public List<WebElement> menuUserItems() {
-        return _driver.findElements(By.xpath("/html/body/div[3]/div[5]/div/a[@class=\"dropdown-item\"]"));
-    }
-
-    // Пункт меню "Выход"
-    public WebElement menuUserExit() {
-        return _driver.findElement(By.xpath(".//*[@onclick=\"$.ils.logout()\"]"));
-    }
-    // Пункт меню "Редактировать профиль"
-    public WebElement menuUserProfile() {
-        return _driver.findElement(By.xpath(".//*[@onclick=\"$.ils.editProfile()\"]"));
-    }
-
-    // Раскрывающийся список выбора языка
-    public WebElement menuLanguage() {
-        return _driver.findElement(By.id("lang"));
-    }
 
     // Кнопка ILSPlan
     public WebElement ILSPlanButton() {
@@ -122,18 +87,7 @@ public class AuthPage extends BasePage {
         return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/div[4]/h2")).getText();
     }
 
-    // Ссылка "Версия"
-    public WebElement versionLink() {
-        return _driver.findElement(By.xpath(".//*/html/body/div[3]/div[6]/div"));
-    }
-
     // -----------------------------Authorization Events -------------------------------------------
-
-    //Клик по логотипу
-    public AuthPage clickLogo() {
-        Logo().click();
-        return this;
-    }
 
     // Ввод текста в поле Логин
     public AuthPage typeLogin(String _login) {
@@ -154,17 +108,6 @@ public class AuthPage extends BasePage {
     }
 
     //-------------------------- Service Choise Events ---------------------------------------------
-
-    // Выбор языка
-    public AuthPage selectLanguage(String _language) {
-        new Select(menuLanguage()).selectByVisibleText(_language);
-        return this;
-    }
-
-    //
-    public String getLanguage() {
-        return new Select(menuLanguage()).getFirstSelectedOption().getText();
-    }
 
     // Нажатие на кнопку ILSPlan
     public AuthPage clickILSPlanButton() {
@@ -187,24 +130,6 @@ public class AuthPage extends BasePage {
     // Нажатие на кнопку ILSOper
     public AuthPage clickILSOperButton(){
         ILSOperButton().click();
-        return this;
-    }
-
-    // Клик по ссылке "Версия"
-    public AuthPage clickVersion(){
-        versionLink().click();
-        return this;
-    }
-
-    // Кдик по пользовательскому меню
-    public AuthPage clickUserMenu(){
-        menuUser().click();
-        return this;
-    }
-
-    // Клик по меню Выход
-    public AuthPage clickMenuUserExit(){
-        menuUserExit().click();
         return this;
     }
 

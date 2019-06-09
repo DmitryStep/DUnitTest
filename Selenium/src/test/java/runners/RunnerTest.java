@@ -1,6 +1,7 @@
 package runners;
 
 import baseclasses.BaseRunner;
+import configuration.ConfigurationFile;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
@@ -13,21 +14,14 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue = {"steps","baseclasses"},
         plugin = {"json:target/cucumber.json"},
-        tags={"~@authorization", "@localize"}
+        tags={"@localize"}
 )
 
+//@ConfigurationFile("chrome.properties")
 public class RunnerTest extends BaseRunner {
 
     @BeforeClass
-    public static void beforeClass() {
-        beforeScenarios("chrome", "c:/selenium/chromedriver.exe", 10);
-//        beforeScenarios("firefox", "c:/selenium/geckodriver.exe", 10);
-//        beforeScenarios("ie", "c:/selenium/geckodriver.exe", 10);
+    public static void beforeTests() {
+        beforeScenarios((RunnerTest.class).getAnnotation(ConfigurationFile.class));
     }
-
-    @AfterClass
-    public static void afterClass() {
-        afterScenarios();
-    }
-
 }

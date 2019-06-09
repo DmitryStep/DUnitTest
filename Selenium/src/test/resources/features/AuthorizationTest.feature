@@ -116,7 +116,7 @@
   Сценарий: Успешная авторизация с логином test@katalon.ru и паролем 4321 с последующим переключением на Английский и выбором ILS Plan
     Дано  Адрес = http://saas.intelogis.ru/
     Если  Авторизоваться с логином test@katalon.ru и паролем 4321
-       И Выбрать язык English
+       И  Выбрать язык English
        И  Нажать ILS Plan
     Тогда Текущая URL = http://saas.intelogis.ru/Log.htm?lang=english
         И Активный язык English
@@ -126,7 +126,7 @@
   Сценарий: Успешная авторизация с логином test@katalon.ru и паролем 4321 с последующим переключением на Английский и выбором ILS Fact
     Дано  Адрес = http://saas.intelogis.ru/
     Если  Авторизоваться с логином test@katalon.ru и паролем 4321
-       И Выбрать язык English
+       И  Выбрать язык English
        И  Нажать ILS Fact
     Тогда Текущая URL = http://saas.intelogis.ru/Mon.htm?lang=english
         И Активный язык English
@@ -136,7 +136,7 @@
   Сценарий: Успешная авторизация с логином test@katalon.ru и паролем 4321 с последующим переключением на Английский и выбором ILS Admin
     Дано  Адрес = http://saas.intelogis.ru/
     Если  Авторизоваться с логином test@katalon.ru и паролем 4321
-       И Выбрать язык English
+       И  Выбрать язык English
        И  Нажать ILS Admin
     Тогда Текущая URL = http://saas.intelogis.ru/Adm.htm?lang=english
         И Активный язык English
@@ -146,7 +146,7 @@
   Сценарий: Успешная авторизация с логином test@katalon.ru и паролем 4321 с последующим переключением на Английский и выбором ILS Oper
     Дано  Адрес = http://saas.intelogis.ru/
     Если  Авторизоваться с логином test@katalon.ru и паролем 4321
-       И Выбрать язык English
+       И  Выбрать язык English
        И  Нажать ILS Oper
     Тогда Текущая URL = http://saas.intelogis.ru/Opr.htm?lang=english
         И Активный язык English

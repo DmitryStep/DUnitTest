@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverManager {
@@ -12,6 +13,8 @@ public class WebDriverManager {
     protected static long IMPLICIT_WAIT_TIMEOUT = 5;
     protected static WebDriver _driver;
     protected static WebDriverWait _waiter;
+
+    // -------------------------------- Browser ------------------------------------------------------------------
 
     public void openBrowser(String browser, String driverPath, long timeOut){
         if (_driver == null){
@@ -46,16 +49,44 @@ public class WebDriverManager {
         _driver.get(url);
     }
 
-    public String getBrowserWindowTitle() {
-        return _driver.getTitle();
-    }
-
     public String getCurrentUrl() {
         return _driver.getCurrentUrl();
+    }
+
+    public String getBrowserWindowTitle() {
+        return _driver.getTitle();
     }
 
     public void maximizeBrowserWindow() {
         _driver.manage().window().maximize();
     }
 
+    public ArrayList<String> getBrowserTabs() {
+        return new ArrayList<String> (_driver.getWindowHandles());
+    }
+
+    public void switchToBrowserTab(int tabnumber) {
+        ArrayList<String> _tabs = getBrowserTabs();
+        _driver.switchTo().window(_tabs.get(tabnumber));
+    }
+
+    // ----------------------------------------- Navigation ---------------------------------------------------------
+
+    public void refreshPage() {
+        _driver.navigate().refresh();
+    }
+
+    public void goForward() {
+        _driver.navigate().forward();
+    }
+
+    public void goBack() {
+        _driver.navigate().back();
+    }
+
+    // ------------------------------------------ Cookies ----------------------------------------------------------
+
+    public void deleteCookies() {
+        _driver.manage().deleteAllCookies();
+    }
 }
