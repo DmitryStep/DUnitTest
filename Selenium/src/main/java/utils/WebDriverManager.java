@@ -31,7 +31,7 @@ public class WebDriverManager {
                     throw new IllegalStateException("Browser not support!");
             }
             if (timeOut > 0) {IMPLICIT_WAIT_TIMEOUT = timeOut;}
-            _driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS);
+            _driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             _waiter = new WebDriverWait(_driver, IMPLICIT_WAIT_TIMEOUT);
         } else {
             throw new IllegalStateException("Driver has already been initialized. Quit it before using this method");
@@ -84,9 +84,27 @@ public class WebDriverManager {
         _driver.navigate().back();
     }
 
+    public void waitPage(long waitTime) {
+        synchronized (_driver){
+        if (waitTime == 0) {
+            try {
+                _driver.wait(IMPLICIT_WAIT_TIMEOUT);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                _driver.wait(waitTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        }
+    }
     // ------------------------------------------ Cookies ----------------------------------------------------------
 
     public void deleteCookies() {
         _driver.manage().deleteAllCookies();
     }
+
 }

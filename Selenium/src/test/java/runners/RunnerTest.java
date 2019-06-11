@@ -14,14 +14,20 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue = {"steps","baseclasses"},
         plugin = {"json:target/cucumber.json"},
-        tags={"@localize"}
+        tags={"~@debug", "@authorization, @localization"}
 )
 
-//@ConfigurationFile("chrome.properties")
+@ConfigurationFile("chrome.properties")
 public class RunnerTest extends BaseRunner {
 
     @BeforeClass
     public static void beforeTests() {
         beforeScenarios((RunnerTest.class).getAnnotation(ConfigurationFile.class));
     }
+
+    @AfterClass
+    public static void afterTests() {
+        afterScenarios();
+    }
+
 }

@@ -4,8 +4,6 @@ import baseclasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
 
 public class ProjectsPage extends BasePage {
 
@@ -22,21 +20,25 @@ public class ProjectsPage extends BasePage {
         return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div[1]/button"));
     }
 
-    @FindBy(xpath=".//*[@id=\"project_date1\"]")
-    @CacheLookup
-    public WebElement beginDate;
+    // Дата начала периода фильтра
+    public WebElement beginDate() {
+        return _driver.findElement(By.xpath(".//*[@id=\"project_date1\"]"));
+    }
 
-    @FindBy(xpath=".//*[@id=\"project_date2\"]")
-    @CacheLookup
-    public WebElement endDate;
+    // Дата окончания периода фильтра
+    public WebElement endDate() {
+        return _driver.findElement(By.xpath(".//*[@id=\"project_date2\"]"));
+    }
 
-    @FindBy(xpath=".//*[@id=\"ils-body\"]/div/div[2]/div[2]/button")
-    @CacheLookup
-    public WebElement showFilterResults;
+    // Кнопка "Показать фильтр
+    public WebElement showFilterResults() {
+        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div[2]/div[2]/button"));
+    }
 
-    @FindBy(xpath=".//*[@id=\"ils-body\"]/div/table")
-    @CacheLookup
-    public WebElement projectsTable;
+    // Таблица проектов
+    public WebElement projectsTable() {
+        return  _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/table"));
+    }
 
 
 }

@@ -2,7 +2,6 @@ package baseclasses;
 
 import configuration.ConfigurationFile;
 import configuration.ConfigurationManager;
-import org.junit.AfterClass;
 import utils.WebDriverManager;
 import java.io.File;
 
@@ -31,7 +30,6 @@ public class BaseRunner {
         }
     }
 
-    @AfterClass
     public static void afterScenarios() {
         if (_webDriverManager != null) {
             _webDriverManager.closeBrowser();

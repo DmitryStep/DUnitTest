@@ -27,6 +27,7 @@ public class AuthPageSteps extends WebDriverManager {
     @After
     public void afterTest() {
         deleteCookies();
+        refreshPage();
         _authPage = null;
     }
 
@@ -45,34 +46,6 @@ public class AuthPageSteps extends WebDriverManager {
         return _authPage.clickAuthButton();
     }
 
-    @Если("Нажать ILS Plan")
-    @When("Click ILS Plan")
-    public AuthPage clickILSPlan() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSPlanButton()));
-        return _authPage.clickILSPlanButton();
-    }
-
-    @Если("Нажать ILS Fact")
-    @When("Click ILS Fact")
-    public AuthPage clickILSFact() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSFactButton()));
-        return _authPage.clickILSFactButton();
-    }
-
-    @Если("Нажать ILS Admin")
-    @When("Click ILS Admin")
-    public AuthPage clickILSAdmin() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSAdminButton()));
-        return _authPage.clickILSAdminButton();
-    }
-
-    @Если("Нажать ILS Oper")
-    @When("Click ILS Oper")
-    public AuthPage clickILSOper() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.ILSOperButton()));
-        return _authPage.clickILSOperButton();
-    }
-
     //--------------------------------------- Assertions --------------------------------------------------
 
     @То("Логин = (.*)")
@@ -86,11 +59,11 @@ public class AuthPageSteps extends WebDriverManager {
     @Then("Login is empty")
     public void AssertLoginIsEmpty(){
         _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
-        AssertLogin("");
+        Assert.assertEquals("", _authPage.loginTextField().getText());
     }
 
     @То("Логин не пустой")
-    @Then("Login is not rmpty")
+    @Then("Login is not empty")
     public void AssertLoginIsNotEmpty(){
         _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         Assert.assertNotEquals("", _authPage.loginTextField().getText());
@@ -107,7 +80,7 @@ public class AuthPageSteps extends WebDriverManager {
     @Then("Password is empty")
     public void AssertPasswordIsEmpty(){
         _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
-        AssertPassword("");
+        Assert.assertEquals("", _authPage.passwordTextField().getText());
     }
 
     @То("Пароль не пустой")
@@ -117,64 +90,10 @@ public class AuthPageSteps extends WebDriverManager {
         Assert.assertNotEquals("", _authPage.passwordTextField().getText());
     }
 
-    @То("Заголовок страницы = (.*)")
-    @Then("Pagetitle = (.*)")
-    public void AssertPageTitle(String ExpectedPageTitle){
-        Assert.assertEquals(ExpectedPageTitle, _authPage.pageTitle());
-    }
-
-    @То("Заголовок страницы пустой")
-    @Then("Pagetitle is empty")
-    public void PageTitleIsEmpty() {
-        AssertPageTitle("");
-    }
-
-    @То("Заголовок страницы не пустой")
-    @Then("Pagetitle is not empty")
-    public void PageTitleIsNotEmpty() {
-        Assert.assertNotEquals("", _authPage.pageTitle());
-    }
-
     @То("Выведено сообщение (.*)")
     @Then("Message (.*) was showed")
     public void AssertAuthErrorMessage(String message){
         Assert.assertEquals(message, _authPage.authErrorMessage());
-    }
-
-    @То("Имя пользователя = (.*)")
-    @Then("Username = (.*)")
-    public void AssertActiveUserName(String username){
-        Assert.assertEquals(username, _authPage.menuUser().getText());
-    }
-
-    @То("Подпись для ILS Plan = (.*)")
-    @Then("Label for ILS Plan = (.*)")
-    public void AssertILSPlanLabel(String labelText) {
-        Assert.assertEquals(labelText, _authPage.ILSPlanLabel());
-    }
-
-    @То("Подпись для ILS Fact = (.*)")
-    @Then("Label for ILS Fact = (.*)")
-    public void AssertILSFactLabel(String labelText) {
-        Assert.assertEquals(labelText, _authPage.ILSFactLabel());
-    }
-
-    @То("Подпись для ILS Admin = (.*)")
-    @Then("Label for ILS Admin = (.*)")
-    public void AssertILSAdminLabel(String labelText) {
-        Assert.assertEquals(labelText, _authPage.ILSAdminLabel());
-    }
-
-    @То("Подпись для ILS Oper = (.*)")
-    @Then("Label for ILS Oper = (.*)")
-    public void AssertILSOperLabel(String labelText) {
-        Assert.assertEquals(labelText, _authPage.ILSOperLabel());
-    }
-
-    @То("Активный язык (.*)")
-    @Then("Active language (.*)")
-    public void AssertActiveLanguage(String language) {
-        Assert.assertEquals(language, _authPage.getLanguage());
     }
 
     @То("Подпись для поля Логин (.*)")
