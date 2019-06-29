@@ -18,7 +18,7 @@ public class AuthPage extends BasePage {
 
     // Кнопка авторизации
     public WebElement authButton() {
-        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/form/input[@class=\"submit\"]"));
+        return _driver.findElement(By.xpath(".//*/input[@class=\"submit\"]"));
     }
 
     // Поле Логин
@@ -31,30 +31,23 @@ public class AuthPage extends BasePage {
         return _driver.findElement(By.cssSelector("#ils-auth-password"));
     }
 
-    // Подпись к полю Логин
-    public String loginLabel() { return _driver.findElement((By.xpath(".//*[@id=\"ils-body\"]/div/div/form/table/tbody/tr[1]/td[1]"))).getText(); }
-
-    // Подпись к полю Пароль
-    public String passwordLabel() { return _driver.findElement((By.xpath(".//*[@id=\"ils-body\"]/div/div/form/table/tbody/tr[2]/td[1]"))).getText(); }
-
-    // Подпись на кнопке Авторизации
-    public String authButtonLabel() { return authButton().getText(); }
-
     // Сообщение о неверной авторизации
     public String authErrorMessage() {
-        return _driver.findElement(By.xpath(".//*/div[@id='ils-body']/div/div/form/p")).getText();
+        return _driver.findElement(By.xpath(".//*/p[@class=\"message\"]")).getText();
     }
 
     // -----------------------------Authorization Events -------------------------------------------
 
     // Ввод текста в поле Логин
     public AuthPage typeLogin(String _login) {
+        loginTextField().clear();
         loginTextField().sendKeys(_login);
         return this;
     }
 
     // Ввод текста в поле Пароль
     public AuthPage typePassword(String _password) {
+        passwordTextField().clear();
         passwordTextField().sendKeys(_password);
         return this;
     }

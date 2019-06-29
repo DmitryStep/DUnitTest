@@ -1,5 +1,10 @@
 package utils;
 
+import org.junit.Assert;
+import org.junit.ComparisonFailure;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -45,66 +50,6 @@ public class WebDriverManager {
         }
     }
 
-    public void getUrl(String url) {
-        _driver.get(url);
-    }
 
-    public String getCurrentUrl() {
-        return _driver.getCurrentUrl();
-    }
-
-    public String getBrowserWindowTitle() {
-        return _driver.getTitle();
-    }
-
-    public void maximizeBrowserWindow() {
-        _driver.manage().window().maximize();
-    }
-
-    public ArrayList<String> getBrowserTabs() {
-        return new ArrayList<String> (_driver.getWindowHandles());
-    }
-
-    public void switchToBrowserTab(int tabnumber) {
-        ArrayList<String> _tabs = getBrowserTabs();
-        _driver.switchTo().window(_tabs.get(tabnumber));
-    }
-
-    // ----------------------------------------- Navigation ---------------------------------------------------------
-
-    public void refreshPage() {
-        _driver.navigate().refresh();
-    }
-
-    public void goForward() {
-        _driver.navigate().forward();
-    }
-
-    public void goBack() {
-        _driver.navigate().back();
-    }
-
-    public void waitPage(long waitTime) {
-        synchronized (_driver){
-        if (waitTime == 0) {
-            try {
-                _driver.wait(IMPLICIT_WAIT_TIMEOUT);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                _driver.wait(waitTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        }
-    }
-    // ------------------------------------------ Cookies ----------------------------------------------------------
-
-    public void deleteCookies() {
-        _driver.manage().deleteAllCookies();
-    }
 
 }

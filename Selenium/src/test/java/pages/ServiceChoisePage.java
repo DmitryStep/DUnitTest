@@ -11,49 +11,49 @@ public class ServiceChoisePage extends BasePage {
         super(driver);
     }
 
-    // ----------------------------------- Service Choise WebElements --------------------------------------
+    // ----------------------------------- ServiceChoisePage WebElements --------------------------------------
 
     // Кнопка ILSPlan
     public WebElement ILSPlanButton() {
-        return _driver.findElement(By.xpath(".//*[@id='ils-body']/div/div/div[1]/a"));
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Log.htm\")]"));
     }
 
     // Кнопка ILSFact
     public WebElement ILSFactButton() {
-        return _driver.findElement(By.xpath(".//*[@id='ils-body']/div/div/div[2]/a"));
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Mon.htm\")]"));
     }
 
     // Кнопка ILSAdmin
     public WebElement ILSAdminButton() {
-        return _driver.findElement(By.xpath(".//*[@id='ils-body']/div/div/div[3]/a"));
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Adm.htm\")]"));
     }
 
     // Кнопка ILSOper
     public WebElement ILSOperButton() {
-        return _driver.findElement(By.xpath(".//*[@id='ils-body']/div/div/div[4]/a"));
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Opr.htm\")]"));
     }
 
     // Надпись над кнопкой ILSPlan
     public String ILSPlanLabel() {
-        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/div[1]/h2")).getText();
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Log.htm\")]/preceding-sibling::h2")).getText();
     }
 
     // Надпись над кнопкой ILSFact
     public String ILSFactLabel() {
-        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/div[2]/h2")).getText();
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Mon.htm\")]/preceding-sibling::h2")).getText();
     }
 
     // Надпись над кнопкой ISAdmin
     public String ILSAdminLabel() {
-        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/div[3]/h2")).getText();
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Adm.htm\")]/preceding-sibling::h2")).getText();
     }
 
     // Надпись над кнопкой ILSOper
     public String ILSOperLabel() {
-        return _driver.findElement(By.xpath(".//*[@id=\"ils-body\"]/div/div/div[4]/h2")).getText();
+        return _driver.findElement(By.xpath(".//*/a[contains(@href, \"Opr.htm\")]/preceding-sibling::h2")).getText();
     }
 
-    //-------------------------- Service Choise Events ---------------------------------------------
+    //-------------------------- ServiceChoisePage Events ---------------------------------------------
 
     // Нажатие на кнопку ILSPlan
     public ServiceChoisePage clickILSPlanButton() {

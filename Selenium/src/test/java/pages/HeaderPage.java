@@ -1,12 +1,15 @@
 package pages;
 
 import baseclasses.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import net.bytebuddy.implementation.bytecode.Throw;
+import org.junit.Assert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+
+import static java.lang.Thread.sleep;
 
 public class HeaderPage extends BasePage {
 
@@ -14,38 +17,21 @@ public class HeaderPage extends BasePage {
         super(driver);
     }
 
-
-    // -------------------------------------- Page Objects ----------------------------------------------
+    // -------------------------------------- HeaderPage WebElements ----------------------------------------------
 
     // Заголовок страницы
     public String pageTitle() {
-        return _driver.findElement(By.xpath("/html/body/div[2]/div[2]/h1")).getText();
+        return _driver.findElement(By.xpath(".//*[@class=\"title\"]/h1")).getText();
     }
 
     // Логотип
     public WebElement Logo() {
-        return _driver.findElement(By.xpath("/html/body/div[2]/div[1]/a/img"));
+        return _driver.findElement(By.xpath(".//*[@class=\"logo\"]/a/img"));
     }
 
     // Раскрывающееся меню пользователя
     public WebElement menuUser() {
         return _driver.findElement(By.id("dropdownMenuLink"));
-    }
-
-
-    // Пункты меню пользователя
-    public List<WebElement> getMenuUserItems() {
-        return _driver.findElements(By.xpath("/html/body/div[3]/div[5]/div/a[@class=\"dropdown-item\"]"));
-    }
-
-    // Пункт меню "Выход"
-    public WebElement menuUserExit() {
-        return _driver.findElement(By.xpath(".//*[@onclick=\"$.ils.logout()\"]"));
-    }
-
-    // Пункт меню "Редактировать профиль"
-    public WebElement menuUserProfile() {
-        return _driver.findElement(By.xpath(".//*[@onclick=\"$.ils.editProfile()\"]"));
     }
 
     // Раскрывающийся список выбора языка
@@ -55,20 +41,20 @@ public class HeaderPage extends BasePage {
 
     // Ссылка "Версия"
     public WebElement versionLink() {
-        return _driver.findElement(By.xpath(".//*/html/body/div[3]/div[6]/div"));
+        return _driver.findElement(By.className("version"));
+    }
+
+    // Ссылка "Версии не совпадают"
+    public WebElement wrongVersionLink() {
+        return _driver.findElement(By.xpath(".//*[@class=\"wrong-version\"]"));
     }
 
 
-    // -------------------------------------------- Page Events ------------------------------------------------
+    // -------------------------------------------- HeaderPage Events ------------------------------------------------
 
     //Клик по логотипу
     public void clickLogo() {
         Logo().click();
-    }
-
-    // Проверяем видимость меню пользователя
-    public boolean isUserMenuVisible() {
-        return (_driver.findElement(By.xpath("/html/body/div[2]/div[@class=\"user dropdown show\"")) != null);
     }
 
     // Выбор языка
@@ -83,17 +69,29 @@ public class HeaderPage extends BasePage {
 
     // Клик по ссылке "Версия"
     public void clickVersion(){
-        versionLink().click();
+        try {
+            wrongVersionLink().click();
+        } catch (Exception e) {
+            versionLink().click();
+        }
     }
 
-    // Кдик по пользовательскому меню
+    // Клик по пользовательскому меню
     public void clickUserMenu(){
-        menuUser().click();
+        if (menuUser().isEnabled()) {
+            menuUser().click();
+        }
     }
 
-    // Клик по меню Выход
-    public void clickMenuUserExit(){
-        menuUserExit().click();
+    // Клик по пункту меню
+    public void clickMenu(String menuText){
+        if (_driver.findElement(By.xpath(".//*[text()=\"" + menuText +"\"]")).isEnabled()) {
+            try {
+                _driver.findElement(By.xpath(".//*[text()=\"" + menuText + "\"]")).click();
+            } catch (Exception e) {
+                Assert.fail("SubMenu " + menuText + " not visible or disabled!");
+            }
+        }
     }
 
 }
