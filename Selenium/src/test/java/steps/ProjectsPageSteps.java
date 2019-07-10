@@ -3,10 +3,12 @@ package steps;
 import baseclasses.BaseSteps;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.То;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.ProjectsPage;
+import pageobjects.pages.ProjectsPage;
 import java.util.List;
 
 public class ProjectsPageSteps extends BaseSteps {
@@ -135,5 +137,11 @@ public class ProjectsPageSteps extends BaseSteps {
     }
 
     // ---------------------------------------- Assertions --------------------------------------------------------
+
+    @То("Количество проектов в таблице = (.*)")
+    @Then("Count of projects = (.*)")
+    public void AssertCountOfProjects(int Count) {
+        assertEquals(Count, _projectsPage.getTableStringsCount());
+    }
 
 }

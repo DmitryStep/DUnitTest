@@ -10,7 +10,7 @@ import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.AuthPage;
+import pageobjects.pages.AuthPage;
 
 public class AuthPageSteps extends BaseSteps {
 
@@ -63,6 +63,15 @@ public class AuthPageSteps extends BaseSteps {
         ClickAuthButton();
     }
 
+
+    @Дано("Пользователь авторизован в системе")
+    @Given("User authorized in the system")
+    @Если("Авторизоваться в системе")
+    @When("Authorize in the system")
+    public void baseAuthorization() {
+        getBaseUrl();
+        Authorize(_baseLogin, _basePassword);
+    }
     //--------------------------------------- Assertions --------------------------------------------------
 
     @То("Логин = (.*)")

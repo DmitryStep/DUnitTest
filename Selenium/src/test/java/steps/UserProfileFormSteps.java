@@ -8,7 +8,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
-import forms.UserProfileForm;
+import pageobjects.forms.UserProfileForm;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class UserProfileFormSteps extends BaseSteps {

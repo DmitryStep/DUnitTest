@@ -9,9 +9,7 @@ import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.HeaderPage;
-
-import java.util.List;
+import pageobjects.pages.HeaderPage;
 
 
 public class HeaderPageSteps extends BaseSteps {

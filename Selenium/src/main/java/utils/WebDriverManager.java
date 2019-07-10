@@ -19,7 +19,17 @@ public class WebDriverManager {
     protected static WebDriver _driver;
     protected static WebDriverWait _waiter;
 
+    protected static String _baseURL;
+    protected static String _baseLogin;
+    protected static String _basePassword;
+
     // -------------------------------- Browser ------------------------------------------------------------------
+
+    public void setDefaultAuthorizationValues(String BaseURL, String BaseLogin, String BasePassword) {
+        _baseURL = BaseURL;
+        _baseLogin = BaseLogin;
+        _basePassword = BasePassword;
+    }
 
     public void openBrowser(String browser, String driverPath, long timeOut){
         if (_driver == null){

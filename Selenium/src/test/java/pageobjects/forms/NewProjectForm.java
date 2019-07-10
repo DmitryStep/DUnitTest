@@ -1,4 +1,4 @@
-package forms;
+package pageobjects.forms;
 
 import baseclasses.BasePage;
 import org.openqa.selenium.By;
@@ -65,5 +65,12 @@ public class NewProjectForm extends BasePage {
     }
 
     // Нажать на кнопку "Отмена"
+    public void clickCancel() {
+        cancelButton().click();
+    }
 
+    // Нажать на кнопку "Создать"
+    public void clickCreate() {
+        createButton().click();
+    }
 }

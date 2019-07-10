@@ -24,6 +24,7 @@ public class BaseRunner {
         try {
             _configFile.loadConfig(_absoluteFilePath);
             _webDriverManager.openBrowser(_configFile.browser, _configFile.driverPath, _configFile.timeOut);
+            _webDriverManager.setDefaultAuthorizationValues(_configFile.baseURL, _configFile.baseLogin, _configFile.basePassword);
         } catch (Exception e) {
             System.err.println("Could not load configuration file!");
             System.exit(1);

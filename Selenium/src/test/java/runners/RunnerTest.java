@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue = {"steps","baseclasses"},
         plugin = {"json:target/cucumber.json"},
-        tags={"@userprofile or @authorization"}
+//        tags={"@userprofile or @authorization"}
 //        tags={"@userprofile"}
-//        tags={"@debug"}
+        tags={"@debug"}
 )
 
 @ConfigurationFile("chrome.properties")

@@ -1,13 +1,9 @@
-package pages;
+package pageobjects.pages;
 
 import baseclasses.BasePage;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 
 import static java.lang.Thread.sleep;
 

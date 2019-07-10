@@ -1,4 +1,4 @@
-package pages;
+package pageobjects.pages;
 
 import baseclasses.BasePage;
 import org.openqa.selenium.By;
@@ -64,25 +64,25 @@ public class ProjectsPage extends BasePage {
 
     // Строки таблицы проектов
     public List<WebElement> projectTableDataStrings() {
-        return _driver.findElements(By.xpath(".//*/table[@class=\"recent-projects\"]/tbody/tr"));
+        return _driver.findElements(By.xpath(".//*/div[@class=\"TMBodyMid\"]//table[@class=\"TMSection\"]/tbody/tr"));
     }
 
     // Количество строк таблицы
     public int getTableStringsCount() {
         List<WebElement> tab = projectTableDataStrings();
-        return tab.size();
+        return tab.size() - 1;
     }
 
     // Получить строку таблицы по её номеру начиная с 1
     public WebElement getTableStringByNumber(int number) {
-        return projectTableDataStrings().get(number - 1);
+        return projectTableDataStrings().get(number);
     }
 
     // Получить строку таблицы по ID проекта
     public WebElement getTableStringByProjectID(String projectID) {
         List<WebElement> tableStrings = projectTableDataStrings();
         for (WebElement tabStr: tableStrings) {
-            if (tabStr.findElement(By.xpath("td[2]")).getText().equals(projectID)) {
+            if (tabStr.findElement(By.xpath("td[4]")).getText().equals(projectID)) {
                 return tabStr;
             }
         }
@@ -93,7 +93,7 @@ public class ProjectsPage extends BasePage {
     public WebElement getTableStringByProjectName(String projectName) {
         List<WebElement> tableStrings = projectTableDataStrings();
         for (WebElement tabStr: tableStrings) {
-            if (tabStr.findElement(By.xpath("td[2]")).getText().equals(projectName)) {
+            if (tabStr.findElement(By.xpath("td[5]")).getText().equals(projectName)) {
                 return tabStr;
             }
         }

@@ -3,12 +3,10 @@ package steps;
 import baseclasses.BaseSteps;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Если;
-import cucumber.api.java.ru.То;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.ServiceChoisePage;
+import pageobjects.pages.ServiceChoisePage;
 
 public class ServiceChoisePageSteps extends BaseSteps {
 

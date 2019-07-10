@@ -1,4 +1,4 @@
-package forms;
+package pageobjects.forms;
 
 import baseclasses.BasePage;
 import org.openqa.selenium.By;

@@ -26,6 +26,10 @@ public class BaseSteps extends WebDriverManager {
         _driver.get(url);
     }
 
+    public void getBaseUrl() {
+        _driver.get(_baseURL);
+    }
+
     public String getCurrentUrl() {
         return _driver.getCurrentUrl();
     }

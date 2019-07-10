@@ -5,7 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.ru.То;
-import forms.ErrorMessageForm;
+import pageobjects.forms.ErrorMessageForm;
 
 public class ErrorMessageFormSteps extends BaseSteps {
 

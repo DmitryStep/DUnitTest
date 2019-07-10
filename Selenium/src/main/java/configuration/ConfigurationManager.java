@@ -10,6 +10,9 @@ public class ConfigurationManager {
     public String browser;
     public String driverPath;
     public long timeOut;
+    public String baseURL;
+    public String baseLogin;
+    public String basePassword;
 
 
     public void loadConfig(String configFile) {
@@ -26,6 +29,9 @@ public class ConfigurationManager {
              browser = _property.getProperty("BROWSER");
              driverPath = _property.getProperty("DRIVER_PATH");
              timeOut = Integer.parseInt(_property.getProperty("TIMEOUT"));
+             baseURL = _property.getProperty("BASEURL");
+             baseLogin = _property.getProperty("BASELOGIN");
+             basePassword = _property.getProperty("BASEPASSWORD");
 
              _configStream = null;
              _property = null;
