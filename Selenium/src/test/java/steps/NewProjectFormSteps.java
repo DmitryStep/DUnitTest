@@ -13,7 +13,7 @@ public class NewProjectFormSteps extends BaseSteps {
 
     @Before(order = 6)
     public void beforeTest(){
-        _newProjectForm = new NewProjectForm(_driver);
+        _newProjectForm = new NewProjectForm(_driver, _waiter);
     }
 
     @After(order = 6)

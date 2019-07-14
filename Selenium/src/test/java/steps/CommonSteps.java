@@ -22,7 +22,7 @@ public class CommonSteps extends BaseSteps {
 
     @Before(order = 0)
     public void beforeTest(){
-        _basePage = new BasePage(_driver);
+        _basePage = new BasePage(_driver, _waiter);
     }
 
     @After(order = 0)

@@ -2,69 +2,70 @@ package pageobjects.pages;
 
 import baseclasses.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.CalendarManager;
 
 import java.util.List;
 
 public class ProjectsPage extends BasePage {
 
-    public ProjectsPage(WebDriver driver){
-        super(driver);
+    public ProjectsPage(WebDriver driver, WebDriverWait waiter){
+        super(driver, waiter);
     }
 
     // ---------------------------------- ProjectsPage WebElements ---------------------------------------------
 
-    // Кнопка "Создать новый проект"
-    public WebElement newProjectButton(){
-        return _driver.findElement(By.xpath(".//*/div[@class=\"ils-log-welcome\"]/*/button[@class=\"ils-button\"]"));
+    // Период отображения проектов
+    public WebElement projectsPeriod() {
+        return _driver.findElement(By.xpath(".//*[@id=\"propPeriod\"]"));
     }
 
-    // Нажать кнопку "Создать новый проект"
-    public void newProjectButtonClick() {
-        newProjectButton().click();
+    // Календарь
+    public WebElement Calendar() {
+        return _driver.findElement(By.xpath(".//*[@class=\"month-wrapper\"]"));
     }
 
-    // Дата начала периода фильтра
-    public WebElement beginDate() {
-        return _driver.findElement(By.xpath(".//*[@id=\"project_date1\"]"));
-    }
-
-    // Ввести дату начала периода
-    public void typeBeginDate(String BeginDate) {
-        beginDate().clear();
-        beginDate().sendKeys(BeginDate);
-    }
-
-    // Дата окончания периода фильтра
-    public WebElement endDate() {
-        return _driver.findElement(By.xpath(".//*[@id=\"project_date2\"]"));
-    }
-
-    // Ввести дату окончания периода
-    public void typeEndDate(String EndDate) {
-        endDate().clear();
-        endDate().sendKeys(EndDate);
-    }
-
-    // Кнопка "Показать"
-    public WebElement showFilterResults() {
-        return _driver.findElement(By.xpath(".//*/div[@class=\"ils-log-welcome-form\"]/*/button[@class=\"ils-button\"]"));
-    }
-
-    // Клик по кнопке "Показать"
-    public void showFilterResultsClick() {
-        showFilterResults().click();
-    }
-
-    // Заголовок таблицы проектов
-    public WebElement projectsTableHeader() {
-        return _driver.findElement(By.xpath(".//*/table[@class=\"recent-projects\"]/thead"));
+    // Таблица
+    public WebElement projectTable() {
+        return _driver.findElement(By.xpath(".//*/div[@class=\"TMBodyMid\"]"));
     }
 
     // Строки таблицы проектов
     public List<WebElement> projectTableDataStrings() {
         return _driver.findElements(By.xpath(".//*/div[@class=\"TMBodyMid\"]//table[@class=\"TMSection\"]/tbody/tr"));
+    }
+
+    // Список группировки
+    public WebElement GroupList() {
+        return _driver.findElement(By.xpath(".//*/div[contains(@class, \"TMSelect\")]"));
+    }
+
+    // Меню группировки
+    public WebElement ResetGroupingMenu() {
+        return _driver.findElement(By.xpath(".//*/div[contains(@class, \"TMMenuItemText\") and (text()=\"нет\")]"));
+    }
+    // ---------------------------------- ProjectsPage Events --------------------------------------------------
+
+    // Сброс группировки
+    public void ResetGrouping() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(GroupList()));
+        GroupList().click();
+         _waiter.until(ExpectedConditions.elementToBeClickable(ResetGroupingMenu()));
+        ResetGroupingMenu().click();
+    }
+
+    // Ввод периода
+    public void setProjectsPeriod(String DateBegin, String DateEnd) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(projectsPeriod()));
+        projectsPeriod().click();
+        _waiter.until(ExpectedConditions.elementToBeClickable(Calendar()));
+        CalendarManager cal = new CalendarManager(Calendar());
+        cal.SetPeriod(DateBegin, DateEnd);
     }
 
     // Количество строк таблицы
@@ -75,6 +76,7 @@ public class ProjectsPage extends BasePage {
 
     // Получить строку таблицы по её номеру начиная с 1
     public WebElement getTableStringByNumber(int number) {
+
         return projectTableDataStrings().get(number);
     }
 

@@ -3,14 +3,15 @@ package pageobjects.pages;
 import baseclasses.BasePage;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static java.lang.Thread.sleep;
 
 public class HeaderPage extends BasePage {
 
-    public HeaderPage(WebDriver driver) {
-        super(driver);
+    public HeaderPage(WebDriver driver, WebDriverWait waiter) {
+        super(driver, waiter);
     }
 
     // -------------------------------------- HeaderPage WebElements ----------------------------------------------
@@ -50,11 +51,13 @@ public class HeaderPage extends BasePage {
 
     //Клик по логотипу
     public void clickLogo() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(Logo()));
         Logo().click();
     }
 
     // Выбор языка
     public void selectLanguage(String _language) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(menuLanguage()));
         new Select(menuLanguage()).selectByVisibleText(_language);
     }
 
@@ -66,14 +69,17 @@ public class HeaderPage extends BasePage {
     // Клик по ссылке "Версия"
     public void clickVersion(){
         try {
+            _waiter.until(ExpectedConditions.elementToBeClickable(wrongVersionLink()));
             wrongVersionLink().click();
         } catch (Exception e) {
+            _waiter.until(ExpectedConditions.elementToBeClickable(versionLink()));
             versionLink().click();
         }
     }
 
     // Клик по пользовательскому меню
     public void clickUserMenu(){
+        _waiter.until(ExpectedConditions.elementToBeClickable(menuUser()));
         if (menuUser().isEnabled()) {
             menuUser().click();
         }
@@ -83,6 +89,7 @@ public class HeaderPage extends BasePage {
     public void clickMenu(String menuText){
         if (_driver.findElement(By.xpath(".//*[text()=\"" + menuText +"\"]")).isEnabled()) {
             try {
+                _waiter.until(ExpectedConditions.elementToBeClickable(_driver.findElement(By.xpath(".//*[text()=\"" + menuText + "\"]"))));
                 _driver.findElement(By.xpath(".//*[text()=\"" + menuText + "\"]")).click();
             } catch (Exception e) {
                 Assert.fail("SubMenu " + menuText + " not visible or disabled!");

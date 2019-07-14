@@ -19,7 +19,7 @@ public class UserProfileFormSteps extends BaseSteps {
 
     @Before(order = 4)
     public void beforeTest() {
-        _userProfileForm = new UserProfileForm(_driver);
+        _userProfileForm = new UserProfileForm(_driver, _waiter);
     }
 
     @After(order = 4)
@@ -33,7 +33,6 @@ public class UserProfileFormSteps extends BaseSteps {
     @Если("Ввести аккаунт (.*)")
     @When("Type account (.*)")
     public void TypeAccount(String username) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.accountNameField()));
         _userProfileForm.typeToAccountField(username);
     }
 

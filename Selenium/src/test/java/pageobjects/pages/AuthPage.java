@@ -4,14 +4,16 @@ import baseclasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class AuthPage extends BasePage {
 
     // ---------------------------------- Page Constructor ------------------------------------------------------
 
-    public AuthPage(WebDriver driver){
-        super(driver);
+    public AuthPage(WebDriver driver, WebDriverWait waiter){
+        super(driver, waiter);
     }
 
     // ---------------------------------- AuthoriZation WebElements ---------------------------------------------
@@ -40,6 +42,7 @@ public class AuthPage extends BasePage {
 
     // Ввод текста в поле Логин
     public AuthPage typeLogin(String _login) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(loginTextField()));
         loginTextField().clear();
         loginTextField().sendKeys(_login);
         return this;
@@ -47,6 +50,7 @@ public class AuthPage extends BasePage {
 
     // Ввод текста в поле Пароль
     public AuthPage typePassword(String _password) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(passwordTextField()));
         passwordTextField().clear();
         passwordTextField().sendKeys(_password);
         return this;
@@ -54,6 +58,7 @@ public class AuthPage extends BasePage {
 
     // Нажатие на кнопку авторизации
     public AuthPage clickAuthButton() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(authButton()));
         authButton().click();
         return this;
     }

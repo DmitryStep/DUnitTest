@@ -1,17 +1,17 @@
 package baseclasses;
 
 import org.openqa.selenium.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
 
     protected WebDriver _driver;
+    protected WebDriverWait _waiter;
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver, WebDriverWait waiter) {
         this._driver = driver;
+        this._waiter = waiter;
     }
 
     public WebElement button(String buttonLabel) {

@@ -4,11 +4,13 @@ import baseclasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserProfileForm extends BasePage {
 
-    public UserProfileForm(WebDriver driver) {
-        super(driver);
+    public UserProfileForm(WebDriver driver, WebDriverWait waiter) {
+        super(driver, waiter);
     }
 
     // ------------------------------------------- UserProfileForm WebElements -------------------------------------
@@ -78,6 +80,7 @@ public class UserProfileForm extends BasePage {
 
     // ¬вод в поле "»м€ пользовател€"
     public void typeToAccountField(String account) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(accountNameField()));
         accountNameField().clear();
         accountNameField().sendKeys(account);
     }

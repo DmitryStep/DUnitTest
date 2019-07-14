@@ -20,7 +20,7 @@ public class AuthPageSteps extends BaseSteps {
 
     @Before(order=1)
     public void beforeTest(){
-        _authPage = new AuthPage(_driver);
+        _authPage = new AuthPage(_driver, _waiter);
     }
 
     @After(order=1)
@@ -35,21 +35,18 @@ public class AuthPageSteps extends BaseSteps {
     @Если("Ввести логин (.*)")
     @When("Type login (.*)")
     public void TypeLogin(String login) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
         _authPage.typeLogin(login);
     }
 
     @Если("Ввести пароль (.*)")
     @When("Type password (.*)")
     public void TypePassword(String password) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
         _authPage.typePassword(password);
     }
 
     @Если("Нажать Войти в систему")
     @When("Click Login to the system")
     public void ClickAuthButton() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.authButton()));
         _authPage.clickAuthButton();
     }
 

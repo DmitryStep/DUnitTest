@@ -5,27 +5,27 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.ru.То;
-import pageobjects.forms.ErrorMessageForm;
+import pageobjects.forms.MessageForm;
 
-public class ErrorMessageFormSteps extends BaseSteps {
+public class MessageFormSteps extends BaseSteps {
 
-    ErrorMessageForm _errorMessageForm = null;
+    MessageForm _MessageForm = null;
 
     @Before(order = 5)
     public void beforeTest(){
-        _errorMessageForm = new ErrorMessageForm(_driver);
+        _MessageForm = new MessageForm(_driver, _waiter);
     }
 
     @After(order = 5)
     public void afterTest() {
         AfterTest();
-        _errorMessageForm = null;
+        _MessageForm = null;
     }
 
 
     @То("Ошибка (.*)")
     @Then("Error (.*)")
     public void assertErrorMessage(String ExpectedMessage) {
-        assertEquals(ExpectedMessage, _errorMessageForm.getErrorMessage());
+        assertEquals(ExpectedMessage, _MessageForm.getMessage());
     }
 }
