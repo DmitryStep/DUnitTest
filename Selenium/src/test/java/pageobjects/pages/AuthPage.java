@@ -34,8 +34,8 @@ public class AuthPage extends BasePage {
     }
 
     // Сообщение о неверной авторизации
-    public String authErrorMessage() {
-        return _driver.findElement(By.xpath(".//*/p[@class=\"message\"]")).getText();
+    public WebElement authErrorMessage() {
+        return _driver.findElement(By.xpath(".//*/p[@class=\"message\"]"));
     }
 
     // -----------------------------Authorization Events -------------------------------------------
@@ -63,4 +63,21 @@ public class AuthPage extends BasePage {
         return this;
     }
 
+    // Значение в поле Логин
+    public String getLoginValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(loginTextField()));
+        return loginTextField().getText();
+    }
+
+    // Значение в поле Пароль
+    public String getPasswordValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(passwordTextField()));
+        return passwordTextField().getText();
+    }
+
+    // Текст сообщения об ошибке авторизации
+    public String getAuthErrorMessageValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(authErrorMessage()));
+        return authErrorMessage().getText();
+    }
 }

@@ -9,7 +9,6 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.pages.AuthPage;
 
 public class AuthPageSteps extends BaseSteps {
@@ -74,43 +73,37 @@ public class AuthPageSteps extends BaseSteps {
     @То("Логин = (.*)")
     @Then("Login = (.*)")
     public void AssertLogin(String ExpectedLogin){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
-        assertEquals(ExpectedLogin, _authPage.loginTextField().getText());
+        assertEquals(ExpectedLogin, _authPage.getLoginValue());
     }
 
     @То("Логин пустой")
     @Then("Login is empty")
     public void AssertLoginIsEmpty(){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
-        assertEquals("", _authPage.loginTextField().getText());
+        assertEquals("", _authPage.getLoginValue());
     }
 
     @То("Логин не пустой")
     @Then("Login is not empty")
     public void AssertLoginIsNotEmpty(){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.loginTextField()));
-        assertNotEquals("", _authPage.loginTextField().getText());
+        assertNotEquals("", _authPage.getLoginValue());
     }
 
     @То("Пароль = (.*)")
     @Then("Password = (.*)")
     public void AssertPassword(String ExpectedPassword){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
-        assertEquals(ExpectedPassword, _authPage.passwordTextField().getText());
+        assertEquals(ExpectedPassword, _authPage.getPasswordValue());
     }
 
     @То("Пароль пустой")
     @Then("Password is empty")
     public void AssertPasswordIsEmpty(){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
-        assertEquals("", _authPage.passwordTextField().getText());
+        assertEquals("", _authPage.getPasswordValue());
     }
 
     @То("Пароль не пустой")
     @Then("Password is not empty")
     public void AssertPasswordIsNotEmpty(){
-        _waiter.until(ExpectedConditions.elementToBeClickable(_authPage.passwordTextField()));
-        assertNotEquals("", _authPage.passwordTextField().getText());
+        assertNotEquals("", _authPage.getPasswordValue());
     }
 
     @То("Выведено сообщение (.*)")
