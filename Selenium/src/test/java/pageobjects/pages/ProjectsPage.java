@@ -2,11 +2,9 @@ package pageobjects.pages;
 
 import baseclasses.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.CalendarManager;
 
@@ -70,8 +68,15 @@ public class ProjectsPage extends BasePage {
 
     // Количество строк таблицы
     public int getTableStringsCount() {
-        List<WebElement> tab = projectTableDataStrings();
-        return tab.size() - 1;
+        int tsCount;
+        try {
+            _waiter.until(ExpectedConditions.elementToBeClickable(projectTable()));
+            List<WebElement> tab = projectTableDataStrings();
+            tsCount = tab.size() - 1;
+        } catch (Exception e) {
+            tsCount = 0;
+        }
+        return tsCount;
     }
 
     // Получить строку таблицы по её номеру начиная с 1

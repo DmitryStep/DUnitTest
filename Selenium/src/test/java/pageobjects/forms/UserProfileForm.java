@@ -52,16 +52,19 @@ public class UserProfileForm extends BasePage {
 
     // Значение в поле "Старый пароль"
     public String oldPasswordValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(oldPasswordField()));
         return oldPasswordField().getText();
     }
 
     // Значение в поле "Новый пароль"
     public String newPasswordValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(newPasswordField()));
         return newPasswordField().getText();
     }
 
     // Значение в поле "Подтвердите новый пароль"
     public String confirmNewPasswordValue() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(confirmNewPasswordField()));
         return confirmNewPasswordField().getText();
     }
 
@@ -72,7 +75,7 @@ public class UserProfileForm extends BasePage {
 
     // Кнопка "Закрыть"
     public WebElement closeButton() {
-        return _driver.findElement(By.xpath(".//*[@class=\"ui-button ui-corner-all ui-widget\"]"));
+        return _driver.findElement(By.xpath(".//*[contains(@class, \"ui-button ui-corner-all ui-widget\")]"));
     }
 
 
@@ -87,34 +90,40 @@ public class UserProfileForm extends BasePage {
 
     // Ввод в поле "Старый пароль"
     public void typeOldPassword(String oldPassword) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(oldPasswordField()));
         oldPasswordField().clear();
         oldPasswordField().sendKeys(oldPassword);
     }
 
     // Ввод в поле "Новый пароль"
     public void typeNewPassword(String newPassword) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(newPasswordField()));
         newPasswordField().clear();
         newPasswordField().sendKeys(newPassword);
     }
 
     // Ввод в поле "Подтверждение пароля"
     public void typeConfirmNewPassword(String confirmNewPassword) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(confirmNewPasswordField()));
         confirmNewPasswordField().clear();
         confirmNewPasswordField().sendKeys(confirmNewPassword);
     }
 
     // Нажатие кнопки "Закрыть"
     public void closeButtonClick() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(closeButton()));
         closeButton().click();
     }
 
     // Нажатие кнопки "Сохранить"
     public void saveButtonClick() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(saveButton()));
         saveButton().click();
     }
 
     // Нажатие кнопки "Изменить пароль"
     public void changePasswordButtonClick() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(changePasswordButton()));
         changePasswordButton().click();
     }
 

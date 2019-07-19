@@ -63,6 +63,7 @@ public class HeaderPage extends BasePage {
 
     // Получение активного языка
     public String getLanguage() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(menuLanguage()));
         return new Select(menuLanguage()).getFirstSelectedOption().getText();
     }
 

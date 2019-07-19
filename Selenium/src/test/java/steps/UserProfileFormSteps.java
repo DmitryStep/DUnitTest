@@ -9,7 +9,6 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import pageobjects.forms.UserProfileForm;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class UserProfileFormSteps extends BaseSteps {
 
@@ -39,28 +38,24 @@ public class UserProfileFormSteps extends BaseSteps {
     @Если("Ввести старый пароль (.*)")
     @Given("Type old password (.*)")
     public void TypeOldPassword(String oldPassword) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.oldPasswordField()));
         _userProfileForm.typeOldPassword(oldPassword);
     }
 
     @Если("Ввести новый пароль (.*)")
     @Given("Type new password (.*)")
     public void TypeNewPassword(String newPassword) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.newPasswordField()));
         _userProfileForm.typeNewPassword(newPassword);
     }
 
     @Если("Ввести подтверждение пароля (.*)")
     @Given("Type password confirmation (.*)")
     public void TypePasswordConfirmation(String confirmPassword) {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.confirmNewPasswordField()));
         _userProfileForm.typeConfirmNewPassword(confirmPassword);
     }
 
     @Если("Нажать Изменить пароль")
     @When("Click Change password")
     public void ClickChangePassword() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.changePasswordButton()));
         _userProfileForm.changePasswordButtonClick();
     }
 
@@ -76,7 +71,6 @@ public class UserProfileFormSteps extends BaseSteps {
     @Если("Сохранить аккаунт")
     @When("Save account")
     public void SaveAccount() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.saveButton()));
         _userProfileForm.saveButtonClick();
     }
 
@@ -97,7 +91,6 @@ public class UserProfileFormSteps extends BaseSteps {
     @Если("Закрыть форму профиля пользователя")
     @When("Close user profile form")
     public void CloseForm() {
-        _waiter.until(ExpectedConditions.elementToBeClickable(_userProfileForm.closeButton()));
         _userProfileForm.closeButtonClick();
     }
 

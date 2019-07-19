@@ -109,7 +109,7 @@ public class AuthPageSteps extends BaseSteps {
     @То("Выведено сообщение (.*)")
     @Then("Message (.*) was showed")
     public void AssertAuthErrorMessage(String message){
-        assertEquals(message, _authPage.authErrorMessage());
+        assertEquals(message, _authPage.getAuthErrorMessageValue());
     }
 
 }

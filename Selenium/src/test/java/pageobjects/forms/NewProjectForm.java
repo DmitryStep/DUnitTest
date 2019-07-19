@@ -4,6 +4,7 @@ import baseclasses.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NewProjectForm extends BasePage {
@@ -55,23 +56,27 @@ public class NewProjectForm extends BasePage {
 
     // Ввод текста в поле "Название"
     public void typeToProjectNameField(String text) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(projectNameField()));
         projectNameField().clear();
         projectNameField().sendKeys(text);
     }
 
     // Ввод даты
     public void typeToDateField(String date) {
+        _waiter.until(ExpectedConditions.elementToBeClickable(dateField()));
         dateField().clear();
         dateField().sendKeys(date);
     }
 
     // Нажать на кнопку "Отмена"
     public void clickCancel() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(cancelButton()));
         cancelButton().click();
     }
 
     // Нажать на кнопку "Создать"
     public void clickCreate() {
+        _waiter.until(ExpectedConditions.elementToBeClickable(createButton()));
         createButton().click();
     }
 }

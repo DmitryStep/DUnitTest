@@ -7,7 +7,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.pages.ProjectsPage;
 
 
@@ -50,14 +49,7 @@ public class ProjectsPageSteps extends BaseSteps {
     @То("Количество проектов в таблице = (.*)")
     @Then("Count of projects = (.*)")
     public void AssertCountOfProjects(int Count) {
-        int tsCount;
-        try {
-            _waiter.until(ExpectedConditions.elementToBeClickable(_projectsPage.projectTable()));
-            tsCount = _projectsPage.getTableStringsCount();
-        } catch (Exception e) {
-            tsCount = 0;
-        }
-        assertEquals(Count, tsCount);
+        assertEquals(Count, _projectsPage.getTableStringsCount());
     }
 
 }
