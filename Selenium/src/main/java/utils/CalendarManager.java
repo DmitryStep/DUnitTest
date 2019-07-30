@@ -126,7 +126,7 @@ public class CalendarManager {
 
     // Устанавливаем день
     public void SetDay(WebElement Date, int Day) {
-        Date.findElement(By.xpath("tbody/tr/td/div[contains(@class, \"day toMonth\") and (normalize-space(text())=" + Integer.toString(Day) + ")]")).click();
+        Date.findElement(By.xpath("tbody/*/div[contains(@class, \"day toMonth\") and (normalize-space(text())=" + Integer.toString(Day) + ")]")).click();
     }
 
     // Устанавливаем полную дату
@@ -144,7 +144,6 @@ public class CalendarManager {
         SetMonthAndYear(WEDate, Month, Year);
         SetDay(WEDate, Day);
     }
-
 
     // Клик по кнопке "Применить"
     public void clickAppendBtn() {
